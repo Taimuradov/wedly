@@ -117,14 +117,13 @@ function Invitation() {
 
           <h1
             className="
-              text-5xl
-              md:text-7xl
+              text-6xl md:text-8xl
               leading-none
             "
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Great Vibes', cursive",
               color: "#54493F",
-              fontWeight: "500",
+              fontWeight: "400",
             }}
           >
             Венчание
@@ -134,12 +133,12 @@ function Invitation() {
           <div className="mt-7">
             <h2
               className="
-                text-5xl
-                md:text-6xl
+                text-6xl md:text-7xl
               "
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Great Vibes', cursive",
                 color: "#53675B",
+                fontWeight: "400",
               }}
             >
               Игнат
@@ -151,8 +150,9 @@ function Invitation() {
                 text-3xl
               "
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Great Vibes', cursive",
                 color: "#D89A9A",
+                fontSize: "48px",
               }}
             >
               и
@@ -164,8 +164,9 @@ function Invitation() {
                 md:text-6xl
               "
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Great Vibes', cursive",
                 color: "#53675B",
+                fontWeight: "400",
               }}
             >
               Елкин
