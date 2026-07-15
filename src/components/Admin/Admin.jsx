@@ -13,18 +13,29 @@ import { db } from "../../firebase/firebase";
 function Admin() {
   const [password, setPassword] = useState("");
 
-  const [authorized, setAuthorized] = useState(false);
+  const [authorized, setAuthorized] = useState(() => {
+    return localStorage.getItem("adminAuth") === "true";
+  });
 
   const [guests, setGuests] = useState([]);
 
   const [loading, setLoading] = useState(false);
 
-  const login = () => {
-    if (password === "Ignat2026") {
+  const login = (e) => {
+    e.preventDefault();
+
+    if (password === "ignat2911") {
+      localStorage.setItem("adminAuth", "true");
       setAuthorized(true);
+      setPassword("");
     } else {
       alert("Неверный пароль");
     }
+  };
+
+  const logout = () => {
+    localStorage.removeItem("adminAuth");
+    setAuthorized(false);
   };
 
   const loadGuests = async () => {
@@ -37,7 +48,6 @@ function Admin() {
 
       const data = snapshot.docs.map((item) => ({
         id: item.id,
-
         ...item.data(),
       }));
 
@@ -81,11 +91,11 @@ function Admin() {
         "
         style={{
           background: "linear-gradient(180deg,#EEF3EA,#8FAF96)",
-
           fontFamily: "'Cormorant Garamond', serif",
         }}
       >
-        <div
+        <form
+          onSubmit={login}
           className="
             w-full
             max-w-md
@@ -95,7 +105,6 @@ function Admin() {
           "
           style={{
             background: "#fffdf9",
-
             boxShadow: "0 25px 60px rgba(0,0,0,0.15)",
           }}
         >
@@ -126,15 +135,13 @@ function Admin() {
             "
             style={{
               background: "#F5F1EA",
-
               border: "1px solid #E8D8C4",
-
               fontSize: "18px",
             }}
           />
 
           <button
-            onClick={login}
+            type="submit"
             className="
               w-full
               rounded-full
@@ -142,19 +149,16 @@ function Admin() {
             "
             style={{
               background: "#53675B",
-
               color: "#fff",
-
               fontSize: "20px",
             }}
           >
             Войти
           </button>
-        </div>
+        </form>
       </div>
     );
   }
-
   const coming = guests.filter((guest) => guest.attendance === "Да");
 
   const notComing = guests.filter((guest) => guest.attendance === "Нет");
@@ -168,7 +172,6 @@ function Admin() {
       "
       style={{
         background: "linear-gradient(180deg,#EEF3EA,#8FAF96)",
-
         fontFamily: "'Cormorant Garamond', serif",
       }}
     >
@@ -199,26 +202,48 @@ function Admin() {
             Гости свадьбы
           </h1>
 
-          <button
-            onClick={loadGuests}
-            disabled={loading}
+          <div
             className="
-              rounded-full
-              px-8
-              py-3
+              flex
+              gap-4
+              flex-wrap
+              justify-center
             "
-            style={{
-              background: "#53675B",
-
-              color: "#fff",
-
-              fontSize: "18px",
-
-              opacity: loading ? 0.6 : 1,
-            }}
           >
-            {loading ? "Обновление..." : "Обновить список"}
-          </button>
+            <button
+              onClick={loadGuests}
+              disabled={loading}
+              className="
+                rounded-full
+                px-8
+                py-3
+              "
+              style={{
+                background: "#53675B",
+                color: "#fff",
+                fontSize: "18px",
+                opacity: loading ? 0.6 : 1,
+              }}
+            >
+              {loading ? "Обновление..." : "Обновить список"}
+            </button>
+
+            <button
+              onClick={logout}
+              className="
+                rounded-full
+                px-8
+                py-3
+              "
+              style={{
+                background: "#D89A9A",
+                color: "#fff",
+                fontSize: "18px",
+              }}
+            >
+              Выйти
+            </button>
+          </div>
         </div>
 
         <div
@@ -261,6 +286,7 @@ function Admin() {
                   justify-between
                   items-center
                   mb-3
+                  gap-3
                 "
               >
                 <p
@@ -281,7 +307,6 @@ function Admin() {
                   "
                   style={{
                     background: "#D89A9A",
-
                     color: "#fff",
                   }}
                 >
@@ -324,6 +349,7 @@ function Admin() {
                   justify-between
                   items-center
                   mb-3
+                  gap-3
                 "
               >
                 <p
@@ -344,7 +370,6 @@ function Admin() {
                   "
                   style={{
                     background: "#D89A9A",
-
                     color: "#fff",
                   }}
                 >
