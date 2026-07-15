@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import allowImage from "../../images/allow.png";
 import proposalPhoto from "../../assets/story/proposal.jpg";
 
 const moments = [
@@ -97,12 +97,13 @@ function Story() {
 
           <h2
             className="
-              text-5xl
-              md:text-7xl
-            "
+    text-6xl
+    md:text-8xl
+  "
             style={{
               color: "#54493F",
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Great Vibes', cursive",
+              fontWeight: "400",
             }}
           >
             Как всё начиналось
@@ -275,6 +276,43 @@ function Story() {
           </div>
         </div>
       </div>
+
+      {/* Декоративная картинка после истории */}
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 40,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.8,
+        }}
+        viewport={{
+          once: true,
+        }}
+        className="
+          relative
+          z-10
+          mt-20
+          flex
+          justify-center
+          px-5
+        "
+      >
+        <img
+          src={allowImage}
+          alt="decoration"
+          className="
+            w-[420px]
+            md:w-[600px]
+            lg:w-[700px]
+            object-contain
+          "
+        />
+      </motion.div>
     </section>
   );
 }

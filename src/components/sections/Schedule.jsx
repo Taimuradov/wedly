@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import cross from "../../images/cross.png";
 
 const events = [
   {
@@ -206,6 +207,32 @@ function Schedule() {
             </motion.div>
           ))}
         </div>
+        {/* Декор под карточками */}
+        <motion.img
+          src={cross}
+          alt="cross decoration"
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          viewport={{
+            once: true,
+          }}
+          className="
+  mx-auto
+  mt-16
+  w-[450px]
+  md:w-[750px]
+  opacity-90
+"
+        />
       </div>
     </section>
   );

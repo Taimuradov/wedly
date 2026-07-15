@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 function Location() {
   const mapLink =
-    "https://www.google.com/maps/place/%D0%94%D0%BE%D0%BC+%D0%BC%D0%BE%D0%BB%D0%B8%D1%82%D0%B2%D1%8B+%D0%B4%D0%BB%D1%8F+%D0%B2%D1%81%D0%B5%D1%85+%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BE%D0%B2+(House+of+prayer+for+all+peoples)/@38.5697474,68.8077735,17.5z";
+    "https://www.google.com/maps/place/%D0%94%D0%BE%D0%BC+%D0%BC%D0%BE%D0%BB%D0%B8%D1%82%D0%B2%D1%8B+%D0%B4%D0%BB%D1%8F+%D0%B2%D1%81%D0%B5%D1%85+%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BE%D0%B2+(House+of+prayer+for+all+peoples)/@38.5697246,68.8075571,19z/data=!4m6!3m5!1s0x38b5d1a96db474ff:0x3fc3682e864ea593!8m2!3d38.5697246!4d68.8075571!16s%2Fg%2F11k0t0pd19?authuser=0&entry=ttu&g_ep=EgoyMDI2MDcxMy4wIKXMDSoASAFQAw%3D%3D";
 
   return (
     <section
@@ -49,9 +49,7 @@ function Location() {
         "
         style={{
           background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
-
           boxShadow: "0 25px 60px rgba(0,0,0,0.10)",
-
           border: "1px solid rgba(232,216,196,0.8)",
         }}
       >
@@ -73,13 +71,14 @@ function Location() {
 
         <h2
           className="
-            text-4xl
-            md:text-5xl
+            text-5xl
+            md:text-6xl
             mb-8
           "
           style={{
             color: "#54493F",
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Great Vibes', cursive",
+            fontWeight: "400",
           }}
         >
           Где состоится праздник

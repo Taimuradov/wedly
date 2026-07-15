@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import greenLeaves from "../../images/green leaves.png";
 
 function Countdown() {
   const targetDate = useMemo(() => new Date("2026-09-05T12:00:00+05:00"), []);
@@ -21,11 +22,8 @@ function Countdown() {
 
     return {
       days: Math.floor(totalSeconds / 86400),
-
       hours: Math.floor((totalSeconds % 86400) / 3600),
-
       minutes: Math.floor((totalSeconds % 3600) / 60),
-
       seconds: totalSeconds % 60,
     };
   };
@@ -49,8 +47,9 @@ function Countdown() {
         items-center
         justify-center
         overflow-hidden
-        py-20
-        px-5
+        pb-40
+pt-20
+px-5
       "
       style={{
         background:
@@ -97,7 +96,8 @@ function Countdown() {
           "
           style={{
             color: "#54493F",
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Great Vibes', cursive",
+            fontWeight: "400",
           }}
         >
           Осталось совсем немного
@@ -131,7 +131,26 @@ function Countdown() {
               label: "СЕКУНД",
             },
           ].map((item, index) => (
-            <div key={index}>
+            <div
+              key={index}
+              className="
+                w-32
+                h-32
+                md:w-36
+                md:h-36
+                mx-auto
+                rounded-full
+                flex
+                flex-col
+                items-center
+                justify-center
+              "
+              style={{
+                background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
+                boxShadow: "0 15px 35px rgba(0,0,0,0.10)",
+                border: "1px solid rgba(232,216,196,0.8)",
+              }}
+            >
               <div
                 className="
                   text-5xl
@@ -147,8 +166,8 @@ function Countdown() {
 
               <p
                 className="
-                  mt-2
-                  text-sm
+                  mt-1
+                  text-xs
                   tracking-widest
                 "
                 style={{
@@ -187,6 +206,22 @@ function Countdown() {
           }}
         />
       </div>
+
+      {/* Эвкалипт под таймером */}
+      <img
+        src={greenLeaves}
+        alt="green leaves decoration"
+        className="
+          absolute
+          bottom-10
+          left-1/2
+          -translate-x-1/2
+          w-[280px]
+          md:w-[420px]
+          opacity-90
+          pointer-events-none
+        "
+      />
     </section>
   );
 }

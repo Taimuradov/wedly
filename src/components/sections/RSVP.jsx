@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import whiteImage from "../../images/white.png";
 
 import { db } from "../../firebase/firebase";
 
@@ -116,13 +117,15 @@ function RSVP() {
 
           <h2
             className="
-              text-5xl
-              md:text-6xl
-            "
+    text-6xl
+    md:text-7xl
+  "
             style={{
               color: "#54493F",
 
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Great Vibes', cursive",
+
+              fontWeight: "400",
             }}
           >
             Будем рады видеть вас
@@ -157,11 +160,13 @@ function RSVP() {
             }}
           >
             <h3
-              className="text-4xl"
+              className="text-5xl"
               style={{
                 color: "#53675B",
 
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Great Vibes', cursive",
+
+                fontWeight: "400",
               }}
             >
               🤍 Спасибо
@@ -354,6 +359,45 @@ function RSVP() {
           </motion.div>
         )}
       </div>
+
+      {/* Декоративная картинка */}
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 30,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.8,
+        }}
+        viewport={{
+          once: true,
+        }}
+        className="
+          relative
+          z-10
+          mt-16
+          flex
+          justify-center
+          px-5
+        "
+      >
+        <img
+          src={whiteImage}
+          alt="White decoration"
+          className="
+            w-[260px]
+            md:w-[380px]
+            lg:w-[480px]
+            object-contain
+            pointer-events-none
+            select-none
+          "
+        />
+      </motion.div>
     </section>
   );
 }

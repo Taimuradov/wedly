@@ -52,12 +52,13 @@ function Footer() {
 
         <h2
           className="
-            text-5xl
-            md:text-7xl
-          "
+    text-6xl
+    md:text-8xl
+  "
           style={{
             color: "#FFFDF9",
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Great Vibes', cursive",
+            fontWeight: "400",
           }}
         >
           Игнат & Енлик

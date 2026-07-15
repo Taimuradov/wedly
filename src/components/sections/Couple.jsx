@@ -53,22 +53,6 @@ function Couple() {
           border: "1px solid rgba(232,216,196,0.8)",
         }}
       >
-        {/* Заголовок */}
-        <p
-          className="
-            text-sm
-            tracking-[0.45em]
-            uppercase
-            mb-6
-          "
-          style={{
-            color: "#829889",
-            fontFamily: "'Cormorant Garamond', serif",
-          }}
-        >
-          Наша история
-        </p>
-
         <h2
           className="
             text-5xl
@@ -144,10 +128,14 @@ function Couple() {
             </div>
 
             <h3
-              className="text-4xl"
+              className="
+    text-5xl
+    md:text-6xl
+  "
               style={{
                 color: "#53675B",
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Great Vibes', cursive",
+                fontWeight: "400",
               }}
             >
               Игнат
@@ -157,12 +145,13 @@ function Couple() {
           {/* знак */}
           <div
             className="
-              text-5xl
-              md:text-6xl
-            "
+    text-6xl
+    md:text-7xl
+  "
             style={{
               color: "#D89A9A",
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Great Vibes', cursive",
+              fontWeight: "400",
             }}
           >
             &
@@ -218,10 +207,14 @@ function Couple() {
             </div>
 
             <h3
-              className="text-4xl"
+              className="
+    text-5xl
+    md:text-6xl
+  "
               style={{
                 color: "#53675B",
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Great Vibes', cursive",
+                fontWeight: "400",
               }}
             >
               Енлик
