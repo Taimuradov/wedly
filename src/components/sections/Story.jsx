@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import allowImage from "../../images/allow.png";
+import allowImage from "../../images/gold.png";
 import proposalPhoto from "../../assets/story/proposal.jpg";
 
 const moments = [

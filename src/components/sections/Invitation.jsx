@@ -1,5 +1,5 @@
 import eucalyptusTop from "../../images/eucalyptus-top-left.png";
-import greenLeavesFrame from "../../images/Green leaves-Photoroom.png";
+import greenLeavesFrame from "../../images/green.png";
 
 function Invitation() {
   return (
@@ -38,48 +38,48 @@ function Invitation() {
       {/* Главный контейнер */}
       <div
         className="
-          relative
-          z-10
-          w-full
-          max-w-lg
-        "
+    relative
+    z-10
+    w-full
+    max-w-md
+  "
       >
         {/* РАМКА GREEN LEAVES */}
         <img
           src={greenLeavesFrame}
-          alt="green leaves frame"
+          alt="frame"
           className="
-            absolute
-            top-1/2
-            left-1/2
-            -translate-x-1/2
-            -translate-y-1/2
-            w-[85%]
-            h-[80%]
-            object-cover
-            scale-150
-            z-20
-            pointer-events-none
-          "
+    absolute
+    top-[53%]
+    left-[48%]
+    -translate-x-1/2
+    -translate-y-1/2
+    w-[135%]
+    h-[120%]
+    object-contain
+    scale-130
+    z-20
+    pointer-events-none
+  "
         />
 
         {/* Лист приглашения */}
         <div
           className="
-            relative
-            z-10
-            w-full
-            min-h-[620px]
-            flex
-            flex-col
-            items-center
-            justify-center
-            text-center
-            px-8
-            pt-20
-            pb-12
-            rounded-[25px]
-          "
+    relative
+    z-10
+    w-full
+    min-h-[520px]
+    flex
+    flex-col
+    items-center
+    justify-center
+    text-center
+    px-6
+    pt-12
+    pb-10
+    rounded-[25px]
+  "
           style={{
             background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
             border: "1px solid rgba(232,216,196,0.8)",
