@@ -1,20 +1,23 @@
 import { motion } from "framer-motion";
 
+import proposalPhoto from "../../assets/story/proposal.jpg";
+
 const moments = [
   {
-    year: "2023",
+    year: "5 марта 2025",
     title: "Первое знакомство",
-    text: "Именно в этот момент началась наша история. Обычный день стал началом чего-то особенного.",
+    text: "5 марта 2025 года началась наша история.",
   },
   {
-    year: "2024",
+    year: "5 марта 2026",
     title: "Важный этап",
-    text: "Мы продолжали узнавать друг друга, поддерживать и создавать общие воспоминания.",
+    text: "Спустя год, в этот же день, 5 марта 2026 года, мы стали женихом и невестой. Именно с этого момента началась подготовка к самому важному дню нашей жизни.",
+    image: proposalPhoto,
   },
   {
-    year: "2026",
-    title: "День нашей свадьбы",
-    text: "Мы решили объединить наши жизни и разделить этот счастливый день с близкими людьми.",
+    year: "5 сентября 2026",
+    title: "День нашего венчания",
+    text: "Мы решили объединить наши жизни и разделить этот счастливый день с вами.",
   },
 ];
 
@@ -123,11 +126,7 @@ function Story() {
             }}
           />
 
-          <div
-            className="
-              space-y-12
-            "
-          >
+          <div className="space-y-12">
             {moments.map((moment, index) => (
               <motion.div
                 key={moment.year}
@@ -206,6 +205,52 @@ function Story() {
                   >
                     {moment.text}
                   </p>
+
+                  {/* Фото предложения без обрезки */}
+                  {moment.image && (
+                    <motion.div
+                      initial={{
+                        opacity: 0,
+                        scale: 0.95,
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        scale: 1,
+                      }}
+                      transition={{
+                        duration: 0.6,
+                      }}
+                      viewport={{
+                        once: true,
+                      }}
+                      className="
+                        mt-8
+                        w-full
+                        rounded-[20px]
+                        overflow-hidden
+                        flex
+                        justify-center
+                        items-center
+                        p-3
+                      "
+                      style={{
+                        background: "#F7F1E8",
+                        boxShadow: "0 20px 45px rgba(0,0,0,0.15)",
+                      }}
+                    >
+                      <img
+                        src={moment.image}
+                        alt={moment.title}
+                        className="
+                          max-h-[520px]
+                          w-auto
+                          max-w-full
+                          rounded-[15px]
+                          object-contain
+                        "
+                      />
+                    </motion.div>
+                  )}
                 </div>
 
                 {/* Точка */}

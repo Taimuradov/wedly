@@ -224,7 +224,7 @@ function Couple() {
                 fontFamily: "'Cormorant Garamond', serif",
               }}
             >
-              Елкин
+              Енлик
             </h3>
           </div>
         </div>

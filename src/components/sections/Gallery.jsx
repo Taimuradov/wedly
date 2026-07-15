@@ -1,24 +1,29 @@
 import { motion } from "framer-motion";
 
+import photo1 from "../../assets/gallery/photo1.jpg";
+import photo2 from "../../assets/gallery/photo2.jpg";
+import photo3 from "../../assets/gallery/photo3.jpg";
+import photo4 from "../../assets/gallery/photo4.jpg";
+
 const photos = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552",
+    image: photo1,
     title: "Наш день",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc",
+    image: photo2,
     title: "Счастливые моменты",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1606800052052-a08af7148866",
+    image: photo3,
     title: "Вместе",
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6",
+    image: photo4,
     title: "Праздник",
   },
 ];
@@ -133,7 +138,7 @@ function Gallery() {
               }}
             >
               <img
-                src={`${photo.image}?auto=format&fit=crop&w=600&q=80`}
+                src={photo.image}
                 alt={photo.title}
                 className="
                   h-80

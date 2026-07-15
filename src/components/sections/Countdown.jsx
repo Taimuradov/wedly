@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 function Countdown() {
-  const targetDate = useMemo(() => new Date("2026-09-05T11:00:00"), []);
+  const targetDate = useMemo(() => new Date("2026-09-05T12:00:00+05:00"), []);
 
   const calculateTime = () => {
     const now = new Date();
@@ -17,14 +17,16 @@ function Countdown() {
       };
     }
 
+    const totalSeconds = Math.floor(difference / 1000);
+
     return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      days: Math.floor(totalSeconds / 86400),
 
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      hours: Math.floor((totalSeconds % 86400) / 3600),
 
-      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      minutes: Math.floor((totalSeconds % 3600) / 60),
 
-      seconds: Math.floor((difference / 1000) % 60),
+      seconds: totalSeconds % 60,
     };
   };
 
@@ -55,7 +57,6 @@ function Countdown() {
           "linear-gradient(180deg,#F7F3EC 0%,#F4EBDD 45%,#EFE1D1 100%)",
       }}
     >
-      {/* Главный блок */}
       <div
         className="
           relative
@@ -73,7 +74,6 @@ function Countdown() {
           border: "1px solid rgba(232,216,196,0.8)",
         }}
       >
-        {/* Заголовок */}
         <p
           className="
             text-sm
@@ -103,7 +103,6 @@ function Countdown() {
           Осталось совсем немного
         </h2>
 
-        {/* Таймер */}
         <div
           className="
             grid
@@ -114,128 +113,55 @@ function Countdown() {
             mx-auto
           "
         >
-          {/* Дни */}
-          <div>
-            <div
-              className="
-                text-5xl
-                md:text-6xl
-              "
-              style={{
-                color: "#53675B",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              {time.days}
+          {[
+            {
+              value: time.days,
+              label: "ДНЕЙ",
+            },
+            {
+              value: time.hours,
+              label: "ЧАСОВ",
+            },
+            {
+              value: time.minutes,
+              label: "МИНУТ",
+            },
+            {
+              value: time.seconds,
+              label: "СЕКУНД",
+            },
+          ].map((item, index) => (
+            <div key={index}>
+              <div
+                className="
+                  text-5xl
+                  md:text-6xl
+                "
+                style={{
+                  color: "#53675B",
+                  fontFamily: "'Cormorant Garamond', serif",
+                }}
+              >
+                {String(item.value).padStart(2, "0")}
+              </div>
+
+              <p
+                className="
+                  mt-2
+                  text-sm
+                  tracking-widest
+                "
+                style={{
+                  color: "#8A7565",
+                  fontFamily: "'Cormorant Garamond', serif",
+                }}
+              >
+                {item.label}
+              </p>
             </div>
-
-            <p
-              className="
-                mt-2
-                text-sm
-                tracking-widest
-              "
-              style={{
-                color: "#8A7565",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              ДНЕЙ
-            </p>
-          </div>
-
-          {/* Часы */}
-          <div>
-            <div
-              className="
-                text-5xl
-                md:text-6xl
-              "
-              style={{
-                color: "#53675B",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              {String(time.hours).padStart(2, "0")}
-            </div>
-
-            <p
-              className="
-                mt-2
-                text-sm
-                tracking-widest
-              "
-              style={{
-                color: "#8A7565",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              ЧАСОВ
-            </p>
-          </div>
-
-          {/* Минуты */}
-          <div>
-            <div
-              className="
-                text-5xl
-                md:text-6xl
-              "
-              style={{
-                color: "#53675B",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              {String(time.minutes).padStart(2, "0")}
-            </div>
-
-            <p
-              className="
-                mt-2
-                text-sm
-                tracking-widest
-              "
-              style={{
-                color: "#8A7565",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              МИНУТ
-            </p>
-          </div>
-
-          {/* Секунды */}
-          <div>
-            <div
-              className="
-                text-5xl
-                md:text-6xl
-              "
-              style={{
-                color: "#53675B",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              {String(time.seconds).padStart(2, "0")}
-            </div>
-
-            <p
-              className="
-                mt-2
-                text-sm
-                tracking-widest
-              "
-              style={{
-                color: "#8A7565",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              СЕКУНД
-            </p>
-          </div>
+          ))}
         </div>
 
-        {/* Дата */}
         <div
           className="
             mt-12
@@ -249,7 +175,6 @@ function Countdown() {
           5 сентября 2026
         </div>
 
-        {/* Линия */}
         <div
           className="
             mx-auto

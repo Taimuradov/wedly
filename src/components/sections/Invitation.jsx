@@ -169,7 +169,7 @@ function Invitation() {
                 fontWeight: "400",
               }}
             >
-              Елкин
+              Енлик
             </h2>
           </div>
 

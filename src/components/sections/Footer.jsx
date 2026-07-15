@@ -60,7 +60,7 @@ function Footer() {
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
-          Игнат & Елкин
+          Игнат & Енлик
         </h2>
 
         <p
