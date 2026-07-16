@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react";
 import eucalyptusTop from "../../images/eucalyptus-top-left.png";
 import greenLeavesFrame from "../../images/green.png";
 
@@ -214,7 +215,39 @@ function Invitation() {
           />
         </div>
       </div>
+      {/* Подсказка прокрутки */}
+      <div
+        className="
+    absolute
+    bottom-24
+    left-1/2
+    -translate-x-1/2
+    z-30
+    flex
+    flex-col
+    items-center
+    animate-bounce
+    pointer-events-none
+  "
+      >
+        <span
+          className="
+      mb-2
+      text-xs
+      md:text-sm
+      tracking-[0.3em]
+      uppercase
+    "
+          style={{
+            color: "#F7F3EC",
+            fontFamily: "'Cormorant Garamond', serif",
+          }}
+        >
+          Листайте вниз
+        </span>
 
+        <ChevronDown size={34} strokeWidth={1.7} color="#F7F3EC" />
+      </div>
       {/* Плавный переход к Couple */}
       <div
         className="
