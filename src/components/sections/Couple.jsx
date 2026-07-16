@@ -1,5 +1,7 @@
 import eucalyptusLeavesFrame from "../../images/eucalyptus leaves.png";
 import eucalyptusImageFrame from "../../images/image.png";
+import ignatPhoto from "../../assets/gallery/photo5.jpg";
+import enlikPhoto from "../../assets/gallery/photo6.jpg";
 
 function Couple() {
   return (
@@ -123,7 +125,15 @@ function Couple() {
                   boxShadow: "0 15px 35px rgba(0,0,0,0.15)",
                 }}
               >
-                {/* сюда фото Игната */}
+                <img
+                  src={ignatPhoto}
+                  alt="Игнат"
+                  className="
+    w-full
+    h-full
+    object-cover
+  "
+                />
               </div>
             </div>
 
@@ -202,7 +212,15 @@ function Couple() {
                   boxShadow: "0 15px 35px rgba(0,0,0,0.15)",
                 }}
               >
-                {/* сюда фото Елкин */}
+                <img
+                  src={enlikPhoto}
+                  alt="Енлик"
+                  className="
+    w-full
+    h-full
+    object-cover
+  "
+                />
               </div>
             </div>
 
