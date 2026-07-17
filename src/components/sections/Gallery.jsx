@@ -38,10 +38,6 @@ function Gallery() {
         px-5
         py-24
       "
-      style={{
-        background:
-          "linear-gradient(180deg,#DCE8DD 0%,#D5E3D7 30%,#C4D6C7 65%,#AFC5B3 100%)",
-      }}
     >
       <div
         className="
@@ -72,33 +68,18 @@ function Gallery() {
             text-center
           "
         >
-          <p
-            className="
-              mb-5
-              text-sm
-              uppercase
-              tracking-[0.45em]
-            "
-            style={{
-              color: "#53675B",
-              fontFamily: "'Cormorant Garamond', serif",
-            }}
-          >
-            Галерея
-          </p>
-
           <h2
             className="
     text-6xl
     md:text-8xl
   "
             style={{
-              color: "#54493F",
+              color: "#FFFFFF",
               fontFamily: "'Great Vibes', cursive",
               fontWeight: "400",
             }}
           >
-            Наши моменты
+            "Random pics"
           </h2>
         </motion.div>
 
@@ -135,7 +116,8 @@ function Gallery() {
                 rounded-[25px]
               "
               style={{
-                boxShadow: "0 20px 45px rgba(0,0,0,0.15)",
+                boxShadow: "none",
+                border: "1px solid rgba(255,255,255,0.15)",
               }}
             >
               <img
@@ -162,7 +144,7 @@ function Gallery() {
             h-[2px]
           "
           style={{
-            background: "#DFA3A3",
+            background: "#FFFFFF",
           }}
         />
       </div>

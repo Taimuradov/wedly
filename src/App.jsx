@@ -2,7 +2,6 @@ import Envelope from "./components/sections/Envelope";
 import Invitation from "./components/sections/Invitation";
 import Couple from "./components/sections/Couple";
 import Countdown from "./components/sections/Countdown";
-import Story from "./components/sections/Story";
 import Schedule from "./components/sections/Schedule";
 import Location from "./components/sections/Location";
 import Gallery from "./components/sections/Gallery";
@@ -28,8 +27,6 @@ function App() {
         <Couple />
 
         <Countdown />
-
-        <Story />
 
         <Schedule />
 

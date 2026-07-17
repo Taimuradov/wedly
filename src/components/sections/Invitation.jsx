@@ -1,6 +1,4 @@
 import { ChevronDown } from "lucide-react";
-import eucalyptusTop from "../../images/eucalyptus-top-left.png";
-import greenLeavesFrame from "../../images/green.png";
 
 function Invitation() {
   return (
@@ -8,62 +6,24 @@ function Invitation() {
       id="invitation"
       className="
         relative
-        min-h-screen
+        min-h-[100dvh]
         flex
         items-center
         justify-center
         overflow-hidden
-        py-12
+        py-24
         px-5
       "
-      style={{
-        background:
-          "linear-gradient(135deg, #5F786B 0%, #7F998A 45%, #A7B9AA 100%)",
-      }}
     >
-      {/* Эвкалипт слева сверху */}
-      <img
-        src={eucalyptusTop}
-        alt="eucalyptus decoration"
-        className="
-          absolute
-          top-[-40px]
-          left-[-40px]
-          w-[450px]
-          md:w-[650px]
-          opacity-90
-          pointer-events-none
-        "
-      />
-
       {/* Главный контейнер */}
       <div
         className="
     relative
     z-10
     w-full
-    max-w-md
+    max-w-xl
   "
       >
-        {/* РАМКА GREEN LEAVES */}
-        <img
-          src={greenLeavesFrame}
-          alt="frame"
-          className="
-    absolute
-    top-[53%]
-    left-[48%]
-    -translate-x-1/2
-    -translate-y-1/2
-    w-[135%]
-    h-[120%]
-    object-contain
-    scale-130
-    z-20
-    pointer-events-none
-  "
-        />
-
         {/* Лист приглашения */}
         <div
           className="
@@ -82,9 +42,9 @@ function Invitation() {
     rounded-[25px]
   "
           style={{
-            background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
+            background: "#FFFFFF",
             border: "1px solid rgba(232,216,196,0.8)",
-            boxShadow: "0 30px 60px rgba(0,0,0,0.25)",
+            boxShadow: "none",
           }}
         >
           {/* Верхняя линия */}
@@ -95,35 +55,54 @@ function Invitation() {
               mb-5
             "
             style={{
-              background: "#DFA3A3",
+              background: "#3F5148",
             }}
           />
 
           {/* Заголовок */}
-          <p
-            className="
-              text-xs
-              md:text-sm
-              tracking-[0.45em]
-              uppercase
-              mb-5
-            "
-            style={{
-              color: "#829889",
-              fontFamily: "'Cormorant Garamond', serif",
-            }}
-          >
-            Приглашение
-          </p>
+          <div className="mb-5 text-center">
+            <p
+              className="
+      text-xs
+      md:text-sm
+      uppercase
+      tracking-[0.45em]
+    "
+              style={{
+                color: "#3F5148",
+                fontFamily: "'Cormorant Garamond', serif",
+              }}
+            >
+              Приглашение
+            </p>
+
+            <p
+              className="
+      mt-2
+      text-xl
+      md:text-2xl
+      uppercase
+      tracking-[0.3em]
+    "
+              style={{
+                color: "#3F5148",
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: "600",
+              }}
+            >
+              НА
+            </p>
+          </div>
 
           <h1
             className="
-              text-6xl md:text-8xl
-              leading-none
-            "
+    text-6xl
+    md:text-8xl
+    leading-none
+  "
             style={{
               fontFamily: "'Great Vibes', cursive",
-              color: "#54493F",
+              color: "#3F5148",
               fontWeight: "400",
             }}
           >
@@ -138,7 +117,7 @@ function Invitation() {
               "
               style={{
                 fontFamily: "'Great Vibes', cursive",
-                color: "#53675B",
+                color: "#3F5148",
                 fontWeight: "400",
               }}
             >
@@ -152,7 +131,7 @@ function Invitation() {
               "
               style={{
                 fontFamily: "'Great Vibes', cursive",
-                color: "#D89A9A",
+                color: "#3F5148",
                 fontSize: "48px",
               }}
             >
@@ -166,7 +145,7 @@ function Invitation() {
               "
               style={{
                 fontFamily: "'Great Vibes', cursive",
-                color: "#53675B",
+                color: "#3F5148",
                 fontWeight: "400",
               }}
             >
@@ -175,33 +154,21 @@ function Invitation() {
           </div>
 
           {/* Дата */}
-          <div
+          <p
             className="
-              mt-7
-              text-base
-              md:text-lg
-              tracking-[0.3em]
-            "
+    mt-7
+    text-lg
+    md:text-xl
+    leading-relaxed
+    max-w-[280px]
+  "
             style={{
-              color: "#8A7565",
+              color: "#3F5148",
               fontFamily: "'Cormorant Garamond', serif",
             }}
           >
-            5 сентября 2026
-          </div>
-
-          {/* Линия */}
-          <div
-            className="
-              my-6
-              w-28
-              h-px
-            "
-            style={{
-              background: "#DFA3A3",
-            }}
-          />
-
+            Будем рады провести этот особенный день вместе с вами
+          </p>
           {/* Нижняя линия */}
           <div
             className="
@@ -210,16 +177,17 @@ function Invitation() {
               mt-8
             "
             style={{
-              background: "#DFA3A3",
+              background: "#3F5148",
             }}
           />
         </div>
       </div>
+
       {/* Подсказка прокрутки */}
       <div
         className="
     absolute
-    bottom-24
+    bottom-0
     left-1/2
     -translate-x-1/2
     z-30
@@ -239,30 +207,15 @@ function Invitation() {
       uppercase
     "
           style={{
-            color: "#F7F3EC",
+            color: "#FFFFFF",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
           Листайте вниз
         </span>
 
-        <ChevronDown size={34} strokeWidth={1.7} color="#F7F3EC" />
+        <ChevronDown size={34} strokeWidth={1.7} color="#FFFFFF" />
       </div>
-      {/* Плавный переход к Couple */}
-      <div
-        className="
-          absolute
-          bottom-0
-          left-0
-          w-full
-          h-64
-          pointer-events-none
-        "
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent 0%, rgba(238,243,234,0.35) 45%, #EEF3EA 100%)",
-        }}
-      />
     </section>
   );
 }

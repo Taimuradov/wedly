@@ -16,10 +16,6 @@ function Location() {
         px-5
         py-24
       "
-      style={{
-        background:
-          "linear-gradient(180deg,#FCFAF7 0%,#F5F1EA 35%,#E8EFE7 75%,#DCE8DD 100%)",
-      }}
     >
       {/* Карточка */}
       <motion.div
@@ -48,9 +44,9 @@ function Location() {
           text-center
         "
         style={{
-          background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
-          boxShadow: "0 25px 60px rgba(0,0,0,0.10)",
-          border: "1px solid rgba(232,216,196,0.8)",
+          background: "#FFFFFF",
+          boxShadow: "none",
+          border: "1px solid #EAEAEA",
         }}
       >
         {/* Заголовок */}
@@ -62,7 +58,7 @@ function Location() {
             tracking-[0.45em]
           "
           style={{
-            color: "#829889",
+            color: "#3F5148",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
@@ -76,7 +72,7 @@ function Location() {
             mb-8
           "
           style={{
-            color: "#54493F",
+            color: "#3F5148",
             fontFamily: "'Great Vibes', cursive",
             fontWeight: "400",
           }}
@@ -91,7 +87,7 @@ function Location() {
             text-4xl
           "
           style={{
-            color: "#D89A9A",
+            color: "#3F5148",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
@@ -105,7 +101,7 @@ function Location() {
             mb-5
           "
           style={{
-            color: "#53675B",
+            color: "#3F5148",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
@@ -121,7 +117,7 @@ function Location() {
             leading-relaxed
           "
           style={{
-            color: "#6B625A",
+            color: "#3F5148",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
@@ -138,7 +134,7 @@ function Location() {
             text-xl
           "
           style={{
-            color: "#D89A9A",
+            color: "#3F5148",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
@@ -161,7 +157,7 @@ function Location() {
             transition
           "
           style={{
-            background: "#53675B",
+            background: "#1d2f27",
             color: "#ffffff",
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: "18px",
@@ -179,7 +175,7 @@ function Location() {
             h-[2px]
           "
           style={{
-            background: "#DFA3A3",
+            background: "#3F5148",
           }}
         />
       </motion.div>

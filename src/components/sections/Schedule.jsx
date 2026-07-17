@@ -30,26 +30,7 @@ function Schedule() {
         px-5
         py-24
       "
-      style={{
-        background:
-          "linear-gradient(180deg,#EEF3EA 0%,#F5F1EA 40%,#FCFAF7 100%)",
-      }}
     >
-      {/* Плавный переход сверху от Story */}
-      <div
-        className="
-          absolute
-          top-0
-          left-0
-          w-full
-          h-48
-          pointer-events-none
-        "
-        style={{
-          background: "linear-gradient(to bottom,#EEF3EA,transparent)",
-        }}
-      />
-
       <div
         className="
           relative
@@ -87,7 +68,7 @@ function Schedule() {
               tracking-[0.45em]
             "
             style={{
-              color: "#829889",
+              color: "#ffffff",
               fontFamily: "'Cormorant Garamond', serif",
             }}
           >
@@ -100,7 +81,7 @@ function Schedule() {
               md:text-7xl
             "
             style={{
-              color: "#54493F",
+              color: "#ffffff",
               fontFamily: "'Cormorant Garamond', serif",
             }}
           >
@@ -140,11 +121,9 @@ function Schedule() {
                 text-center
               "
               style={{
-                background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
-
-                boxShadow: "0 25px 60px rgba(0,0,0,0.10)",
-
-                border: "1px solid rgba(232,216,196,0.8)",
+                background: "#FFFFFF",
+                boxShadow: "none",
+                border: "1px solid #EAEAEA",
               }}
             >
               {/* Декор */}
@@ -154,7 +133,7 @@ function Schedule() {
                   text-4xl
                 "
                 style={{
-                  color: "#D89A9A",
+                  color: "#3F5148",
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
               >
@@ -169,7 +148,7 @@ function Schedule() {
                   tracking-[0.35em]
                 "
                 style={{
-                  color: "#829889",
+                  color: "#3F5148",
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
               >
@@ -183,7 +162,7 @@ function Schedule() {
                   text-3xl
                 "
                 style={{
-                  color: "#53675B",
+                  color: "#3F5148",
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
               >
@@ -198,7 +177,7 @@ function Schedule() {
                   leading-relaxed
                 "
                 style={{
-                  color: "#6B625A",
+                  color: "#3F5148",
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
               >
@@ -207,32 +186,6 @@ function Schedule() {
             </motion.div>
           ))}
         </div>
-        {/* Декор под карточками */}
-        <motion.img
-          src={cross}
-          alt="cross decoration"
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.8,
-          }}
-          viewport={{
-            once: true,
-          }}
-          className="
-  mx-auto
-  mt-16
-  w-[450px]
-  md:w-[750px]
-  opacity-90
-"
-        />
       </div>
     </section>
   );

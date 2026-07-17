@@ -9,10 +9,6 @@ function Footer() {
         px-5
         py-24
       "
-      style={{
-        background:
-          "linear-gradient(180deg,#64836D 0%,#4F6B58 55%,#30483A 100%)",
-      }}
     >
       <motion.div
         initial={{

@@ -9,3 +9,9 @@ html {
 section {
   scroll-margin-top: 20px;
 }
+
+html,
+body,
+#root {
+  background: #334434;
+}

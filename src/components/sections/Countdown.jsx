@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import greenLeaves from "../../images/green leaves.png";
 
 function Countdown() {
   const targetDate = useMemo(() => new Date("2026-09-05T12:00:00+05:00"), []);
@@ -51,10 +50,6 @@ function Countdown() {
 pt-20
 px-5
       "
-      style={{
-        background:
-          "linear-gradient(180deg,#F7F3EC 0%,#F4EBDD 45%,#EFE1D1 100%)",
-      }}
     >
       <div
         className="
@@ -68,9 +63,9 @@ px-5
           text-center
         "
         style={{
-          background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
-          boxShadow: "0 30px 70px rgba(0,0,0,0.12)",
-          border: "1px solid rgba(232,216,196,0.8)",
+          background: "#FFFFFF",
+          boxShadow: "none",
+          border: "1px solid #EAEAEA",
         }}
       >
         <p
@@ -81,7 +76,7 @@ px-5
             mb-6
           "
           style={{
-            color: "#829889",
+            color: "#3F5148",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
@@ -95,7 +90,7 @@ px-5
             mb-12
           "
           style={{
-            color: "#54493F",
+            color: "#3F5148",
             fontFamily: "'Great Vibes', cursive",
             fontWeight: "400",
           }}
@@ -157,7 +152,7 @@ px-5
                   md:text-6xl
                 "
                 style={{
-                  color: "#53675B",
+                  color: "#3F5148",
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
               >
@@ -171,7 +166,7 @@ px-5
                   tracking-widest
                 "
                 style={{
-                  color: "#8A7565",
+                  color: "#3F5148",
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
               >
@@ -180,48 +175,7 @@ px-5
             </div>
           ))}
         </div>
-
-        <div
-          className="
-            mt-12
-            text-xl
-          "
-          style={{
-            color: "#D89A9A",
-            fontFamily: "'Cormorant Garamond', serif",
-          }}
-        >
-          5 сентября 2026
-        </div>
-
-        <div
-          className="
-            mx-auto
-            mt-10
-            w-28
-            h-[2px]
-          "
-          style={{
-            background: "#DFA3A3",
-          }}
-        />
       </div>
-
-      {/* Эвкалипт под таймером */}
-      <img
-        src={greenLeaves}
-        alt="green leaves decoration"
-        className="
-          absolute
-          bottom-10
-          left-1/2
-          -translate-x-1/2
-          w-[280px]
-          md:w-[420px]
-          opacity-90
-          pointer-events-none
-        "
-      />
     </section>
   );
 }

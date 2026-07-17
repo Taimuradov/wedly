@@ -62,10 +62,6 @@ function RSVP() {
         px-5
         py-24
       "
-      style={{
-        background:
-          "linear-gradient(180deg,#AFC5B3 0%,#9CB79F 35%,#7F9E86 70%,#64836D 100%)",
-      }}
     >
       <div
         className="
@@ -107,7 +103,7 @@ function RSVP() {
               tracking-[0.45em]
             "
             style={{
-              color: "#53675B",
+              color: "#FFFFFF",
 
               fontFamily: "'Cormorant Garamond', serif",
             }}
@@ -121,7 +117,7 @@ function RSVP() {
     md:text-7xl
   "
             style={{
-              color: "#54493F",
+              color: "#FFFFFF",
 
               fontFamily: "'Great Vibes', cursive",
 
@@ -152,17 +148,15 @@ function RSVP() {
               text-center
             "
             style={{
-              background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
-
-              boxShadow: "0 25px 60px rgba(0,0,0,0.18)",
-
-              border: "1px solid rgba(232,216,196,0.8)",
+              background: "#FFFFFF",
+              boxShadow: "none",
+              border: "1px solid #EAEAEA",
             }}
           >
             <h3
               className="text-5xl"
               style={{
-                color: "#53675B",
+                color: "#3F5148",
 
                 fontFamily: "'Great Vibes', cursive",
 
@@ -179,7 +173,7 @@ function RSVP() {
                 leading-relaxed
               "
               style={{
-                color: "#6B625A",
+                color: "#3F5148",
 
                 fontFamily: "'Cormorant Garamond', serif",
               }}
@@ -215,11 +209,9 @@ function RSVP() {
             py-10
           "
             style={{
-              background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
-
-              boxShadow: "0 25px 60px rgba(0,0,0,0.18)",
-
-              border: "1px solid rgba(232,216,196,0.8)",
+              background: "#FFFFFF",
+              boxShadow: "none",
+              border: "1px solid #EAEAEA",
             }}
           >
             {/* Имя */}
@@ -232,7 +224,7 @@ function RSVP() {
                 text-lg
               "
                 style={{
-                  color: "#53675B",
+                  color: "#3F5148",
 
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
@@ -253,12 +245,10 @@ function RSVP() {
                 outline-none
               "
                 style={{
-                  background: "#F5F1EA",
-
-                  border: "1px solid #E8D8C4",
-
+                  background: "#FFFFFF",
+                  border: "1px solid #D7DDD9",
+                  color: "#3F5148",
                   fontFamily: "'Cormorant Garamond', serif",
-
                   fontSize: "18px",
                 }}
               />
@@ -273,7 +263,7 @@ function RSVP() {
                 text-lg
               "
                 style={{
-                  color: "#53675B",
+                  color: "#3F5148",
 
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
@@ -295,12 +285,10 @@ function RSVP() {
                   py-3
                 "
                   style={{
-                    background: attendance === "Да" ? "#53675B" : "#E8E0D5",
-
-                    color: attendance === "Да" ? "#fff" : "#53675B",
-
+                    background: attendance === "Да" ? "#1d2f27" : "#FFFFFF",
+                    color: attendance === "Да" ? "#FFFFFF" : "#3F5148",
+                    border: "1px solid #D7DDD9",
                     fontFamily: "'Cormorant Garamond', serif",
-
                     fontSize: "18px",
                   }}
                 >
@@ -315,12 +303,10 @@ function RSVP() {
                   py-3
                 "
                   style={{
-                    background: attendance === "Нет" ? "#D89A9A" : "#E8E0D5",
-
-                    color: attendance === "Нет" ? "#fff" : "#53675B",
-
+                    background: attendance === "Нет" ? "#1d2f27" : "#FFFFFF",
+                    color: attendance === "Нет" ? "#FFFFFF" : "#3F5148",
+                    border: "1px solid #D7DDD9",
                     fontFamily: "'Cormorant Garamond', serif",
-
                     fontSize: "18px",
                   }}
                 >
@@ -341,7 +327,7 @@ function RSVP() {
               py-4
             "
               style={{
-                background: "#53675B",
+                background: "#1d2f27",
 
                 color: "#fff",
 
@@ -384,20 +370,7 @@ function RSVP() {
           justify-center
           px-5
         "
-      >
-        <img
-          src={whiteImage}
-          alt="White decoration"
-          className="
-            w-[260px]
-            md:w-[380px]
-            lg:w-[480px]
-            object-contain
-            pointer-events-none
-            select-none
-          "
-        />
-      </motion.div>
+      ></motion.div>
     </section>
   );
 }

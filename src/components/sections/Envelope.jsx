@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import background from "../../images/background.jpg";
 import envelopeImage from "../../images/envelope.png";
 import MusicPlayer from "../MusicPlayer";
 
@@ -51,14 +50,9 @@ function Envelope() {
         py-10
       "
         style={{
-          backgroundImage: `url(${background})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          background: "#334434",
         }}
       >
-        {/* затемнение фона */}
-        <div className="absolute inset-0 bg-[#eef3ea]/60 backdrop-blur-[2px]" />
-
         <button
           onClick={scrollToInvitation}
           className="
@@ -107,7 +101,7 @@ function Envelope() {
             md:text-xl
             tracking-[0.2em]
             sm:tracking-[0.3em]
-            text-[#5c5347]
+            text-white
           "
           >
             Нажмите, чтобы открыть приглашение

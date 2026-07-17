@@ -16,27 +16,7 @@ function Couple() {
         py-20
         px-5
       "
-      style={{
-        background:
-          "linear-gradient(180deg,#EEF3EA 0%,#F2EFE7 35%,#F5F0E8 75%,#F7F3EC 100%)",
-      }}
     >
-      {/* Плавный переход сверху от Invitation */}
-      <div
-        className="
-          absolute
-          top-0
-          left-0
-          w-full
-          h-64
-          pointer-events-none
-        "
-        style={{
-          background:
-            "linear-gradient(to bottom,rgba(238,243,234,0.8),transparent)",
-        }}
-      />
-
       {/* Главная карточка */}
       <div
         className="
@@ -50,8 +30,8 @@ function Couple() {
           text-center
         "
         style={{
-          background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
-          boxShadow: "0 30px 70px rgba(0,0,0,0.15)",
+          background: "#FFFFFF",
+          boxShadow: "none",
           border: "1px solid rgba(232,216,196,0.8)",
         }}
       >
@@ -62,11 +42,11 @@ function Couple() {
             mb-12
           "
           style={{
-            color: "#54493F",
+            color: "#3F5148",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
-          Две судьбы
+          Два сердца
         </h2>
 
         {/* Фото блоки */}
@@ -96,7 +76,6 @@ function Couple() {
                 mb-6
               "
             >
-              {/* Рамка эвкалипт */}
               <img
                 src={eucalyptusLeavesFrame}
                 alt="eucalyptus frame"
@@ -112,7 +91,6 @@ function Couple() {
                 "
               />
 
-              {/* Фото */}
               <div
                 className="
                   absolute
@@ -129,21 +107,21 @@ function Couple() {
                   src={ignatPhoto}
                   alt="Игнат"
                   className="
-    w-full
-    h-full
-    object-cover
-  "
+                    w-full
+                    h-full
+                    object-cover
+                  "
                 />
               </div>
             </div>
 
             <h3
               className="
-    text-5xl
-    md:text-6xl
-  "
+                text-5xl
+                md:text-6xl
+              "
               style={{
-                color: "#53675B",
+                color: "#3F5148",
                 fontFamily: "'Great Vibes', cursive",
                 fontWeight: "400",
               }}
@@ -155,11 +133,11 @@ function Couple() {
           {/* знак */}
           <div
             className="
-    text-6xl
-    md:text-7xl
-  "
+              text-6xl
+              md:text-7xl
+            "
             style={{
-              color: "#D89A9A",
+              color: "#3F5148",
               fontFamily: "'Great Vibes', cursive",
               fontWeight: "400",
             }}
@@ -167,7 +145,7 @@ function Couple() {
             &
           </div>
 
-          {/* Елкин */}
+          {/* Енлик */}
           <div
             className="
               flex
@@ -183,7 +161,6 @@ function Couple() {
                 mb-6
               "
             >
-              {/* Рамка эвкалипт */}
               <img
                 src={eucalyptusImageFrame}
                 alt="eucalyptus frame"
@@ -199,7 +176,6 @@ function Couple() {
                 "
               />
 
-              {/* Фото */}
               <div
                 className="
                   absolute
@@ -216,21 +192,21 @@ function Couple() {
                   src={enlikPhoto}
                   alt="Енлик"
                   className="
-    w-full
-    h-full
-    object-cover
-  "
+                    w-full
+                    h-full
+                    object-cover
+                  "
                 />
               </div>
             </div>
 
             <h3
               className="
-    text-5xl
-    md:text-6xl
-  "
+                text-5xl
+                md:text-6xl
+              "
               style={{
-                color: "#53675B",
+                color: "#3F5148",
                 fontFamily: "'Great Vibes', cursive",
                 fontWeight: "400",
               }}
@@ -257,7 +233,7 @@ function Couple() {
               italic
             "
             style={{
-              color: "#6B625A",
+              color: "#3F5148",
               fontFamily: "'Cormorant Garamond', serif",
             }}
           >
@@ -272,7 +248,7 @@ function Couple() {
               text-base
             "
             style={{
-              color: "#829889",
+              color: "#3F5148",
               fontFamily: "'Cormorant Garamond', serif",
             }}
           >
@@ -289,26 +265,10 @@ function Couple() {
             h-[2px]
           "
           style={{
-            background: "#DFA3A3",
+            background: "#3F5148",
           }}
         />
       </div>
-
-      {/* Плавный переход к Countdown */}
-      <div
-        className="
-          absolute
-          bottom-0
-          left-0
-          w-full
-          h-64
-          pointer-events-none
-        "
-        style={{
-          background:
-            "linear-gradient(to bottom,transparent 0%,rgba(247,243,236,0.5) 50%,#F7F3EC 100%)",
-        }}
-      />
     </section>
   );
 }
