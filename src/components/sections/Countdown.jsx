@@ -77,6 +77,7 @@ function Countdown() {
           relative
           w-[95%]
           max-w-[1400px]
+
           min-h-[900px]
 
           md:w-full
@@ -94,10 +95,10 @@ function Countdown() {
           className="
             absolute
 
-            top-[-40px]
-            bottom-[-60px]
-            left-[-60px]
-            right-[-60px]
+            top-[-50px]
+            bottom-[-70px]
+            left-[-75px]
+            right-[-75px]
 
             md:top-[-60px]
             md:bottom-[-80px]
@@ -124,11 +125,11 @@ function Countdown() {
             w-full
             text-center
 
-            px-2
-            sm:px-5
+            px-1
+            sm:px-4
             md:px-10
 
-            py-16
+            py-10
             md:py-20
           "
         >
@@ -139,7 +140,7 @@ function Countdown() {
               text-sm
               tracking-[0.45em]
               uppercase
-              mb-6
+              mb-5
             "
             style={{
               color:"#3F5148",
@@ -153,9 +154,10 @@ function Countdown() {
 
           <h2
             className="
-              text-5xl
+              text-4xl
+              sm:text-5xl
               md:text-7xl
-              mb-12
+              mb-8
             "
             style={{
               color:"#3F5148",
@@ -169,6 +171,7 @@ function Countdown() {
 
 
 
+
           {/* Таймер */}
           <div
             className="
@@ -176,7 +179,7 @@ function Countdown() {
               grid-cols-2
               md:grid-cols-4
 
-              gap-4
+              gap-3
               sm:gap-6
 
               max-w-3xl
@@ -208,8 +211,8 @@ function Countdown() {
               <div
                 key={index}
                 className="
-                  w-28
-                  h-28
+                  w-24
+                  h-24
 
                   sm:w-32
                   sm:h-32
@@ -242,7 +245,7 @@ function Countdown() {
 
                 <div
                   className="
-                    text-4xl
+                    text-3xl
                     sm:text-5xl
                     md:text-6xl
                   "
@@ -285,10 +288,11 @@ function Countdown() {
 
 
 
+
           {/* Декор внутри листа */}
           <div
             className="
-              mt-12
+              mt-6
               flex
               justify-center
             "
@@ -298,7 +302,7 @@ function Countdown() {
               src={colanderImage}
               alt=""
               className="
-                w-36
+                w-28
                 sm:w-48
                 md:w-64
                 max-w-full
