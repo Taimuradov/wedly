@@ -18,18 +18,21 @@ function Couple() {
   "
     >
       {/* Основной блок */}
-      <div
-        className="
+<div
+  className="
     relative
-    w-full
+    w-[125%]
+    -ml-[12.5%]
     max-w-[1400px]
-    min-h-[1050px]
+    min-h-[950px]
+    md:w-full
+    md:ml-0
     md:min-h-[1050px]
     flex
     items-center
     justify-center
   "
-      >
+>
 
         {/* Бумага */}
         <div
