@@ -13,5 +13,6 @@ section {
 html,
 body,
 #root {
-  background: #334434;
+  min-height: 100%;
+  background: url("./images/fon.png") center / cover no-repeat fixed;
 }

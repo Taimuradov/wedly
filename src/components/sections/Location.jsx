@@ -52,21 +52,6 @@ function Location() {
         {/* Заголовок */}
         <p
           className="
-            mb-5
-            text-sm
-            uppercase
-            tracking-[0.45em]
-          "
-          style={{
-            color: "#3F5148",
-            fontFamily: "'Cormorant Garamond', serif",
-          }}
-        >
-          Место проведения
-        </p>
-
-        <h2
-          className="
             text-5xl
             md:text-6xl
             mb-8
@@ -77,9 +62,8 @@ function Location() {
             fontWeight: "400",
           }}
         >
-          Где состоится праздник
-        </h2>
-
+          Место проведения
+        </p>
         {/* Декор */}
         <div
           className="

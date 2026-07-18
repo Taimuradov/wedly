@@ -6,28 +6,29 @@ function Couple() {
   return (
     <section
       className="
-        relative
-        min-h-screen
-        flex
-        items-center
-        justify-center
-        overflow-hidden
-        pt-20
+    relative
+    min-h-[700px]
+    flex
+    items-center
+    justify-center
+    overflow-hidden
+    pt-10
     pb-0
     px-5
-      "
+  "
     >
       {/* Основной блок */}
       <div
         className="
-          relative
-          w-full
-          max-w-[1400px]
-          min-h-[1200px]
-          flex
-          items-center
-          justify-center
-        "
+    relative
+    w-full
+    max-w-[1400px]
+    min-h-[1050px]
+    md:min-h-[1050px]
+    flex
+    items-center
+    justify-center
+  "
       >
 
         {/* Бумага */}
@@ -36,7 +37,7 @@ function Couple() {
         absolute
         top-[-60px]
         bottom-[-80px]
-        left-[-130px]
+        left-[-100px]
         right-[-100px]
         z-0
       "

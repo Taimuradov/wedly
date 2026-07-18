@@ -18,33 +18,45 @@ function Invitation() {
       "
     >
       {/* Цветочный декор */}
+{/* Верхний декор */}
 <img
   src={design1}
   alt=""
   className="
     absolute
-    top-5
-    left-0
-    w-110
+    top-[-190px]
+    left-[5px]
+    w-72
+
+    md:top-5
+    md:left-0
     md:w-116
+
     opacity-80
-    z-0
-    rotate-[-15deg]
+    z-20
+    rotate-[-10deg]
+    md:rotate-[-15deg]
   "
 />
 
+{/* Нижний декор */}
 <img
   src={design2}
   alt=""
   className="
     absolute
-    bottom-10
-    right-0
-    w-94
+    bottom-[-140px]
+    right-[15px]
+    w-64
+
+    md:bottom-10
+    md:right-0
     md:w-114
+
     opacity-80
-    z-0
-    rotate-[15deg]
+    z-20
+    rotate-[10deg]
+    md:rotate-[15deg]
   "
 />
       {/* Главный контейнер */}
@@ -123,24 +135,10 @@ function Invitation() {
               }}
             >
               НА
+              <br />
+              Венчание
             </p>
           </div>
-
-          <h1
-            className="
-    text-6xl
-    md:text-8xl
-    leading-none
-  "
-            style={{
-              fontFamily: "'Great Vibes', cursive",
-              color: "#3F5148",
-              fontWeight: "400",
-            }}
-          >
-            Венчание
-          </h1>
-
           {/* Имена */}
           <div className="mt-7">
             <h2
@@ -153,7 +151,7 @@ function Invitation() {
                 fontWeight: "400",
               }}
             >
-              Игнат
+              Игната
             </h2>
 
             <div
