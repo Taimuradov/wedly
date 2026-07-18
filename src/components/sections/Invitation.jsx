@@ -1,4 +1,6 @@
 import { ChevronDown } from "lucide-react";
+import design1 from "../../assets/design/design1.png";
+import design2 from "../../assets/design/design2.png";
 
 function Invitation() {
   return (
@@ -15,6 +17,36 @@ function Invitation() {
         px-5
       "
     >
+      {/* Цветочный декор */}
+<img
+  src={design1}
+  alt=""
+  className="
+    absolute
+    top-5
+    left-0
+    w-110
+    md:w-116
+    opacity-80
+    z-0
+    rotate-[-15deg]
+  "
+/>
+
+<img
+  src={design2}
+  alt=""
+  className="
+    absolute
+    bottom-10
+    right-0
+    w-94
+    md:w-114
+    opacity-80
+    z-0
+    rotate-[15deg]
+  "
+/>
       {/* Главный контейнер */}
       <div
         className="
@@ -217,6 +249,7 @@ function Invitation() {
         <ChevronDown size={34} strokeWidth={1.7} color="#FFFFFF" />
       </div>
     </section>
+    
   );
 }
 

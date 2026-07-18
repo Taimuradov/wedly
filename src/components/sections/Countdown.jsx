@@ -1,12 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
+import paperImage from "../../images/paper-top.png";
 
 function Countdown() {
-  const targetDate = useMemo(() => new Date("2026-09-05T12:00:00+05:00"), []);
+
+  const targetDate = useMemo(
+    () => new Date("2026-09-05T12:00:00+05:00"),
+    []
+  );
+
 
   const calculateTime = () => {
     const now = new Date();
 
     const difference = targetDate.getTime() - now.getTime();
+
 
     if (difference <= 0) {
       return {
@@ -17,7 +24,9 @@ function Countdown() {
       };
     }
 
+
     const totalSeconds = Math.floor(difference / 1000);
+
 
     return {
       days: Math.floor(totalSeconds / 86400),
@@ -27,47 +36,85 @@ function Countdown() {
     };
   };
 
+
   const [time, setTime] = useState(calculateTime());
 
+
+
   useEffect(() => {
+
     const timer = setInterval(() => {
       setTime(calculateTime());
     }, 1000);
 
+
     return () => clearInterval(timer);
+
   }, []);
 
+
+
+
   return (
-    <section
+
+<section
+  className="
+    relative
+    min-h-screen
+    flex
+    items-center
+    justify-center
+    overflow-hidden
+    pt-20
+    pb-0
+    px-5
+  "
+>
+
+  {/* Основной блок */}
+  <div
+    className="
+      relative
+      w-full
+      max-w-[1200px]
+      min-h-[1200px]
+      flex
+      items-center
+      justify-center
+    "
+  >
+
+    {/* Бумага */}
+    <div
+      className="
+        absolute
+        top-[-60px]
+        bottom-[-80px]
+        left-[-100px]
+        right-[-100px]
+        z-0
+      "
+      style={{
+        backgroundImage: `url(${paperImage})`,
+        backgroundSize: "100% 100%",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    />
+
+
+    {/* Контент */}
+    <div
       className="
         relative
-        min-h-screen
-        flex
-        items-center
-        justify-center
-        overflow-hidden
-        pb-40
-pt-20
-px-5
+        z-10
+        w-full
+        text-center
+        px-5
+        md:px-10
+        py-20
       "
     >
-      <div
-        className="
-          relative
-          z-10
-          w-full
-          max-w-4xl
-          rounded-[35px]
-          px-8
-          py-16
-          text-center
-        "
-        style={{
-          background: "#FFFFFF",
-          boxShadow: "none",
-          border: "1px solid #EAEAEA",
-        }}
-      >
         <p
           className="
             text-sm
@@ -76,12 +123,14 @@ px-5
             mb-6
           "
           style={{
-            color: "#3F5148",
-            fontFamily: "'Cormorant Garamond', serif",
+            color:"#3F5148",
+            fontFamily:"'Cormorant Garamond', serif",
           }}
         >
           До нашей встречи
         </p>
+
+
 
         <h2
           className="
@@ -90,13 +139,15 @@ px-5
             mb-12
           "
           style={{
-            color: "#3F5148",
-            fontFamily: "'Great Vibes', cursive",
-            fontWeight: "400",
+            color:"#3F5148",
+            fontFamily:"'Great Vibes', cursive",
+            fontWeight:"400",
           }}
         >
           Осталось совсем немного
         </h2>
+
+
 
         <div
           className="
@@ -108,24 +159,28 @@ px-5
             mx-auto
           "
         >
+
           {[
             {
               value: time.days,
-              label: "ДНЕЙ",
+              label:"ДНЕЙ",
             },
             {
               value: time.hours,
-              label: "ЧАСОВ",
+              label:"ЧАСОВ",
             },
             {
               value: time.minutes,
-              label: "МИНУТ",
+              label:"МИНУТ",
             },
             {
               value: time.seconds,
-              label: "СЕКУНД",
+              label:"СЕКУНД",
             },
-          ].map((item, index) => (
+
+          ].map((item,index)=>(
+
+
             <div
               key={index}
               className="
@@ -141,23 +196,33 @@ px-5
                 justify-center
               "
               style={{
-                background: "linear-gradient(145deg,#fffdf9,#f7f1e8)",
-                boxShadow: "0 15px 35px rgba(0,0,0,0.10)",
-                border: "1px solid rgba(232,216,196,0.8)",
+                background:
+                  "linear-gradient(145deg,#fffdf9,#f7f1e8)",
+
+                boxShadow:
+                  "0 8px 20px rgba(0,0,0,0.08)",
+
+                border:
+                  "1px solid rgba(232,216,196,0.8)",
               }}
             >
+
+
               <div
                 className="
                   text-5xl
                   md:text-6xl
                 "
                 style={{
-                  color: "#3F5148",
-                  fontFamily: "'Cormorant Garamond', serif",
+                  color:"#3F5148",
+                  fontFamily:
+                  "'Cormorant Garamond', serif",
                 }}
               >
-                {String(item.value).padStart(2, "0")}
+                {String(item.value).padStart(2,"0")}
               </div>
+
+
 
               <p
                 className="
@@ -166,18 +231,29 @@ px-5
                   tracking-widest
                 "
                 style={{
-                  color: "#3F5148",
-                  fontFamily: "'Cormorant Garamond', serif",
+                  color:"#3F5148",
+                  fontFamily:
+                  "'Cormorant Garamond', serif",
                 }}
               >
                 {item.label}
               </p>
+
+
             </div>
+
+
           ))}
+
+
         </div>
+
+      </div>
       </div>
     </section>
+
   );
 }
+
 
 export default Countdown;

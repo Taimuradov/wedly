@@ -1,7 +1,6 @@
-import eucalyptusLeavesFrame from "../../images/eucalyptus leaves.png";
-import eucalyptusImageFrame from "../../images/image.png";
 import ignatPhoto from "../../assets/gallery/photo5.jpg";
 import enlikPhoto from "../../assets/gallery/photo6.jpg";
+import paperImage from "../../images/paper-top.png";
 
 function Couple() {
   return (
@@ -13,262 +12,282 @@ function Couple() {
         items-center
         justify-center
         overflow-hidden
-        py-20
+        pt-20
+pb-0
         px-5
       "
     >
-      {/* Главная карточка */}
+      {/* Основной блок */}
       <div
         className="
           relative
-          z-10
           w-full
-          max-w-4xl
-          rounded-[35px]
-          px-8
-          py-16
-          text-center
+          max-w-[1200px]
+          min-h-[1200px]
+          flex
+          items-center
+          justify-center
         "
-        style={{
-          background: "#FFFFFF",
-          boxShadow: "none",
-          border: "1px solid rgba(232,216,196,0.8)",
-        }}
       >
-        <h2
+
+        {/* Бумага */}
+        <div
           className="
-            text-5xl
-            md:text-7xl
-            mb-12
+            absolute
+            inset-[-80px]
+            z-0
           "
           style={{
-            color: "#3F5148",
-            fontFamily: "'Cormorant Garamond', serif",
-          }}
-        >
-          Два сердца
-        </h2>
-
-        {/* Фото блоки */}
-        <div
-          className="
-            flex
-            flex-col
-            md:flex-row
-            items-center
-            justify-center
-            gap-10
-          "
-        >
-          {/* Игнат */}
-          <div
-            className="
-              flex
-              flex-col
-              items-center
-            "
-          >
-            <div
-              className="
-                relative
-                w-52
-                h-52
-                mb-6
-              "
-            >
-              <img
-                src={eucalyptusLeavesFrame}
-                alt="eucalyptus frame"
-                className="
-                  absolute
-                  inset-0
-                  w-full
-                  h-full
-                  object-contain
-                  scale-125
-                  z-10
-                  pointer-events-none
-                "
-              />
-
-              <div
-                className="
-                  absolute
-                  inset-4
-                  rounded-full
-                  overflow-hidden
-                "
-                style={{
-                  background: "#E8E0D5",
-                  boxShadow: "0 15px 35px rgba(0,0,0,0.15)",
-                }}
-              >
-                <img
-                  src={ignatPhoto}
-                  alt="Игнат"
-                  className="
-                    w-full
-                    h-full
-                    object-cover
-                  "
-                />
-              </div>
-            </div>
-
-            <h3
-              className="
-                text-5xl
-                md:text-6xl
-              "
-              style={{
-                color: "#3F5148",
-                fontFamily: "'Great Vibes', cursive",
-                fontWeight: "400",
-              }}
-            >
-              Игнат
-            </h3>
-          </div>
-
-          {/* знак */}
-          <div
-            className="
-              text-6xl
-              md:text-7xl
-            "
-            style={{
-              color: "#3F5148",
-              fontFamily: "'Great Vibes', cursive",
-              fontWeight: "400",
-            }}
-          >
-            &
-          </div>
-
-          {/* Енлик */}
-          <div
-            className="
-              flex
-              flex-col
-              items-center
-            "
-          >
-            <div
-              className="
-                relative
-                w-52
-                h-52
-                mb-6
-              "
-            >
-              <img
-                src={eucalyptusImageFrame}
-                alt="eucalyptus frame"
-                className="
-                  absolute
-                  inset-0
-                  w-full
-                  h-full
-                  object-contain
-                  scale-125
-                  z-10
-                  pointer-events-none
-                "
-              />
-
-              <div
-                className="
-                  absolute
-                  inset-4
-                  rounded-full
-                  overflow-hidden
-                "
-                style={{
-                  background: "#E8E0D5",
-                  boxShadow: "0 15px 35px rgba(0,0,0,0.15)",
-                }}
-              >
-                <img
-                  src={enlikPhoto}
-                  alt="Енлик"
-                  className="
-                    w-full
-                    h-full
-                    object-cover
-                  "
-                />
-              </div>
-            </div>
-
-            <h3
-              className="
-                text-5xl
-                md:text-6xl
-              "
-              style={{
-                color: "#3F5148",
-                fontFamily: "'Great Vibes', cursive",
-                fontWeight: "400",
-              }}
-            >
-              Енлик
-            </h3>
-          </div>
-        </div>
-
-        {/* Библейский стих */}
-        <div
-          className="
-            mt-12
-            max-w-xl
-            mx-auto
-            px-6
-          "
-        >
-          <p
-            className="
-              text-xl
-              md:text-2xl
-              leading-relaxed
-              italic
-            "
-            style={{
-              color: "#3F5148",
-              fontFamily: "'Cormorant Garamond', serif",
-            }}
-          >
-            «Итак, они уже не двое, но одна плоть; итак, что Бог сочетал, того
-            человек да не разлучает»
-          </p>
-
-          <span
-            className="
-              block
-              mt-5
-              text-base
-            "
-            style={{
-              color: "#3F5148",
-              fontFamily: "'Cormorant Garamond', serif",
-            }}
-          >
-            Матфея 19:6
-          </span>
-        </div>
-
-        {/* линия */}
-        <div
-          className="
-            mx-auto
-            mt-10
-            w-28
-            h-[2px]
-          "
-          style={{
-            background: "#3F5148",
+            backgroundImage: `url(${paperImage})`,
+            backgroundSize: "100% 100%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
           }}
         />
+
+
+        {/* Контент */}
+        <div
+          className="
+            relative
+            z-10
+            w-full
+            text-center
+            px-5
+            md:px-10
+            py-20
+          "
+        >
+
+          <h2
+            className="
+              text-5xl
+              md:text-7xl
+              mb-16
+            "
+            style={{
+              color:"#53675B",
+              fontFamily:"'Cormorant Garamond', serif",
+            }}
+          >
+            Два сердца
+          </h2>
+
+
+
+          {/* Фото */}
+          <div
+            className="
+              relative
+              flex
+              justify-center
+              items-center
+              mb-14
+              h-[300px]
+              md:h-[340px]
+              -space-x-1
+              md:-space-x-1
+            "
+          >
+
+
+            {/* Игнат */}
+            <div
+              className="
+                relative
+                -translate-y-4
+                rotate-[-8deg]
+                z-20
+                p-3
+                shadow-2xl
+                w-[150px]
+                sm:w-[190px]
+                md:w-[230px]
+              "
+              style={{
+                background:"#415542",
+              }}
+            >
+
+              <img
+                src={ignatPhoto}
+                alt="Игнат"
+                className="
+                  w-full
+                  h-[180px]
+                  sm:h-[220px]
+                  md:h-[250px]
+                  object-cover
+                "
+              />
+
+              <p
+                className="
+  mt-3
+  text-2xl
+  md:text-3xl
+"
+                style={{
+                  fontFamily:"'Great Vibes', cursive",
+                  color:"#FFFFFF",
+                }}
+              >
+                Игнат
+              </p>
+
+
+              <div
+                className="
+                  absolute
+                  top-[-10px]
+                  left-1/2
+                  -translate-x-1/2
+                  w-16
+                  h-5
+                  rotate-[-8deg]
+                "
+style={{
+  background:"rgba(245,235,215,.75)",
+  backdropFilter:"blur(2px)",
+  border:"1px solid rgba(255,255,255,.3)",
+}}
+              />
+
+            </div>
+
+
+
+            {/* Енлик */}
+            <div
+              className="
+                relative
+                translate-y-5
+                rotate-[7deg]
+                z-10
+                p-3
+                shadow-2xl
+                w-[150px]
+                sm:w-[190px]
+                md:w-[230px]
+              "
+              style={{
+                background:"#415542",
+              }}
+            >
+
+              <img
+                src={enlikPhoto}
+                alt="Енлик"
+                className="
+                  w-full
+                  h-[180px]
+                  sm:h-[220px]
+                  md:h-[250px]
+                  object-cover
+                "
+              />
+
+
+              <p
+className="
+  mt-3
+  text-2xl
+  md:text-3xl
+"
+                style={{
+                  fontFamily:"'Great Vibes', cursive",
+                  color:"#FFFFFF",
+                }}
+              >
+                Енлик
+              </p>
+
+
+              <div
+                className="
+                  absolute
+                  top-[-10px]
+                  left-1/2
+                  -translate-x-1/2
+                  w-16
+                  h-5
+                  rotate-[8deg]
+                "
+style={{
+  background:"rgba(245,235,215,.75)",
+  backdropFilter:"blur(2px)",
+  border:"1px solid rgba(255,255,255,.3)",
+}}
+              />
+
+            </div>
+
+
+          </div>
+
+
+
+          {/* Стих */}
+          <div
+            className="
+              mt-12
+              max-w-xl
+              mx-auto
+              px-6
+            "
+          >
+
+            <p
+              className="
+                text-xl
+                md:text-2xl
+                leading-relaxed
+                italic
+              "
+              style={{
+                color:"#53675B",
+                fontFamily:"'Cormorant Garamond', serif",
+              }}
+            >
+              «Итак, они уже не двое, но одна плоть; итак, что Бог сочетал,
+              того человек да не разлучает»
+            </p>
+
+
+            <span
+              className="
+                block
+                mt-5
+              "
+              style={{
+                color:"#53675B",
+                fontFamily:"'Cormorant Garamond', serif",
+              }}
+            >
+              Матфея 19:6
+            </span>
+
+          </div>
+
+
+
+          {/* Линия */}
+          <div
+            className="
+              mx-auto
+              mt-10
+              w-28
+              h-[2px]
+            "
+            style={{
+              background:"#53675B",
+            }}
+          />
+
+        </div>
+
       </div>
+
     </section>
   );
 }
