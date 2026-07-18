@@ -57,8 +57,8 @@ function Countdown() {
 
   return (
 
-<section
-  className="
+    <section
+      className="
     relative
     min-h-screen
     flex
@@ -69,43 +69,43 @@ function Countdown() {
     pb-0
     px-5
   "
->
+    >
 
-  {/* Основной блок */}
-  <div
-    className="
+      {/* Основной блок */}
+      <div
+        className="
       relative
       w-full
-      max-w-[1200px]
+      max-w-[1400px]
       min-h-[1200px]
       flex
       items-center
       justify-center
     "
-  >
+      >
 
-    {/* Бумага */}
-    <div
-      className="
+        {/* Бумага */}
+        <div
+          className="
         absolute
         top-[-60px]
         bottom-[-80px]
-        left-[-100px]
+        left-[-130px]
         right-[-100px]
         z-0
       "
-      style={{
-        backgroundImage: `url(${paperImage})`,
-        backgroundSize: "100% 100%",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    />
+          style={{
+            backgroundImage: `url(${paperImage})`,
+            backgroundSize: "100% 100%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
 
 
-    {/* Контент */}
-    <div
-      className="
+        {/* Контент */}
+        <div
+          className="
         relative
         z-10
         w-full
@@ -114,43 +114,43 @@ function Countdown() {
         md:px-10
         py-20
       "
-    >
-        <p
-          className="
+        >
+          <p
+            className="
             text-sm
             tracking-[0.45em]
             uppercase
             mb-6
           "
-          style={{
-            color:"#3F5148",
-            fontFamily:"'Cormorant Garamond', serif",
-          }}
-        >
-          До нашей встречи
-        </p>
+            style={{
+              color: "#3F5148",
+              fontFamily: "'Cormorant Garamond', serif",
+            }}
+          >
+            До нашей встречи
+          </p>
 
 
 
-        <h2
-          className="
+          <h2
+            className="
             text-5xl
             md:text-7xl
             mb-12
           "
-          style={{
-            color:"#3F5148",
-            fontFamily:"'Great Vibes', cursive",
-            fontWeight:"400",
-          }}
-        >
-          Осталось совсем немного
-        </h2>
+            style={{
+              color: "#3F5148",
+              fontFamily: "'Great Vibes', cursive",
+              fontWeight: "400",
+            }}
+          >
+            Осталось совсем немного
+          </h2>
 
 
 
-        <div
-          className="
+          <div
+            className="
             grid
             grid-cols-2
             md:grid-cols-4
@@ -158,32 +158,32 @@ function Countdown() {
             max-w-3xl
             mx-auto
           "
-        >
+          >
 
-          {[
-            {
-              value: time.days,
-              label:"ДНЕЙ",
-            },
-            {
-              value: time.hours,
-              label:"ЧАСОВ",
-            },
-            {
-              value: time.minutes,
-              label:"МИНУТ",
-            },
-            {
-              value: time.seconds,
-              label:"СЕКУНД",
-            },
+            {[
+              {
+                value: time.days,
+                label: "ДНЕЙ",
+              },
+              {
+                value: time.hours,
+                label: "ЧАСОВ",
+              },
+              {
+                value: time.minutes,
+                label: "МИНУТ",
+              },
+              {
+                value: time.seconds,
+                label: "СЕКУНД",
+              },
 
-          ].map((item,index)=>(
+            ].map((item, index) => (
 
 
-            <div
-              key={index}
-              className="
+              <div
+                key={index}
+                className="
                 w-32
                 h-32
                 md:w-36
@@ -195,60 +195,60 @@ function Countdown() {
                 items-center
                 justify-center
               "
-              style={{
-                background:
-                  "linear-gradient(145deg,#fffdf9,#f7f1e8)",
+                style={{
+                  background:
+                    "linear-gradient(145deg,#fffdf9,#f7f1e8)",
 
-                boxShadow:
-                  "0 8px 20px rgba(0,0,0,0.08)",
+                  boxShadow:
+                    "0 8px 20px rgba(0,0,0,0.08)",
 
-                border:
-                  "1px solid rgba(232,216,196,0.8)",
-              }}
-            >
+                  border:
+                    "1px solid rgba(232,216,196,0.8)",
+                }}
+              >
 
 
-              <div
-                className="
+                <div
+                  className="
                   text-5xl
                   md:text-6xl
                 "
-                style={{
-                  color:"#3F5148",
-                  fontFamily:
-                  "'Cormorant Garamond', serif",
-                }}
-              >
-                {String(item.value).padStart(2,"0")}
-              </div>
+                  style={{
+                    color: "#3F5148",
+                    fontFamily:
+                      "'Cormorant Garamond', serif",
+                  }}
+                >
+                  {String(item.value).padStart(2, "0")}
+                </div>
 
 
 
-              <p
-                className="
+                <p
+                  className="
                   mt-1
                   text-xs
                   tracking-widest
                 "
-                style={{
-                  color:"#3F5148",
-                  fontFamily:
-                  "'Cormorant Garamond', serif",
-                }}
-              >
-                {item.label}
-              </p>
+                  style={{
+                    color: "#3F5148",
+                    fontFamily:
+                      "'Cormorant Garamond', serif",
+                  }}
+                >
+                  {item.label}
+                </p>
 
 
-            </div>
+              </div>
 
 
-          ))}
+            ))}
 
+
+          </div>
 
         </div>
-
-      </div>
       </div>
     </section>
 

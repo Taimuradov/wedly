@@ -13,8 +13,8 @@ function Couple() {
         justify-center
         overflow-hidden
         pt-20
-pb-0
-        px-5
+    pb-0
+    px-5
       "
     >
       {/* Основной блок */}
@@ -22,7 +22,7 @@ pb-0
         className="
           relative
           w-full
-          max-w-[1200px]
+          max-w-[1400px]
           min-h-[1200px]
           flex
           items-center
@@ -33,10 +33,13 @@ pb-0
         {/* Бумага */}
         <div
           className="
-            absolute
-            inset-[-80px]
-            z-0
-          "
+        absolute
+        top-[-60px]
+        bottom-[-80px]
+        left-[-130px]
+        right-[-100px]
+        z-0
+      "
           style={{
             backgroundImage: `url(${paperImage})`,
             backgroundSize: "100% 100%",
@@ -66,8 +69,8 @@ pb-0
               mb-16
             "
             style={{
-              color:"#53675B",
-              fontFamily:"'Cormorant Garamond', serif",
+              color: "#53675B",
+              fontFamily: "'Cormorant Garamond', serif",
             }}
           >
             Два сердца
@@ -105,7 +108,7 @@ pb-0
                 md:w-[230px]
               "
               style={{
-                background:"#415542",
+                background: "#415542",
               }}
             >
 
@@ -128,8 +131,8 @@ pb-0
   md:text-3xl
 "
                 style={{
-                  fontFamily:"'Great Vibes', cursive",
-                  color:"#FFFFFF",
+                  fontFamily: "'Great Vibes', cursive",
+                  color: "#FFFFFF",
                 }}
               >
                 Игнат
@@ -146,11 +149,11 @@ pb-0
                   h-5
                   rotate-[-8deg]
                 "
-style={{
-  background:"rgba(245,235,215,.75)",
-  backdropFilter:"blur(2px)",
-  border:"1px solid rgba(255,255,255,.3)",
-}}
+                style={{
+                  background: "rgba(245,235,215,.75)",
+                  backdropFilter: "blur(2px)",
+                  border: "1px solid rgba(255,255,255,.3)",
+                }}
               />
 
             </div>
@@ -171,7 +174,7 @@ style={{
                 md:w-[230px]
               "
               style={{
-                background:"#415542",
+                background: "#415542",
               }}
             >
 
@@ -189,14 +192,14 @@ style={{
 
 
               <p
-className="
+                className="
   mt-3
   text-2xl
   md:text-3xl
 "
                 style={{
-                  fontFamily:"'Great Vibes', cursive",
-                  color:"#FFFFFF",
+                  fontFamily: "'Great Vibes', cursive",
+                  color: "#FFFFFF",
                 }}
               >
                 Енлик
@@ -213,11 +216,11 @@ className="
                   h-5
                   rotate-[8deg]
                 "
-style={{
-  background:"rgba(245,235,215,.75)",
-  backdropFilter:"blur(2px)",
-  border:"1px solid rgba(255,255,255,.3)",
-}}
+                style={{
+                  background: "rgba(245,235,215,.75)",
+                  backdropFilter: "blur(2px)",
+                  border: "1px solid rgba(255,255,255,.3)",
+                }}
               />
 
             </div>
@@ -245,8 +248,8 @@ style={{
                 italic
               "
               style={{
-                color:"#53675B",
-                fontFamily:"'Cormorant Garamond', serif",
+                color: "#53675B",
+                fontFamily: "'Cormorant Garamond', serif",
               }}
             >
               «Итак, они уже не двое, но одна плоть; итак, что Бог сочетал,
@@ -260,8 +263,8 @@ style={{
                 mt-5
               "
               style={{
-                color:"#53675B",
-                fontFamily:"'Cormorant Garamond', serif",
+                color: "#53675B",
+                fontFamily: "'Cormorant Garamond', serif",
               }}
             >
               Матфея 19:6
@@ -280,7 +283,7 @@ style={{
               h-[2px]
             "
             style={{
-              background:"#53675B",
+              background: "#53675B",
             }}
           />
 
