@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import paperImage from "../../images/paper-top.png";
+import colanderImage from "../../images/colander.png";
 
 function Countdown() {
 
@@ -248,7 +249,24 @@ function Countdown() {
 
 
           </div>
-
+                    {/* Декор внутри листа */}
+          <div
+            className="
+              mt-16
+              flex
+              justify-center
+            "
+          >
+            <img
+              src={colanderImage}
+              alt=""
+              className="
+                w-48
+                md:w-64
+                object-contain
+              "
+            />
+          </div>
         </div>
       </div>
     </section>
