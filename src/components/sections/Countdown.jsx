@@ -41,7 +41,6 @@ function Countdown() {
   const [time, setTime] = useState(calculateTime());
 
 
-
   useEffect(() => {
 
     const timer = setInterval(() => {
@@ -55,47 +54,58 @@ function Countdown() {
 
 
 
-
   return (
 
-<section
-  className="
-    relative
-    min-h-[700px]
-    flex
-    items-center
-    justify-center
-    overflow-hidden
-    pt-10
-    pb-0
-    px-5
-  "
->А
+    <section
+      className="
+        relative
+        min-h-[700px]
+        flex
+        items-center
+        justify-center
+        overflow-hidden
+        pt-10
+        pb-0
+        px-5
+      "
+    >
+
 
       {/* Основной блок */}
       <div
         className="
-    relative
-    w-full
-    max-w-[1400px]
-    min-h-[900px]
-    md:min-h-[1050px]
-    flex
-    items-center
-    justify-center
-  "
+          relative
+          w-[95%]
+          max-w-[1400px]
+          min-h-[900px]
+
+          md:w-full
+          md:min-h-[1050px]
+
+          flex
+          items-center
+          justify-center
+        "
       >
+
 
         {/* Бумага */}
         <div
           className="
-        absolute
-        top-[-60px]
-        bottom-[-80px]
-        left-[-130px]
-        right-[-100px]
-        z-0
-      "
+            absolute
+
+            top-[-40px]
+            bottom-[-60px]
+            left-[-60px]
+            right-[-60px]
+
+            md:top-[-60px]
+            md:bottom-[-80px]
+            md:left-[-130px]
+            md:right-[-100px]
+
+            z-0
+          "
           style={{
             backgroundImage: `url(${paperImage})`,
             backgroundSize: "100% 100%",
@@ -105,28 +115,35 @@ function Countdown() {
         />
 
 
+
         {/* Контент */}
         <div
           className="
-        relative
-        z-10
-        w-full
-        text-center
-        px-5
-        md:px-10
-        py-20
-      "
+            relative
+            z-10
+            w-full
+            text-center
+
+            px-2
+            sm:px-5
+            md:px-10
+
+            py-16
+            md:py-20
+          "
         >
+
+
           <p
             className="
-            text-sm
-            tracking-[0.45em]
-            uppercase
-            mb-6
-          "
+              text-sm
+              tracking-[0.45em]
+              uppercase
+              mb-6
+            "
             style={{
-              color: "#3F5148",
-              fontFamily: "'Cormorant Garamond', serif",
+              color:"#3F5148",
+              fontFamily:"'Cormorant Garamond', serif",
             }}
           >
             До нашей встречи
@@ -136,14 +153,14 @@ function Countdown() {
 
           <h2
             className="
-            text-5xl
-            md:text-7xl
-            mb-12
-          "
+              text-5xl
+              md:text-7xl
+              mb-12
+            "
             style={{
-              color: "#3F5148",
-              fontFamily: "'Great Vibes', cursive",
-              fontWeight: "400",
+              color:"#3F5148",
+              fontFamily:"'Great Vibes', cursive",
+              fontWeight:"400",
             }}
           >
             Осталось совсем немного
@@ -151,91 +168,106 @@ function Countdown() {
 
 
 
+
+          {/* Таймер */}
           <div
             className="
-            grid
-            grid-cols-2
-            md:grid-cols-4
-            gap-6
-            max-w-3xl
-            mx-auto
-          "
+              grid
+              grid-cols-2
+              md:grid-cols-4
+
+              gap-4
+              sm:gap-6
+
+              max-w-3xl
+              mx-auto
+            "
           >
 
             {[
               {
                 value: time.days,
-                label: "ДНЕЙ",
+                label:"ДНЕЙ",
               },
               {
                 value: time.hours,
-                label: "ЧАСОВ",
+                label:"ЧАСОВ",
               },
               {
                 value: time.minutes,
-                label: "МИНУТ",
+                label:"МИНУТ",
               },
               {
                 value: time.seconds,
-                label: "СЕКУНД",
+                label:"СЕКУНД",
               },
 
-            ].map((item, index) => (
+            ].map((item,index)=>(
 
 
               <div
                 key={index}
                 className="
-                w-32
-                h-32
-                md:w-36
-                md:h-36
-                mx-auto
-                rounded-full
-                flex
-                flex-col
-                items-center
-                justify-center
-              "
+                  w-28
+                  h-28
+
+                  sm:w-32
+                  sm:h-32
+
+                  md:w-36
+                  md:h-36
+
+                  mx-auto
+
+                  rounded-full
+                  flex
+                  flex-col
+                  items-center
+                  justify-center
+                "
                 style={{
+
                   background:
-                    "linear-gradient(145deg,#fffdf9,#f7f1e8)",
+                  "linear-gradient(145deg,#fffdf9,#f7f1e8)",
 
                   boxShadow:
-                    "0 8px 20px rgba(0,0,0,0.08)",
+                  "0 8px 20px rgba(0,0,0,0.08)",
 
                   border:
-                    "1px solid rgba(232,216,196,0.8)",
+                  "1px solid rgba(232,216,196,0.8)",
+
                 }}
               >
 
 
                 <div
                   className="
-                  text-5xl
-                  md:text-6xl
-                "
+                    text-4xl
+                    sm:text-5xl
+                    md:text-6xl
+                  "
                   style={{
-                    color: "#3F5148",
+                    color:"#3F5148",
                     fontFamily:
-                      "'Cormorant Garamond', serif",
+                    "'Cormorant Garamond', serif",
                   }}
                 >
-                  {String(item.value).padStart(2, "0")}
+                  {String(item.value).padStart(2,"0")}
                 </div>
 
 
 
                 <p
                   className="
-                  mt-1
-                  text-xs
-                  tracking-widest
-                "
+                    mt-1
+                    text-[10px]
+                    sm:text-xs
+                    tracking-widest
+                  "
                   style={{
-                    color: "#3F5148",
+                    color:"#3F5148",
                     fontFamily:
-                      "'Cormorant Garamond', serif",
+                    "'Cormorant Garamond', serif",
                   }}
                 >
                   {item.label}
@@ -249,26 +281,41 @@ function Countdown() {
 
 
           </div>
-                    {/* Декор внутри листа */}
+
+
+
+
+          {/* Декор внутри листа */}
           <div
             className="
-              mt-16
+              mt-12
               flex
               justify-center
             "
           >
+
             <img
               src={colanderImage}
               alt=""
               className="
-                w-48
+                w-36
+                sm:w-48
                 md:w-64
+                max-w-full
                 object-contain
               "
             />
+
           </div>
+
+
+
         </div>
+
+
       </div>
+
+
     </section>
 
   );
