@@ -6,44 +6,53 @@ function Couple() {
   return (
     <section
       className="
-    relative
-    min-h-[700px]
-    flex
-    items-center
-    justify-center
-    overflow-hidden
-    pt-10
-    pb-0
-    px-5
-  "
+        relative
+        min-h-[700px]
+        flex
+        items-center
+        justify-center
+        overflow-hidden
+        pt-10
+        pb-0
+        px-5
+      "
     >
+
       {/* Основной блок */}
-<div
-  className="
-    relative
-    w-[125%]
-    -ml-[12.5%]
-    max-w-[1400px]
-    min-h-[950px]
-    md:w-full
-    md:ml-0
-    md:min-h-[1050px]
-    flex
-    items-center
-    justify-center
-  "
->
+      <div
+        className="
+          relative
+          w-[140%]
+          -ml-[20%]
+          max-w-[1400px]
+          min-h-[900px]
+
+          md:w-full
+          md:ml-0
+          md:min-h-[1050px]
+
+          flex
+          items-center
+          justify-center
+        "
+      >
 
         {/* Бумага */}
         <div
           className="
-        absolute
-        top-[-60px]
-        bottom-[-80px]
-        left-[-100px]
-        right-[-100px]
-        z-0
-      "
+            absolute
+            top-[-80px]
+            bottom-[-100px]
+            left-[-180px]
+            right-[-180px]
+
+            md:top-[-60px]
+            md:bottom-[-80px]
+            md:left-[-100px]
+            md:right-[-100px]
+
+            z-0
+          "
           style={{
             backgroundImage: `url(${paperImage})`,
             backgroundSize: "100% 100%",
@@ -60,17 +69,20 @@ function Couple() {
             z-10
             w-full
             text-center
-            px-5
+            px-2
             md:px-10
-            py-20
+            py-12
+            md:py-20
           "
         >
 
+
           <h2
             className="
-              text-5xl
+              text-4xl
               md:text-7xl
-              mb-16
+              mb-12
+              md:mb-16
             "
             style={{
               color: "#53675B",
@@ -89,11 +101,11 @@ function Couple() {
               flex
               justify-center
               items-center
-              mb-14
-              h-[300px]
+              mb-12
+              md:mb-14
+              h-[260px]
               md:h-[340px]
               -space-x-1
-              md:-space-x-1
             "
           >
 
@@ -107,12 +119,13 @@ function Couple() {
                 z-20
                 p-3
                 shadow-2xl
-                w-[150px]
+
+                w-[125px]
                 sm:w-[190px]
                 md:w-[230px]
               "
               style={{
-                background: "#415542",
+                background:"#415542",
               }}
             >
 
@@ -121,22 +134,23 @@ function Couple() {
                 alt="Игнат"
                 className="
                   w-full
-                  h-[180px]
+                  h-[160px]
                   sm:h-[220px]
                   md:h-[250px]
                   object-cover
                 "
               />
 
+
               <p
                 className="
-  mt-3
-  text-2xl
-  md:text-3xl
-"
+                  mt-3
+                  text-xl
+                  md:text-3xl
+                "
                 style={{
-                  fontFamily: "'Great Vibes', cursive",
-                  color: "#FFFFFF",
+                  fontFamily:"'Great Vibes', cursive",
+                  color:"#FFFFFF",
                 }}
               >
                 Игнат
@@ -154,13 +168,14 @@ function Couple() {
                   rotate-[-8deg]
                 "
                 style={{
-                  background: "rgba(245,235,215,.75)",
-                  backdropFilter: "blur(2px)",
-                  border: "1px solid rgba(255,255,255,.3)",
+                  background:"rgba(245,235,215,.75)",
+                  backdropFilter:"blur(2px)",
+                  border:"1px solid rgba(255,255,255,.3)",
                 }}
               />
 
             </div>
+
 
 
 
@@ -173,12 +188,13 @@ function Couple() {
                 z-10
                 p-3
                 shadow-2xl
-                w-[150px]
+
+                w-[125px]
                 sm:w-[190px]
                 md:w-[230px]
               "
               style={{
-                background: "#415542",
+                background:"#415542",
               }}
             >
 
@@ -187,7 +203,7 @@ function Couple() {
                 alt="Енлик"
                 className="
                   w-full
-                  h-[180px]
+                  h-[160px]
                   sm:h-[220px]
                   md:h-[250px]
                   object-cover
@@ -197,13 +213,13 @@ function Couple() {
 
               <p
                 className="
-  mt-3
-  text-2xl
-  md:text-3xl
-"
+                  mt-3
+                  text-xl
+                  md:text-3xl
+                "
                 style={{
-                  fontFamily: "'Great Vibes', cursive",
-                  color: "#FFFFFF",
+                  fontFamily:"'Great Vibes', cursive",
+                  color:"#FFFFFF",
                 }}
               >
                 Енлик
@@ -221,9 +237,9 @@ function Couple() {
                   rotate-[8deg]
                 "
                 style={{
-                  background: "rgba(245,235,215,.75)",
-                  backdropFilter: "blur(2px)",
-                  border: "1px solid rgba(255,255,255,.3)",
+                  background:"rgba(245,235,215,.75)",
+                  backdropFilter:"blur(2px)",
+                  border:"1px solid rgba(255,255,255,.3)",
                 }}
               />
 
@@ -234,26 +250,29 @@ function Couple() {
 
 
 
+
+
           {/* Стих */}
           <div
             className="
-              mt-12
+              mt-8
+              md:mt-12
               max-w-xl
               mx-auto
-              px-6
+              px-4
             "
           >
 
             <p
               className="
-                text-xl
+                text-lg
                 md:text-2xl
                 leading-relaxed
                 italic
               "
               style={{
-                color: "#53675B",
-                fontFamily: "'Cormorant Garamond', serif",
+                color:"#53675B",
+                fontFamily:"'Cormorant Garamond', serif",
               }}
             >
               «Итак, они уже не двое, но одна плоть; итак, что Бог сочетал,
@@ -267,14 +286,16 @@ function Couple() {
                 mt-5
               "
               style={{
-                color: "#53675B",
-                fontFamily: "'Cormorant Garamond', serif",
+                color:"#53675B",
+                fontFamily:"'Cormorant Garamond', serif",
               }}
             >
               Матфея 19:6
             </span>
 
+
           </div>
+
 
 
 
@@ -287,13 +308,16 @@ function Couple() {
               h-[2px]
             "
             style={{
-              background: "#53675B",
+              background:"#53675B",
             }}
           />
 
+
         </div>
 
+
       </div>
+
 
     </section>
   );
