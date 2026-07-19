@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import colanderImage from "../../images/colander.png";
 
 function Location() {
   const mapLink =
@@ -49,6 +50,7 @@ function Location() {
           border: "1px solid #EAEAEA",
         }}
       >
+
         {/* Заголовок */}
         <p
           className="
@@ -64,20 +66,6 @@ function Location() {
         >
           Место проведения
         </p>
-        {/* Декор */}
-        <div
-          className="
-            mb-6
-            text-4xl
-          "
-          style={{
-            color: "#3F5148",
-            fontFamily: "'Cormorant Garamond', serif",
-          }}
-        >
-          ♡
-        </div>
-
         {/* Название места */}
         <h3
           className="
@@ -91,6 +79,7 @@ function Location() {
         >
           Церковь ЕХБ «Дом молитвы для всех народов»
         </h3>
+
 
         {/* Адрес */}
         <p
@@ -108,13 +97,37 @@ function Location() {
           Республика Таджикистан
           <br />
           г. Душанбе
-          <br />1 проезд Хайрулло Мирзоева 5
+          <br />
+          1 проезд Хайрулло Мирзоева 5
         </p>
 
-        {/* Дата и время */}
+
+        {/* Календарь */}
         <div
           className="
-            mt-7
+            mt-8
+            flex
+            justify-center
+          "
+        >
+          <img
+            src={colanderImage}
+            alt=""
+            className="
+              w-68
+              sm:w-52
+              md:w-64
+              max-w-full
+              object-contain
+            "
+          />
+        </div>
+
+
+        {/* Время */}
+        <div
+          className="
+            mt-5
             text-xl
           "
           style={{
@@ -122,10 +135,9 @@ function Location() {
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
-          5 сентября 2026
-          <br />
           12:00
         </div>
+
 
         {/* Карта */}
         <a
@@ -150,6 +162,7 @@ function Location() {
           Открыть карту
         </a>
 
+
         {/* Декоративная линия */}
         <div
           className="
@@ -162,7 +175,9 @@ function Location() {
             background: "#3F5148",
           }}
         />
+
       </motion.div>
+
     </section>
   );
 }

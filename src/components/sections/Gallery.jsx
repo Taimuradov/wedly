@@ -84,56 +84,80 @@ function Gallery() {
         </motion.div>
 
         {/* Фото */}
-        <div
+<div
+  className="
+    grid
+    gap-8
+    sm:grid-cols-2
+    lg:grid-cols-4
+    items-start
+  "
+>
+          {photos.map((photo, index) => {
+  const rotations = [
+    "-rotate-3 -translate-y-3",
+    "rotate-2 translate-y-2",
+    "-rotate-2 translate-y-4",
+    "rotate-3 -translate-y-2",
+  ];
+
+  return (
+    <motion.div
+      key={photo.id}
+      initial={{
+        opacity: 0,
+        scale: 0.9,
+      }}
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+      }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.12,
+      }}
+      viewport={{
+        once: true,
+      }}
+      className={`
+        relative
+        ${rotations[index]}
+      `}
+    >
+      <div
+        className="
+          bg-white
+          p-3
+          shadow-2xl
+        "
+      >
+        <img
+          src={photo.image}
+          alt={photo.title}
           className="
-            grid
-            gap-6
-            sm:grid-cols-2
-            lg:grid-cols-4
+            h-80
+            w-full
+            object-cover
           "
+        />
+
+        <p
+          className="
+            mt-3
+            text-center
+            text-xl
+          "
+          style={{
+            color: "#53675B",
+            fontFamily: "'Great Vibes', cursive",
+          }}
         >
-          {photos.map((photo, index) => (
-            <motion.div
-              key={photo.id}
-              initial={{
-                opacity: 0,
-                scale: 0.9,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.12,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="
-                group
-                overflow-hidden
-                rounded-[25px]
-              "
-              style={{
-                boxShadow: "none",
-                border: "1px solid rgba(255,255,255,0.15)",
-              }}
-            >
-              <img
-                src={photo.image}
-                alt={photo.title}
-                className="
-                  h-80
-                  w-full
-                  object-cover
-                  transition
-                  duration-500
-                  group-hover:scale-110
-                "
-              />
-            </motion.div>
-          ))}
+          {photo.title}
+        </p>
+      </div>
+    </motion.div>
+  );
+})}
         </div>
 
         <div

@@ -42,7 +42,10 @@ function Admin() {
     try {
       setLoading(true);
 
-      const q = query(collection(db, "rsvps"), orderBy("createdAt", "desc"));
+      const q = query(
+        collection(db, "rsvps"),
+        orderBy("createdAt", "desc")
+      );
 
       const snapshot = await getDocs(q);
 
@@ -66,14 +69,18 @@ function Admin() {
   }, [authorized]);
 
   const deleteGuest = async (id) => {
-    const confirmDelete = window.confirm("Удалить этого гостя?");
+    const confirmDelete = window.confirm(
+      "Удалить этого гостя?"
+    );
 
     if (!confirmDelete) return;
 
     try {
       await deleteDoc(doc(db, "rsvps", id));
 
-      setGuests((prev) => prev.filter((guest) => guest.id !== id));
+      setGuests((prev) =>
+        prev.filter((guest) => guest.id !== id)
+      );
     } catch (error) {
       console.error("Ошибка удаления:", error);
     }
@@ -90,8 +97,7 @@ function Admin() {
           px-5
         "
         style={{
-          background: "linear-gradient(180deg,#EEF3EA,#8FAF96)",
-          fontFamily: "'Cormorant Garamond', serif",
+          background: "#334434",
         }}
       >
         <form
@@ -104,8 +110,8 @@ function Admin() {
             text-center
           "
           style={{
-            background: "#fffdf9",
-            boxShadow: "0 25px 60px rgba(0,0,0,0.15)",
+            background: "#FFFFFF",
+            boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
           }}
         >
           <h1
@@ -114,7 +120,7 @@ function Admin() {
               mb-8
             "
             style={{
-              color: "#53675B",
+              color: "#334434",
             }}
           >
             Админка
@@ -124,7 +130,9 @@ function Admin() {
             type="password"
             placeholder="Введите пароль"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
             className="
               w-full
               rounded-xl
@@ -134,8 +142,8 @@ function Admin() {
               mb-5
             "
             style={{
-              background: "#F5F1EA",
-              border: "1px solid #E8D8C4",
+              background: "#FFFFFF",
+              border: "1px solid #D8D8D8",
               fontSize: "18px",
             }}
           />
@@ -148,8 +156,8 @@ function Admin() {
               py-3
             "
             style={{
-              background: "#53675B",
-              color: "#fff",
+              background: "#334434",
+              color: "#FFFFFF",
               fontSize: "20px",
             }}
           >
@@ -159,9 +167,14 @@ function Admin() {
       </div>
     );
   }
-  const coming = guests.filter((guest) => guest.attendance === "Да");
 
-  const notComing = guests.filter((guest) => guest.attendance === "Нет");
+  const coming = guests.filter(
+    (guest) => guest.attendance === "Да"
+  );
+
+  const notComing = guests.filter(
+    (guest) => guest.attendance === "Нет"
+  );
 
   return (
     <div
@@ -171,7 +184,7 @@ function Admin() {
         py-20
       "
       style={{
-        background: "linear-gradient(180deg,#EEF3EA,#8FAF96)",
+        background: "#334434",
         fontFamily: "'Cormorant Garamond', serif",
       }}
     >
@@ -196,7 +209,7 @@ function Admin() {
               text-center
             "
             style={{
-              color: "#53675B",
+              color: "#FFFFFF",
             }}
           >
             Список гостей венчания
@@ -219,13 +232,16 @@ function Admin() {
                 py-3
               "
               style={{
-                background: "#53675B",
-                color: "#fff",
+                background: "#FFFFFF",
+                color: "#334434",
+                border: "2px solid #334434",
                 fontSize: "18px",
                 opacity: loading ? 0.6 : 1,
               }}
             >
-              {loading ? "Обновление..." : "Обновить список"}
+              {loading
+                ? "Обновление..."
+                : "Обновить список"}
             </button>
 
             <button
@@ -236,8 +252,9 @@ function Admin() {
                 py-3
               "
               style={{
-                background: "#D89A9A",
-                color: "#fff",
+                background: "#FFFFFF",
+                color: "#334434",
+                border: "2px solid #334434",
                 fontSize: "18px",
               }}
             >
@@ -253,15 +270,15 @@ function Admin() {
             gap-6
           "
         >
-          {/* Придут */}
-
+                    {/* Придут */}
           <div
             className="
               rounded-3xl
               p-8
             "
             style={{
-              background: "#fffdf9",
+              background: "#FFFFFF",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
             }}
           >
             <h2
@@ -270,13 +287,20 @@ function Admin() {
                 mb-5
               "
               style={{
-                color: "#53675B",
+                color: "#334434",
               }}
             >
               ✅ Придут
             </h2>
 
-            <p className="text-xl mb-5">Всего: {coming.length}</p>
+            <p
+              className="text-xl mb-5"
+              style={{
+                color: "#334434",
+              }}
+            >
+              Всего: {coming.length}
+            </p>
 
             {coming.map((guest) => (
               <div
@@ -292,7 +316,7 @@ function Admin() {
                 <p
                   className="text-lg"
                   style={{
-                    color: "#6B625A",
+                    color: "#334434",
                   }}
                 >
                   {guest.name}
@@ -306,8 +330,9 @@ function Admin() {
                     py-1
                   "
                   style={{
-                    background: "#D89A9A",
-                    color: "#fff",
+                    background: "#FFFFFF",
+                    color: "#B94A48",
+                    border: "1px solid #B94A48",
                   }}
                 >
                   Удалить
@@ -317,14 +342,14 @@ function Admin() {
           </div>
 
           {/* Не придут */}
-
           <div
             className="
               rounded-3xl
               p-8
             "
             style={{
-              background: "#fffdf9",
+              background: "#FFFFFF",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
             }}
           >
             <h2
@@ -333,13 +358,20 @@ function Admin() {
                 mb-5
               "
               style={{
-                color: "#53675B",
+                color: "#334434",
               }}
             >
               ❌ Не придут
             </h2>
 
-            <p className="text-xl mb-5">Всего: {notComing.length}</p>
+            <p
+              className="text-xl mb-5"
+              style={{
+                color: "#334434",
+              }}
+            >
+              Всего: {notComing.length}
+            </p>
 
             {notComing.map((guest) => (
               <div
@@ -355,7 +387,7 @@ function Admin() {
                 <p
                   className="text-lg"
                   style={{
-                    color: "#6B625A",
+                    color: "#334434",
                   }}
                 >
                   {guest.name}
@@ -369,8 +401,9 @@ function Admin() {
                     py-1
                   "
                   style={{
-                    background: "#D89A9A",
-                    color: "#fff",
+                    background: "#FFFFFF",
+                    color: "#B94A48",
+                    border: "1px solid #B94A48",
                   }}
                 >
                   Удалить

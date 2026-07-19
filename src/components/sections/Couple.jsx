@@ -7,12 +7,12 @@ function Couple() {
     <section
       className="
         relative
-        min-h-[700px]
+        min-h-[500px]
         flex
         items-center
         justify-center
         overflow-hidden
-        pt-10
+        pt-0
         pb-0
         px-5
       "
@@ -21,36 +21,38 @@ function Couple() {
       {/* Основной блок */}
       <div
         className="
-    relative
-    w-[140%]
-    max-w-[1400px]
-    min-h-[900px]
+        relative
+        w-[140%]
+        max-w-[1400px]
+        min-h-[750px]
 
-    md:w-full
-    md:min-h-[1050px]
+        md:w-full
+        md:min-h-[850px]
 
-    flex
-    items-center
-    justify-center
-  "
+        flex
+        items-center
+        justify-center
+      "
       >
-
         {/* Бумага */}
         <div
           className="
-            absolute
-            top-[-80px]
-            bottom-[-100px]
-left-[-140px]
-right-[-140px]
+          absolute
 
-            md:top-[-60px]
-            md:bottom-[-80px]
-            md:left-[-100px]
-            md:right-[-100px]
+          top-[-220px]
+          bottom-[-240px]
 
-            z-0
-          "
+          left-[-140px]
+          right-[-140px]
+
+          md:top-[-220px]
+          md:bottom-[-240px]
+
+          md:left-[-160px]
+          md:right-[-160px]
+
+          z-0
+        "
           style={{
             backgroundImage: `url(${paperImage})`,
             backgroundSize: "100% 100%",
@@ -69,8 +71,8 @@ right-[-140px]
             text-center
             px-2
             md:px-10
-            py-12
-            md:py-20
+            py-8
+            md:py-12
           "
         >
           <h2
@@ -115,10 +117,9 @@ right-[-140px]
                 z-20
                 p-3
                 shadow-2xl
-
-                w-[125px]
-                sm:w-[190px]
-                md:w-[230px]
+                w-[200px]
+                sm:w-[280px]
+                md:w-[340px]
               "
               style={{
                 background: "#415542",
@@ -130,14 +131,12 @@ right-[-140px]
                 alt="Игнат"
                 className="
                   w-full
-                  h-[160px]
-                  sm:h-[220px]
-                  md:h-[250px]
+                  h-[180px]
+                  sm:h-[240px]
+                  md:h-[280px]
                   object-cover
                 "
               />
-
-
               <p
                 className="
                   mt-3
@@ -171,10 +170,6 @@ right-[-140px]
               />
 
             </div>
-
-
-
-
             {/* Енлик */}
             <div
               className="
@@ -184,10 +179,9 @@ right-[-140px]
                 z-10
                 p-3
                 shadow-2xl
-
-                w-[125px]
-                sm:w-[190px]
-                md:w-[230px]
+                w-[200px]
+                sm:w-[280px]
+                md:w-[340px]
               "
               style={{
                 background: "#415542",
@@ -199,9 +193,9 @@ right-[-140px]
                 alt="Енлик"
                 className="
                   w-full
-                  h-[160px]
-                  sm:h-[220px]
-                  md:h-[250px]
+                  h-[180px]
+                  sm:h-[240px]
+                  md:h-[280px]
                   object-cover
                 "
               />

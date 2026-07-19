@@ -7,7 +7,8 @@ function Footer() {
         relative
         overflow-hidden
         px-5
-        py-24
+        pt-0
+        pb-12
       "
     >
       <motion.div
@@ -48,9 +49,9 @@ function Footer() {
 
         <h2
           className="
-    text-6xl
-    md:text-8xl
-  "
+            text-6xl
+            md:text-8xl
+          "
           style={{
             color: "#FFFDF9",
             fontFamily: "'Great Vibes', cursive",
@@ -114,7 +115,7 @@ function Footer() {
         {/* Автор сайта */}
         <div
           className="
-            mt-20
+            mt-12
             pt-8
           "
           style={{

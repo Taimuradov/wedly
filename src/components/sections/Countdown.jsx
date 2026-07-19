@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import paperImage from "../../images/paper-top.png";
-import colanderImage from "../../images/colander.png";
 
 function Countdown() {
 
@@ -58,34 +57,33 @@ function Countdown() {
 
     <section
       className="
-        relative
-        min-h-[700px]
-        flex
-        items-center
-        justify-center
-        overflow-hidden
-        pt-10
-        pb-0
-        px-5
-      "
+    relative
+    min-h-[650px]
+    flex
+    items-center
+    justify-center
+    overflow-hidden
+    pt-0
+    pb-0
+    px-5
+  "
     >
-
 
       {/* Основной блок */}
       <div
         className="
-          relative
-          w-[95%]
-          max-w-[1400px]
+        relative
+        w-[95%]
+        max-w-[1400px]
 
-          min-h-[900px]
+        min-h-[750px]
 
-          md:w-full
-          md:min-h-[1050px]
+        md:w-full
+        md:min-h-[850px]
 
-          flex
-          items-center
-          justify-center
+        flex
+        items-center
+        justify-center
         "
       >
 
@@ -93,20 +91,22 @@ function Countdown() {
         {/* Бумага */}
         <div
           className="
-            absolute
+          absolute
 
-            top-[-50px]
-            bottom-[-70px]
-            left-[-75px]
-            right-[-75px]
+          top-[-40px]
+          bottom-[-80px]
 
-            md:top-[-60px]
-            md:bottom-[-80px]
-            md:left-[-130px]
-            md:right-[-100px]
+          left-[-75px]
+          right-[-75px]
 
-            z-0
-          "
+          md:top-[-10px]
+          md:bottom-[-20px]
+
+          md:left-[-130px]
+          md:right-[-100px]
+
+          z-0
+        "
           style={{
             backgroundImage: `url(${paperImage})`,
             backgroundSize: "100% 100%",
@@ -129,8 +129,8 @@ function Countdown() {
             sm:px-4
             md:px-10
 
-            py-10
-            md:py-20
+            py-5
+            md:py-10
           "
         >
 
@@ -167,7 +167,6 @@ function Countdown() {
           >
             Осталось совсем немного
           </h2>
-
 
 
 
@@ -276,49 +275,15 @@ function Countdown() {
                   {item.label}
                 </p>
 
-
               </div>
-
 
             ))}
 
-
           </div>
-
-
-
-
-
-          {/* Декор внутри листа */}
-          <div
-            className="
-              mt-6
-              flex
-              justify-center
-            "
-          >
-
-            <img
-              src={colanderImage}
-              alt=""
-              className="
-                w-28
-                sm:w-48
-                md:w-64
-                max-w-full
-                object-contain
-              "
-            />
-
-          </div>
-
-
 
         </div>
 
-
       </div>
-
 
     </section>
 

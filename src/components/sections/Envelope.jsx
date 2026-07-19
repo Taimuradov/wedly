@@ -6,110 +6,198 @@ function Envelope() {
   const [opened, setOpened] = useState(false);
   const [musicStarted, setMusicStarted] = useState(false);
 
+
   const scrollToInvitation = () => {
+    if (opened) return;
+
     setOpened(true);
     setMusicStarted(true);
 
     setTimeout(() => {
       document
         .getElementById("invitation")
-        ?.scrollIntoView({ behavior: "smooth" });
+        ?.scrollIntoView({
+          behavior: "smooth",
+        });
     }, 100);
   };
 
-  // Блокируем прокрутку до открытия конверта
+
+  // Блокируем обычный скролл + ловим жест
   useEffect(() => {
+
     if (!opened) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
 
-    return () => {
-      document.body.style.overflow = "auto";
+
+    let startY = 0;
+
+
+    const handleWheel = (e) => {
+      if (!opened && e.deltaY > 0) {
+        scrollToInvitation();
+      }
     };
+
+
+    const handleTouchStart = (e) => {
+      startY = e.touches[0].clientY;
+    };
+
+
+    const handleTouchMove = (e) => {
+      const currentY = e.touches[0].clientY;
+
+
+      // свайп вверх
+      if (!opened && startY - currentY > 40) {
+        scrollToInvitation();
+      }
+    };
+
+
+    window.addEventListener(
+      "wheel",
+      handleWheel,
+      { passive: true }
+    );
+
+
+    window.addEventListener(
+      "touchstart",
+      handleTouchStart,
+      { passive: true }
+    );
+
+
+    window.addEventListener(
+      "touchmove",
+      handleTouchMove,
+      { passive: true }
+    );
+
+
+    return () => {
+
+      document.body.style.overflow = "auto";
+
+
+      window.removeEventListener(
+        "wheel",
+        handleWheel
+      );
+
+
+      window.removeEventListener(
+        "touchstart",
+        handleTouchStart
+      );
+
+
+      window.removeEventListener(
+        "touchmove",
+        handleTouchMove
+      );
+
+    };
+
   }, [opened]);
 
-  if (opened) {
-    return <MusicPlayer play={musicStarted} />;
-  }
+
 
   return (
     <>
       <MusicPlayer play={musicStarted} />
-      <section
-        className="
-        fixed
-        inset-0
-        z-50
-        min-h-screen
-        flex
-        items-center
-        justify-center
-        overflow-hidden
-        py-10
-      "
-        style={{
-          background: "#334434",
-        }}
-      >
-        <button
-          onClick={scrollToInvitation}
-          className="
-    relative
-    z-10
-    cursor-pointer
-    transition-transform
-    duration-500
-    hover:scale-105
-  "
-        >
-          <img
-            src={envelopeImage}
-            alt="Конверт"
-            className="
-      w-[340px]
-      sm:w-[460px]
-      md:w-[600px]
-      lg:w-[700px]
-      xl:w-[760px]
-      object-contain
-      drop-shadow-[0_25px_45px_rgba(0,0,0,0.35)]
-      select-none
-    "
-            draggable="false"
-          />
-        </button>
 
-        {/* текст */}
-        <div
+
+      {!opened && (
+        <section
           className="
-          absolute
-          bottom-[10%]
-          left-1/2
-          -translate-x-1/2
-          z-20
-          w-full
-          px-4
-          text-center
-        "
-        >
-          <p
-            className="
-            text-sm
-            sm:text-base
-            md:text-xl
-            tracking-[0.2em]
-            sm:tracking-[0.3em]
-            text-white
+            fixed
+            inset-0
+            z-50
+            min-h-screen
+            flex
+            items-center
+            justify-center
+            overflow-hidden
+            py-10
           "
+          style={{
+            background: "#334434",
+          }}
+        >
+
+          <button
+            onClick={scrollToInvitation}
+            className="
+              relative
+              z-10
+              cursor-pointer
+              transition-transform
+              duration-500
+              hover:scale-105
+            "
           >
-            Нажмите, чтобы открыть приглашение
-          </p>
-        </div>
-      </section>
+
+            <img
+              src={envelopeImage}
+              alt="Конверт"
+              className="
+                w-[340px]
+                sm:w-[460px]
+                md:w-[600px]
+                lg:w-[700px]
+                xl:w-[760px]
+                object-contain
+                drop-shadow-[0_25px_45px_rgba(0,0,0,0.35)]
+                select-none
+              "
+              draggable="false"
+            />
+
+          </button>
+
+
+          {/* текст */}
+          <div
+            className="
+              absolute
+              bottom-[10%]
+              left-1/2
+              -translate-x-1/2
+              z-20
+              w-full
+              px-4
+              text-center
+            "
+          >
+
+            <p
+              className="
+                text-sm
+                sm:text-base
+                md:text-xl
+                tracking-[0.2em]
+                sm:tracking-[0.3em]
+                text-white
+              "
+            >
+              Нажмите, чтобы открыть приглашение
+            </p>
+
+          </div>
+
+
+        </section>
+      )}
+
     </>
   );
 }
+
 
 export default Envelope;

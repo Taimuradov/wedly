@@ -56,11 +56,11 @@ function RSVP() {
     <section
       className="
         relative
-        min-h-screen
         overflow-hidden
         px-5
-        py-24
-      "
+        pt-10
+        pb-0
+    "
     >
       <div
         className="
@@ -112,9 +112,9 @@ function RSVP() {
 
           <h2
             className="
-    text-6xl
-    md:text-7xl
-  "
+              text-6xl
+              md:text-7xl
+            "
             style={{
               color: "#FFFFFF",
 
@@ -364,7 +364,7 @@ function RSVP() {
         className="
           relative
           z-10
-          mt-16
+          mt-40
           flex
           justify-center
           px-5
