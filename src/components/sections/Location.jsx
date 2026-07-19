@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import colanderImage from "../../images/colander.png";
+import colanderImage from "../../images/colander1.png";
 
 function Location() {
   const mapLink =
@@ -101,11 +101,24 @@ function Location() {
           1 проезд Хайрулло Мирзоева 5
         </p>
 
-
+        <p
+          className="
+          mt-8
+          mb-0
+          text-3xl
+        "
+          style={{
+            color: "#3F5148",
+            fontFamily: "'Great Vibes', cursive",
+            fontWeight: "400",
+          }}
+        >
+          Сентябрь
+        </p>
         {/* Календарь */}
         <div
           className="
-            mt-8
+            mt-2
             flex
             justify-center
           "
