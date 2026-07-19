@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import whiteImage from "../../images/white.png";
 
 import { db } from "../../firebase/firebase";
 

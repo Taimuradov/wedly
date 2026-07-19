@@ -143,8 +143,8 @@ function Countdown() {
               mb-5
             "
             style={{
-              color:"#3F5148",
-              fontFamily:"'Cormorant Garamond', serif",
+              color: "#3F5148",
+              fontFamily: "'Cormorant Garamond', serif",
             }}
           >
             До нашей встречи
@@ -160,9 +160,9 @@ function Countdown() {
               mb-8
             "
             style={{
-              color:"#3F5148",
-              fontFamily:"'Great Vibes', cursive",
-              fontWeight:"400",
+              color: "#3F5148",
+              fontFamily: "'Great Vibes', cursive",
+              fontWeight: "400",
             }}
           >
             Осталось совсем немного
@@ -190,22 +190,22 @@ function Countdown() {
             {[
               {
                 value: time.days,
-                label:"ДНЕЙ",
+                label: "ДНЕЙ",
               },
               {
                 value: time.hours,
-                label:"ЧАСОВ",
+                label: "ЧАСОВ",
               },
               {
                 value: time.minutes,
-                label:"МИНУТ",
+                label: "МИНУТ",
               },
               {
                 value: time.seconds,
-                label:"СЕКУНД",
+                label: "СЕКУНД",
               },
 
-            ].map((item,index)=>(
+            ].map((item, index) => (
 
 
               <div
@@ -231,13 +231,13 @@ function Countdown() {
                 style={{
 
                   background:
-                  "linear-gradient(145deg,#fffdf9,#f7f1e8)",
+                    "linear-gradient(145deg,#fffdf9,#f7f1e8)",
 
                   boxShadow:
-                  "0 8px 20px rgba(0,0,0,0.08)",
+                    "0 8px 20px rgba(0,0,0,0.08)",
 
                   border:
-                  "1px solid rgba(232,216,196,0.8)",
+                    "1px solid rgba(232,216,196,0.8)",
 
                 }}
               >
@@ -250,12 +250,12 @@ function Countdown() {
                     md:text-6xl
                   "
                   style={{
-                    color:"#3F5148",
+                    color: "#3F5148",
                     fontFamily:
-                    "'Cormorant Garamond', serif",
+                      "'Cormorant Garamond', serif",
                   }}
                 >
-                  {String(item.value).padStart(2,"0")}
+                  {String(item.value).padStart(2, "0")}
                 </div>
 
 
@@ -268,9 +268,9 @@ function Countdown() {
                     tracking-widest
                   "
                   style={{
-                    color:"#3F5148",
+                    color: "#3F5148",
                     fontFamily:
-                    "'Cormorant Garamond', serif",
+                      "'Cormorant Garamond', serif",
                   }}
                 >
                   {item.label}

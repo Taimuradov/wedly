@@ -18,11 +18,11 @@ function Invitation() {
       "
     >
       {/* Цветочный декор */}
-{/* Верхний декор */}
-<img
-  src={design1}
-  alt=""
-  className="
+      {/* Верхний декор */}
+      <img
+        src={design1}
+        alt=""
+        className="
     absolute
     top-[-190px]
     left-[5px]
@@ -37,13 +37,13 @@ function Invitation() {
     rotate-[-10deg]
     md:rotate-[-15deg]
   "
-/>
+      />
 
-{/* Нижний декор */}
-<img
-  src={design2}
-  alt=""
-  className="
+      {/* Нижний декор */}
+      <img
+        src={design2}
+        alt=""
+        className="
     absolute
     bottom-[-140px]
     right-[15px]
@@ -58,7 +58,7 @@ function Invitation() {
     rotate-[10deg]
     md:rotate-[15deg]
   "
-/>
+      />
       {/* Главный контейнер */}
       <div
         className="
@@ -247,7 +247,7 @@ function Invitation() {
         <ChevronDown size={34} strokeWidth={1.7} color="#FFFFFF" />
       </div>
     </section>
-    
+
   );
 }
 

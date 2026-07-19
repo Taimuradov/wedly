@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import cross from "../../images/cross.png";
 
 const events = [
   {
