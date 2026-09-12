@@ -1,253 +1,115 @@
-import { ChevronDown } from "lucide-react";
 import design1 from "../../assets/design/design1.png";
 import design2 from "../../assets/design/design2.png";
+
+const invitationShape = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 620' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M30 620C13 620 0 607 0 590V190C0 166 14 147 39 141C46 101 75 77 112 73C120 33 156 8 200 8C244 8 280 33 288 73C325 77 354 101 361 141C386 147 400 166 400 190V590C400 607 387 620 370 620H30Z'/%3E%3C/svg%3E")`;
 
 function Invitation() {
   return (
     <section
       id="invitation"
-      className="
-        relative
-        min-h-[100dvh]
-        flex
-        items-center
-        justify-center
-        overflow-hidden
-        py-24
-        px-5
-      "
+      className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-[#49432C] px-5 py-20"
     >
-      {/* Цветочный декор */}
-      {/* Верхний декор */}
       <img
         src={design1}
         alt=""
-        className="
-    absolute
-    top-[-190px]
-    left-[5px]
-    w-72
-
-    md:top-5
-    md:left-0
-    md:w-116
-
-    opacity-80
-    z-20
-    rotate-[-10deg]
-    md:rotate-[-15deg]
-  "
+        className="absolute left-[5px] top-[-190px] z-20 w-72 rotate-[-10deg] opacity-80 md:left-0 md:top-5 md:w-116 md:rotate-[-15deg]"
       />
 
-      {/* Нижний декор */}
       <img
         src={design2}
         alt=""
-        className="
-    absolute
-    bottom-[-140px]
-    right-[15px]
-    w-64
-
-    md:bottom-10
-    md:right-0
-    md:w-114
-
-    opacity-80
-    z-20
-    rotate-[10deg]
-    md:rotate-[15deg]
-  "
+        className="absolute bottom-[-140px] right-[15px] z-20 w-64 rotate-[10deg] opacity-80 md:bottom-10 md:right-0 md:w-114 md:rotate-[15deg]"
       />
-      {/* Главный контейнер */}
-      <div
-        className="
-    relative
-    z-10
-    w-full
-    max-w-xl
-  "
-      >
-        {/* Лист приглашения */}
+
+      <div className="relative z-10 w-full max-w-xl">
         <div
-          className="
-    relative
-    z-10
-    w-full
-    min-h-[520px]
-    flex
-    flex-col
-    items-center
-    justify-center
-    text-center
-    px-6
-    pt-12
-    pb-10
-    rounded-[25px]
-  "
+          className="relative flex min-h-[500px] w-full flex-col items-center justify-center overflow-hidden px-6 pb-3 pt-10 text-center md:min-h-[550px]"
           style={{
-            background: "#FFFFFF",
-            border: "1px solid rgba(232,216,196,0.8)",
-            boxShadow: "none",
+            background: "#C5B477",
+            boxShadow: "0 14px 30px rgba(63, 27, 20, 0.35)",
+            WebkitMaskImage: invitationShape,
+            maskImage: invitationShape,
+            WebkitMaskSize: "100% 100%",
+            maskSize: "100% 100%",
+            WebkitMaskPosition: "center",
+            maskPosition: "center",
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
           }}
         >
-          {/* Верхняя линия */}
+          {/* Бордовая внутренняя часть и золотая окантовка */}
           <div
-            className="
-              w-24
-              h-[2px]
-              mb-5
-            "
+            className="pointer-events-none absolute inset-[3px]"
             style={{
-              background: "#3F5148",
+              background: "#5A292A",
+              WebkitMaskImage: invitationShape,
+              maskImage: invitationShape,
+              WebkitMaskSize: "100% 100%",
+              maskSize: "100% 100%",
+              WebkitMaskPosition: "center",
+              maskPosition: "center",
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
             }}
           />
 
-          {/* Заголовок */}
-          <div className="mb-5 text-center">
-            <p
-              className="
-      text-xs
-      md:text-sm
-      uppercase
-      tracking-[0.45em]
-    "
-              style={{
-                color: "#3F5148",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              Приглашение
-            </p>
+          <div className="relative z-10">
+            <div className="mx-auto mb-4 h-px w-24 bg-[#C5B477]" />
 
-            <p
-              className="
-      mt-2
-      text-xl
-      md:text-2xl
-      uppercase
-      tracking-[0.3em]
-    "
-              style={{
-                color: "#3F5148",
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: "600",
-              }}
-            >
-              НА
-              <br />
-              Венчание
-            </p>
-          </div>
-          {/* Имена */}
-          <div className="mt-7">
-            <h2
-              className="
-                text-6xl md:text-7xl
-              "
-              style={{
-                fontFamily: "'Great Vibes', cursive",
-                color: "#3F5148",
-                fontWeight: "400",
-              }}
-            >
-              Игната
-            </h2>
+            <div className="mb-4 text-center">
+              <p
+                className="text-xs uppercase tracking-[0.45em] text-[#F2E4BB] md:text-sm"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                Приглашение
+              </p>
 
-            <div
-              className="
-                my-1
-                text-3xl
-              "
-              style={{
-                fontFamily: "'Great Vibes', cursive",
-                color: "#3F5148",
-                fontSize: "48px",
-              }}
-            >
-              и
+              <p
+                className="mt-2 text-lg font-semibold uppercase tracking-[0.3em] text-[#F2E4BB] md:text-xl"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                На
+                <br />
+                Свадьбу
+              </p>
             </div>
 
-            <h2
-              className="
-                text-5xl
-                md:text-6xl
-              "
-              style={{
-                fontFamily: "'Great Vibes', cursive",
-                color: "#3F5148",
-                fontWeight: "400",
-              }}
-            >
-              Енлик
-            </h2>
-          </div>
+            <div className="mt-5">
+              <h2
+                className="text-5xl font-normal text-[#C5B477] md:text-6xl"
+                style={{ fontFamily: "'Great Vibes', cursive" }}
+              >
+                Сергей
+              </h2>
 
-          {/* Дата */}
-          <p
-            className="
-    mt-7
-    text-lg
-    md:text-xl
-    leading-relaxed
-    max-w-[280px]
-  "
-            style={{
-              color: "#3F5148",
-              fontFamily: "'Cormorant Garamond', serif",
-            }}
-          >
-            Будем рады провести этот особенный день вместе с вами
-          </p>
-          {/* Нижняя линия */}
-          <div
-            className="
-              w-24
-              h-[2px]
-              mt-8
-            "
-            style={{
-              background: "#3F5148",
-            }}
-          />
+              <div
+                className="my-1 text-4xl text-[#C5B477]"
+                style={{ fontFamily: "'Great Vibes', cursive" }}
+              >
+                и
+              </div>
+
+              <h2
+                className="text-4xl font-normal text-[#C5B477] md:text-5xl"
+                style={{ fontFamily: "'Great Vibes', cursive" }}
+              >
+                Мария
+              </h2>
+            </div>
+
+            <p
+              className="mx-auto mt-5 max-w-[310px] text-base leading-relaxed text-[#F2E4BB] md:text-lg"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            >
+              «Приглашаем вас разделить с нами радость этого дня и стать частью
+              нашей истории».
+            </p>
+
+            <div className="mx-auto mt-3 h-px w-24 bg-[#C5B477]" />
+          </div>
         </div>
       </div>
-
-      {/* Подсказка прокрутки */}
-      <div
-        className="
-    absolute
-    bottom-0
-    left-1/2
-    -translate-x-1/2
-    z-30
-    flex
-    flex-col
-    items-center
-    animate-bounce
-    pointer-events-none
-  "
-      >
-        <span
-          className="
-      mb-2
-      text-xs
-      md:text-sm
-      tracking-[0.3em]
-      uppercase
-    "
-          style={{
-            color: "#FFFFFF",
-            fontFamily: "'Cormorant Garamond', serif",
-          }}
-        >
-          Листайте вниз
-        </span>
-
-        <ChevronDown size={34} strokeWidth={1.7} color="#FFFFFF" />
-      </div>
     </section>
-
   );
 }
 

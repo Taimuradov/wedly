@@ -1,294 +1,131 @@
-import { useEffect, useMemo, useState } from "react";
-import paperImage from "../../images/paper-top.png";
+import { useEffect, useState } from "react";
 
-function Countdown() {
+const targetDate = new Date(2026, 9, 10, 12, 0, 0);
 
-  const targetDate = useMemo(
-    () => new Date("2026-09-05T12:00:00+05:00"),
-    []
-  );
+function calculateTime() {
+  const difference = targetDate.getTime() - Date.now();
 
-
-  const calculateTime = () => {
-    const now = new Date();
-
-    const difference = targetDate.getTime() - now.getTime();
-
-
-    if (difference <= 0) {
-      return {
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-      };
-    }
-
-
-    const totalSeconds = Math.floor(difference / 1000);
-
-
+  if (difference <= 0) {
     return {
-      days: Math.floor(totalSeconds / 86400),
-      hours: Math.floor((totalSeconds % 86400) / 3600),
-      minutes: Math.floor((totalSeconds % 3600) / 60),
-      seconds: totalSeconds % 60,
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
     };
+  }
+
+  const totalSeconds = Math.floor(difference / 1000);
+
+  return {
+    days: Math.floor(totalSeconds / 86400),
+    hours: Math.floor((totalSeconds % 86400) / 3600),
+    minutes: Math.floor((totalSeconds % 3600) / 60),
+    seconds: totalSeconds % 60,
   };
-
-
-  const [time, setTime] = useState(calculateTime());
-
-
-  useEffect(() => {
-
-    const timer = setInterval(() => {
-      setTime(calculateTime());
-    }, 1000);
-
-
-    return () => clearInterval(timer);
-
-  }, []);
-
-
-
-  return (
-
-    <section
-      className="
-    relative
-    min-h-[650px]
-    flex
-    items-center
-    justify-center
-    overflow-hidden
-    pt-0
-    pb-0
-    px-5
-  "
-    >
-
-      {/* Основной блок */}
-      <div
-        className="
-        relative
-        w-[95%]
-        max-w-[1400px]
-
-        min-h-[750px]
-
-        md:w-full
-        md:min-h-[850px]
-
-        flex
-        items-center
-        justify-center
-        "
-      >
-
-
-        {/* Бумага */}
-        <div
-          className="
-          absolute
-
-          top-[-40px]
-          bottom-[-80px]
-
-          left-[-75px]
-          right-[-75px]
-
-          md:top-[-10px]
-          md:bottom-[-20px]
-
-          md:left-[-130px]
-          md:right-[-100px]
-
-          z-0
-        "
-          style={{
-            backgroundImage: `url(${paperImage})`,
-            backgroundSize: "100% 100%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
-
-
-
-        {/* Контент */}
-        <div
-          className="
-            relative
-            z-10
-            w-full
-            text-center
-
-            px-1
-            sm:px-4
-            md:px-10
-
-            py-5
-            md:py-10
-          "
-        >
-
-
-          <p
-            className="
-              text-sm
-              tracking-[0.45em]
-              uppercase
-              mb-5
-            "
-            style={{
-              color: "#3F5148",
-              fontFamily: "'Cormorant Garamond', serif",
-            }}
-          >
-            До нашей встречи
-          </p>
-
-
-
-          <h2
-            className="
-              text-4xl
-              sm:text-5xl
-              md:text-7xl
-              mb-8
-            "
-            style={{
-              color: "#3F5148",
-              fontFamily: "'Great Vibes', cursive",
-              fontWeight: "400",
-            }}
-          >
-            Осталось совсем немного
-          </h2>
-
-
-
-
-          {/* Таймер */}
-          <div
-            className="
-              grid
-              grid-cols-2
-              md:grid-cols-4
-
-              gap-3
-              sm:gap-6
-
-              max-w-3xl
-              mx-auto
-            "
-          >
-
-            {[
-              {
-                value: time.days,
-                label: "ДНЕЙ",
-              },
-              {
-                value: time.hours,
-                label: "ЧАСОВ",
-              },
-              {
-                value: time.minutes,
-                label: "МИНУТ",
-              },
-              {
-                value: time.seconds,
-                label: "СЕКУНД",
-              },
-
-            ].map((item, index) => (
-
-
-              <div
-                key={index}
-                className="
-                  w-24
-                  h-24
-
-                  sm:w-32
-                  sm:h-32
-
-                  md:w-36
-                  md:h-36
-
-                  mx-auto
-
-                  rounded-full
-                  flex
-                  flex-col
-                  items-center
-                  justify-center
-                "
-                style={{
-
-                  background:
-                    "linear-gradient(145deg,#fffdf9,#f7f1e8)",
-
-                  boxShadow:
-                    "0 8px 20px rgba(0,0,0,0.08)",
-
-                  border:
-                    "1px solid rgba(232,216,196,0.8)",
-
-                }}
-              >
-
-
-                <div
-                  className="
-                    text-3xl
-                    sm:text-5xl
-                    md:text-6xl
-                  "
-                  style={{
-                    color: "#3F5148",
-                    fontFamily:
-                      "'Cormorant Garamond', serif",
-                  }}
-                >
-                  {String(item.value).padStart(2, "0")}
-                </div>
-
-
-
-                <p
-                  className="
-                    mt-1
-                    text-[10px]
-                    sm:text-xs
-                    tracking-widest
-                  "
-                  style={{
-                    color: "#3F5148",
-                    fontFamily:
-                      "'Cormorant Garamond', serif",
-                  }}
-                >
-                  {item.label}
-                </p>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  );
 }
 
+function Countdown() {
+  const [time, setTime] = useState(() => calculateTime());
+
+  useEffect(() => {
+    const updateTimer = () => {
+      setTime(calculateTime());
+    };
+
+    updateTimer();
+
+    const timer = window.setInterval(updateTimer, 1000);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, []);
+
+  const timerItems = [
+    { value: time.days, label: "ДНЕЙ", color: "#49432C" },
+    { value: time.hours, label: "ЧАСОВ", color: "#6E6848" },
+    { value: time.minutes, label: "МИНУТ", color: "#49432C" },
+    { value: time.seconds, label: "СЕКУНД", color: "#6E6848" },
+  ];
+
+  const cardShape =
+    "polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px)";
+
+  return (
+    <section className="relative overflow-hidden bg-[#5A292A] px-5 py-16 md:py-20">
+      <div className="relative mx-auto w-full max-w-[1400px]">
+        <div className="relative z-10 w-full px-1 text-center sm:px-4 md:px-10">
+          <p
+            className="mb-5 text-sm uppercase tracking-[0.45em] text-[#C5B477]"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            Совсем скоро
+          </p>
+
+          <h2
+            className="mb-10 text-5xl font-normal text-[#F2E4BB] sm:text-6xl md:text-7xl"
+            style={{ fontFamily: "'Great Vibes', cursive" }}
+          >
+            Мы скажем друг другу «да»
+          </h2>
+
+          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+            {timerItems.map((item) => (
+              <div
+                key={item.label}
+                className="relative mx-auto h-28 w-full max-w-[145px] sm:h-32 sm:max-w-[160px] md:h-40 md:max-w-[175px]"
+                style={{
+                  background: "#C5B477",
+                  clipPath: cardShape,
+                  boxShadow: "0 10px 22px rgba(63, 27, 20, 0.3)",
+                }}
+              >
+                {/* Оливковая внутренняя часть */}
+                <div
+                  className="absolute inset-[2px]"
+                  style={{
+                    background: item.color,
+                    clipPath: cardShape,
+                  }}
+                />
+
+                {/* Тонкий золотой декор */}
+                <div
+                  className="pointer-events-none absolute inset-[7px]"
+                  style={{
+                    border: "1px solid rgba(197, 180, 119, 0.7)",
+                    clipPath: cardShape,
+                  }}
+                />
+
+                <div className="relative z-10 flex h-full flex-col items-center justify-center">
+                  <span className="mb-1 text-sm text-[#C5B477]">◆</span>
+
+                  <div
+                    className="text-4xl leading-none text-[#F2E4BB] sm:text-5xl md:text-6xl"
+                    style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                  >
+                    {String(item.value).padStart(2, "0")}
+                  </div>
+
+                  <p
+                    className="mt-2 text-[10px] tracking-[0.2em] text-[#C5B477] sm:text-xs"
+                    style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                  >
+                    {item.label}
+                  </p>
+
+                  <span className="mt-1 text-[9px] text-[#C5B477]">◆</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-12 h-px w-28 bg-[#C5B477]" />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default Countdown;

@@ -2,15 +2,7 @@ import { motion } from "framer-motion";
 
 function Footer() {
   return (
-    <footer
-      className="
-        relative
-        overflow-hidden
-        px-5
-        pt-0
-        pb-12
-      "
-    >
+    <footer className="relative overflow-hidden bg-[#5A292A] px-5 pb-12 pt-16">
       <motion.div
         initial={{
           opacity: 0,
@@ -26,21 +18,11 @@ function Footer() {
         viewport={{
           once: true,
         }}
-        className="
-          mx-auto
-          max-w-3xl
-          text-center
-        "
+        className="mx-auto max-w-3xl text-center"
       >
         <p
-          className="
-            text-sm
-            uppercase
-            tracking-[0.45em]
-            mb-6
-          "
+          className="mb-6 text-sm uppercase tracking-[0.45em] text-[#C5B477]"
           style={{
-            color: "#E8D8C4",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
@@ -48,51 +30,28 @@ function Footer() {
         </p>
 
         <h2
-          className="
-            text-6xl
-            md:text-8xl
-          "
+          className="text-6xl font-normal text-[#F2E4BB] md:text-8xl"
           style={{
-            color: "#FFFDF9",
             fontFamily: "'Great Vibes', cursive",
-            fontWeight: "400",
           }}
         >
           Игнат & Енлик
         </h2>
 
         <p
-          className="
-            mt-6
-            text-xl
-            leading-relaxed
-          "
+          className="mt-6 text-xl leading-relaxed text-[#F2E4BB]"
           style={{
-            color: "#F5F1EA",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
-          Спасибо, что разделите этот особенный день вместе с нами.
+          Спасибо, что разделите с нами этот особенный день.
         </p>
 
-        <div
-          className="
-            mx-auto
-            my-10
-            w-28
-            h-[2px]
-          "
-          style={{
-            background: "#DFA3A3",
-          }}
-        />
+        <div className="mx-auto my-10 h-px w-28 bg-[#C5B477]" />
 
         <p
-          className="
-            text-lg
-          "
+          className="text-lg text-[#F2E4BB]"
           style={{
-            color: "#FFFDF9",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
@@ -100,35 +59,24 @@ function Footer() {
         </p>
 
         <p
-          className="
-            mt-3
-            text-base
-          "
+          className="mt-3 text-base text-[#C5B477]"
           style={{
-            color: "#E8D8C4",
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
-          С любовью и благодарностью 🤍
+          С любовью и благодарностью
         </p>
 
         {/* Автор сайта */}
         <div
-          className="
-            mt-12
-            pt-8
-          "
+          className="mt-12 pt-8"
           style={{
-            borderTop: "1px solid rgba(255,255,255,0.2)",
+            borderTop: "1px solid rgba(197, 180, 119, 0.45)",
           }}
         >
           <p
-            className="
-              text-sm
-              leading-relaxed
-            "
+            className="text-sm leading-relaxed text-[#F2E4BB]/80"
             style={{
-              color: "rgba(255,255,255,0.75)",
               fontFamily: "'Cormorant Garamond', serif",
             }}
           >
@@ -138,12 +86,8 @@ function Footer() {
           </p>
 
           <p
-            className="
-              mt-3
-              text-lg
-            "
+            className="mt-3 text-lg text-[#F2E4BB]"
             style={{
-              color: "#FFFDF9",
               fontFamily: "'Cormorant Garamond', serif",
             }}
           >
@@ -151,12 +95,8 @@ function Footer() {
           </p>
 
           <p
-            className="
-              mt-2
-              text-xl
-            "
+            className="mt-2 text-xl text-[#C5B477]"
             style={{
-              color: "#DFA3A3",
               fontFamily: "'Cormorant Garamond', serif",
             }}
           >

@@ -1,314 +1,135 @@
-import ignatPhoto from "../../assets/gallery/photo5.jpg";
-import enlikPhoto from "../../assets/gallery/photo6.jpg";
-import paperImage from "../../images/paper-top.png";
+import photo1 from "../../assets/gallery/photo5.jpg";
+import photo2 from "../../assets/gallery/photo6.jpg";
 
 function Couple() {
   return (
-    <section
-      className="
-        relative
-        min-h-[500px]
-        flex
-        items-center
-        justify-center
-        overflow-hidden
-        pt-0
-        pb-0
-        px-5
-      "
-    >
-
-      {/* Основной блок */}
+    <section className="relative overflow-hidden bg-[#5A292A] px-5 py-12 md:py-16">
       <div
-        className="
-        relative
-        w-[140%]
-        max-w-[1400px]
-        min-h-[750px]
-
-        md:w-full
-        md:min-h-[850px]
-
-        flex
-        items-center
-        justify-center
-      "
+        className="relative mx-auto max-w-3xl overflow-hidden px-5 py-8 sm:px-8 md:px-12 md:py-10"
+        style={{
+          background: "#49432C",
+          border: "1px solid #C5B477",
+          borderRadius: "30px",
+          boxShadow: "0 18px 35px rgba(63, 27, 20, 0.32)",
+        }}
       >
-        {/* Бумага */}
         <div
-          className="
-          absolute
-
-          top-[-220px]
-          bottom-[-240px]
-
-          left-[-140px]
-          right-[-140px]
-
-          md:top-[-220px]
-          md:bottom-[-240px]
-
-          md:left-[-160px]
-          md:right-[-160px]
-
-          z-0
-        "
+          className="pointer-events-none absolute inset-3"
           style={{
-            backgroundImage: `url(${paperImage})`,
-            backgroundSize: "100% 100%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
+            border: "1px solid rgba(197, 180, 119, 0.65)",
+            borderRadius: "22px",
           }}
         />
 
-
-        {/* Контент */}
-        <div
-          className="
-            relative
-            z-10
-            w-full
-            text-center
-            px-2
-            md:px-10
-            py-8
-            md:py-12
-          "
-        >
-          <h2
-            className="
-              text-4xl
-              md:text-7xl
-              mb-12
-              md:mb-16
-            "
-            style={{
-              color: "#53675B",
-              fontFamily: "'Cormorant Garamond', serif",
-            }}
+        <div className="relative z-10">
+          <p
+            className="mb-1 text-center text-xs uppercase tracking-[0.4em] text-[#F2E4BB]"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            Два сердца
+            Наша свадьба
+          </p>
+
+          <h2
+            className="mb-7 text-center text-5xl text-[#F2E4BB] md:text-7xl"
+            style={{ fontFamily: "'Great Vibes', cursive" }}
+          >
+            Начало навсегда
           </h2>
 
-
-
-          {/* Фото */}
-          <div
-            className="
-              relative
-              flex
-              justify-center
-              items-center
-              mb-12
-              md:mb-14
-              h-[260px]
-              md:h-[340px]
-              -space-x-1
-            "
-          >
-
-
-            {/* Игнат */}
+          <div className="grid grid-cols-2 items-center gap-5 sm:gap-8">
+            {/* Левая рамка наклонена от центра, фото — к центру */}
             <div
-              className="
-                relative
-                -translate-y-4
-                rotate-[-8deg]
-                z-20
-                p-3
-                shadow-2xl
-                w-[200px]
-                sm:w-[280px]
-                md:w-[340px]
-              "
+              className="relative z-10 -rotate-3 bg-[#E7E1D6] p-3"
               style={{
-                background: "#415542",
+                border: "1px solid #C5B477",
+                borderRadius: "10px",
+                boxShadow: "0 10px 18px rgba(63, 27, 20, 0.28)",
               }}
             >
-
               <img
-                src={ignatPhoto}
-                alt="Игнат"
-                className="
-                  w-full
-                  h-[180px]
-                  sm:h-[240px]
-                  md:h-[280px]
-                  object-cover
-                "
-              />
-              <p
-                className="
-                  mt-3
-                  text-xl
-                  md:text-3xl
-                "
+                src={photo1}
+                alt="Момент нашей истории"
+                className="aspect-square w-full rotate-[5deg] scale-[0.96] object-cover"
                 style={{
-                  fontFamily: "'Great Vibes', cursive",
-                  color: "#FFFFFF",
-                }}
-              >
-                Игнат
-              </p>
-
-
-              <div
-                className="
-                  absolute
-                  top-[-10px]
-                  left-1/2
-                  -translate-x-1/2
-                  w-16
-                  h-5
-                  rotate-[-8deg]
-                "
-                style={{
-                  background: "rgba(245,235,215,.75)",
-                  backdropFilter: "blur(2px)",
-                  border: "1px solid rgba(255,255,255,.3)",
+                  border: "1px solid #C5B477",
+                  borderRadius: "5px",
                 }}
               />
-
-            </div>
-            {/* Енлик */}
-            <div
-              className="
-                relative
-                translate-y-5
-                rotate-[7deg]
-                z-10
-                p-3
-                shadow-2xl
-                w-[200px]
-                sm:w-[280px]
-                md:w-[340px]
-              "
-              style={{
-                background: "#415542",
-              }}
-            >
-
-              <img
-                src={enlikPhoto}
-                alt="Енлик"
-                className="
-                  w-full
-                  h-[180px]
-                  sm:h-[240px]
-                  md:h-[280px]
-                  object-cover
-                "
-              />
-
-
-              <p
-                className="
-                  mt-3
-                  text-xl
-                  md:text-3xl
-                "
-                style={{
-                  fontFamily: "'Great Vibes', cursive",
-                  color: "#FFFFFF",
-                }}
-              >
-                Енлик
-              </p>
-
-
-              <div
-                className="
-                  absolute
-                  top-[-10px]
-                  left-1/2
-                  -translate-x-1/2
-                  w-16
-                  h-5
-                  rotate-[8deg]
-                "
-                style={{
-                  background: "rgba(245,235,215,.75)",
-                  backdropFilter: "blur(2px)",
-                  border: "1px solid rgba(255,255,255,.3)",
-                }}
-              />
-
             </div>
 
+            {/* Дата */}
+            <div className="text-center">
+              <p
+                className="text-6xl leading-[0.85] text-[#F2E4BB] sm:text-7xl md:text-8xl"
+                style={{ fontFamily: "'Great Vibes', cursive" }}
+              >
+                10
+              </p>
 
+              <p
+                className="mt-3 text-3xl uppercase tracking-[0.1em] text-[#F2E4BB] sm:text-4xl md:text-5xl"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                октября
+              </p>
+
+              <p
+                className="mt-1 text-4xl text-[#F2E4BB] sm:text-5xl"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                2026
+              </p>
+            </div>
+
+            {/* Текст */}
+            <div className="text-center">
+              <p
+                className="text-3xl leading-tight text-[#F2E4BB] sm:text-4xl md:text-5xl"
+                style={{ fontFamily: "'Great Vibes', cursive" }}
+              >
+                Две души
+                <br />— один путь
+              </p>
+            </div>
+
+            {/* Правая рамка наклонена от центра, фото — к центру */}
+            <div
+              className="relative z-10 rotate-3 bg-[#E7E1D6] p-3"
+              style={{
+                border: "1px solid #C5B477",
+                borderRadius: "10px",
+                boxShadow: "0 10px 18px rgba(63, 27, 20, 0.28)",
+              }}
+            >
+              <img
+                src={photo2}
+                alt="Наша любовь"
+                className="aspect-square w-full -rotate-[5deg] scale-[0.96] object-cover"
+                style={{
+                  border: "1px solid #C5B477",
+                  borderRadius: "5px",
+                }}
+              />
+            </div>
           </div>
 
+          <div className="mx-auto mt-8 h-px w-20 bg-[#C5B477]" />
 
-
-
-
-          {/* Стих */}
-          <div
-            className="
-              mt-8
-              md:mt-12
-              max-w-xl
-              mx-auto
-              px-4
-            "
+          <p
+            className="mx-auto mt-6 max-w-xl text-center text-base italic leading-relaxed text-[#F2E4BB] md:text-lg"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
+            «И нитка, втрое скрученная, нескоро порвётся.»
+          </p>
 
-            <p
-              className="
-                text-lg
-                md:text-2xl
-                leading-relaxed
-                italic
-              "
-              style={{
-                color: "#53675B",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              «Итак, они уже не двое, но одна плоть; итак, что Бог сочетал,
-              того человек да не разлучает»
-            </p>
-
-
-            <span
-              className="
-                block
-                mt-5
-              "
-              style={{
-                color: "#53675B",
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
-            >
-              Матфея 19:6
-            </span>
-
-
-          </div>
-
-
-
-
-          {/* Линия */}
-          <div
-            className="
-              mx-auto
-              mt-10
-              w-28
-              h-[2px]
-            "
-            style={{
-              background: "#53675B",
-            }}
-          />
-
-
+          <p
+            className="mt-2 text-center text-sm text-[#F2E4BB]"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            Екклесиаст 4:12
+          </p>
         </div>
-
-
       </div>
-
-
     </section>
   );
 }
