@@ -3,9 +3,8 @@ import Invitation from "./components/sections/Invitation";
 import Couple from "./components/sections/Couple";
 import Countdown from "./components/sections/Countdown";
 import Schedule from "./components/sections/Schedule";
-import Location from "./components/sections/Location";
-import Gallery from "./components/sections/Gallery";
 import RSVP from "./components/sections/RSVP";
+import Wishes from "./components/sections/Wishes";
 import Footer from "./components/sections/Footer";
 
 import Admin from "./components/Admin/Admin";
@@ -21,18 +20,16 @@ function App() {
     <>
       <Envelope />
 
-      <main id="invitation">
-        <Invitation />
-
+      <main>
         <Couple />
+
+        <Invitation />
 
         <Countdown />
 
         <Schedule />
 
-        <Location />
-
-        <Gallery />
+        <Wishes />
 
         <RSVP />
 
