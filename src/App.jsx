@@ -6,6 +6,7 @@ import Schedule from "./components/sections/Schedule";
 import RSVP from "./components/sections/RSVP";
 import Wishes from "./components/sections/Wishes";
 import Footer from "./components/sections/Footer";
+import DressCode from "./components/sections/DressCode";
 
 import Admin from "./components/Admin/Admin";
 
@@ -26,6 +27,8 @@ function App() {
         <Invitation />
 
         <Countdown />
+
+        <DressCode />
 
         <Schedule />
 

@@ -79,7 +79,7 @@ function Invitation() {
                 className="text-5xl font-normal text-[#C5B477] md:text-6xl"
                 style={{ fontFamily: "'Great Vibes', cursive" }}
               >
-                Сергей
+                Сиродж
               </h2>
 
               <div

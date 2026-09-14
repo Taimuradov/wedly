@@ -3,7 +3,10 @@ import photo2 from "../../assets/gallery/photo6.jpg";
 
 function Couple() {
   return (
-    <section className="relative overflow-hidden bg-[#5A292A] px-5 py-12 md:py-16">
+    <section
+      id="couple"
+      className="relative overflow-hidden bg-[#5A292A] px-5 py-12 md:py-16"
+    >
       <div
         className="relative mx-auto max-w-3xl overflow-hidden px-5 py-8 sm:px-8 md:px-12 md:py-10"
         style={{

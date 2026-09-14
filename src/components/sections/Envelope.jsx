@@ -6,17 +6,11 @@ function Envelope() {
   const [opened, setOpened] = useState(false);
   const [musicStarted, setMusicStarted] = useState(false);
 
-  const scrollToInvitation = () => {
+  const openInvitation = () => {
     if (opened) return;
 
     setOpened(true);
     setMusicStarted(true);
-
-    setTimeout(() => {
-      document.getElementById("invitation")?.scrollIntoView({
-        behavior: "smooth",
-      });
-    }, 100);
   };
 
   useEffect(() => {
@@ -30,7 +24,7 @@ function Envelope() {
 
     const handleWheel = (e) => {
       if (!opened && e.deltaY > 0) {
-        scrollToInvitation();
+        openInvitation();
       }
     };
 
@@ -42,7 +36,7 @@ function Envelope() {
       const currentY = e.touches[0].clientY;
 
       if (!opened && startY - currentY > 40) {
-        scrollToInvitation();
+        openInvitation();
       }
     };
 
@@ -80,7 +74,7 @@ function Envelope() {
 
           <button
             type="button"
-            onClick={scrollToInvitation}
+            onClick={openInvitation}
             className="relative z-10 cursor-pointer transition-transform duration-500 hover:scale-105"
             aria-label="Открыть приглашение"
           >

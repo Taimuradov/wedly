@@ -35,7 +35,7 @@ function Footer() {
             fontFamily: "'Great Vibes', cursive",
           }}
         >
-          Игнат & Енлик
+          Сиродж & Мария
         </h2>
 
         <p
@@ -44,7 +44,7 @@ function Footer() {
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
-          Спасибо, что разделите с нами этот особенный день.
+          «С радостью и трепетом ждем вас на нашем празднике.»
         </p>
 
         <div className="mx-auto my-10 h-px w-28 bg-[#C5B477]" />
