@@ -1,5 +1,6 @@
-import photo1 from "../../assets/gallery/photo5.jpg";
-import photo2 from "../../assets/gallery/photo6.jpg";
+import photo1 from "../../assets/gallery/photo1.jpg";
+import photo2 from "../../assets/gallery/photo2.jpg";
+import flo from "../../assets/design/flo.png";
 
 function Couple() {
   return (
@@ -8,7 +9,7 @@ function Couple() {
       className="relative overflow-hidden bg-[#5A292A] px-5 py-12 md:py-16"
     >
       <div
-        className="relative mx-auto max-w-3xl overflow-hidden px-5 py-8 sm:px-8 md:px-12 md:py-10"
+        className="relative mx-auto max-w-3xl overflow-visible px-5 py-8 sm:px-8 md:px-12 md:py-10"
         style={{
           background: "#49432C",
           border: "1px solid #C5B477",
@@ -16,6 +17,14 @@ function Couple() {
           boxShadow: "0 18px 35px rgba(63, 27, 20, 0.32)",
         }}
       >
+        {/* Декоративный цветок сверху справа */}
+        <img
+          src={flo}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute right-[-18px] top-[-58px] z-30 w-[120px] rotate-[8deg] object-contain sm:right-[-25px] sm:top-[-70px] sm:w-[155px] md:right-[-35px] md:top-[-85px] md:w-[190px]"
+        />
+
         <div
           className="pointer-events-none absolute inset-3"
           style={{
@@ -40,9 +49,9 @@ function Couple() {
           </h2>
 
           <div className="grid grid-cols-2 items-center gap-5 sm:gap-8">
-            {/* Левая рамка наклонена от центра, фото — к центру */}
+            {/* Левая фотография */}
             <div
-              className="relative z-10 -rotate-3 bg-[#E7E1D6] p-3"
+              className="relative z-10 -rotate-3"
               style={{
                 border: "1px solid #C5B477",
                 borderRadius: "10px",
@@ -95,9 +104,9 @@ function Couple() {
               </p>
             </div>
 
-            {/* Правая рамка наклонена от центра, фото — к центру */}
+            {/* Правая фотография */}
             <div
-              className="relative z-10 rotate-3 bg-[#E7E1D6] p-3"
+              className="relative z-10 rotate-3"
               style={{
                 border: "1px solid #C5B477",
                 borderRadius: "10px",

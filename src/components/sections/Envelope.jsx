@@ -81,7 +81,7 @@ function Envelope() {
             <img
               src={envelopeImage}
               alt="Конверт"
-              className="w-[340px] select-none object-contain drop-shadow-[0_25px_45px_rgba(63,27,20,0.45)] sm:w-[460px] md:w-[600px] lg:w-[700px] xl:w-[760px]"
+              className="h-[430px] w-[340px] select-none object-contain drop-shadow-[0_25px_45px_rgba(63,27,20,0.45)] sm:h-[520px] sm:w-[460px] md:h-[620px] md:w-[600px] lg:h-[680px] lg:w-[700px] xl:h-[740px] xl:w-[760px]"
               draggable="false"
             />
           </button>

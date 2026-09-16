@@ -21,7 +21,7 @@ const events = [
 
 function Schedule() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#49432C] px-5 py-24">
+    <section className="relative overflow-hidden bg-[#49432C] px-5 pt-12 pb-12">
       <div className="relative z-10 mx-auto max-w-5xl">
         {/* Заголовок */}
         <motion.div
@@ -29,7 +29,7 @@ function Schedule() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-10 text-center"
         >
           <p
             className="mb-5 text-sm uppercase tracking-[0.45em] text-[#C5B477]"
@@ -95,7 +95,7 @@ function Schedule() {
                 </div>
 
                 <p
-                  className="text-sm uppercase tracking-[0.35em] text-[#C5B477]"
+                  className="text-2xl uppercase tracking-[0.35em] text-[#C5B477]"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                   }}
