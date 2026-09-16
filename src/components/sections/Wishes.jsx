@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 function Wishes() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#5A292A] px-5 py-24">
+    <section className="relative min-h-screen overflow-hidden bg-[#49432C] px-5 py-24">
       <div className="relative z-10 mx-auto max-w-3xl">
         {/* Заголовок */}
         <motion.div
@@ -41,7 +41,7 @@ function Wishes() {
           </h2>
         </motion.div>
 
-        {/* Оливковая карточка с пожеланиями */}
+        {/* Бордовая карточка с пожеланиями */}
         <motion.div
           initial={{
             opacity: 0,
@@ -59,7 +59,7 @@ function Wishes() {
           }}
           className="relative overflow-hidden px-8 py-12 text-center md:px-14 md:py-16"
           style={{
-            background: "#49432C",
+            background: "#5A292A",
             border: "1px solid #C5B477",
             borderRadius: "28px",
             boxShadow: "0 14px 30px rgba(63, 27, 20, 0.3)",
@@ -85,7 +85,7 @@ function Wishes() {
                     fontFamily: "'Cormorant Garamond', serif",
                   }}
                 >
-                  Праздник для взрослых
+                  Просим оставить детей дома
                 </h3>
 
                 <p

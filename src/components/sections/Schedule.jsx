@@ -21,7 +21,7 @@ const events = [
 
 function Schedule() {
   return (
-    <section className="relative overflow-hidden bg-[#49432C] px-5 pt-12 pb-12">
+    <section className="relative overflow-hidden bg-[#5A292A] px-5 pt-12 pb-12">
       <div className="relative z-10 mx-auto max-w-5xl">
         {/* Заголовок */}
         <motion.div
@@ -50,7 +50,7 @@ function Schedule() {
           </h2>
         </motion.div>
 
-        {/* Одна общая бордовая карточка расписания */}
+        {/* Одна общая зелёная карточка расписания */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ function Schedule() {
           viewport={{ once: true }}
           className="relative overflow-hidden p-8 text-center md:p-12"
           style={{
-            background: "#5A292A",
+            background: "#49432C",
             border: "1px solid #C5B477",
             borderRadius: "28px",
             boxShadow: "0 14px 30px rgba(63, 27, 20, 0.28)",

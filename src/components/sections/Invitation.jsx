@@ -22,8 +22,10 @@ function Invitation() {
             sm:left-[0]
             md:bottom-[4%]
             md:left-[2%]
-            lg:left-[3%]
-            xl:left-[5%]
+            lg:bottom-[-6%]
+            lg:left-[10%]
+            xl:bottom-[-6%]
+            xl:left-[12%]
           "
         >
           <div
@@ -35,7 +37,14 @@ function Invitation() {
             }}
           >
             <div
-              className="h-[120px] w-[88px] overflow-hidden sm:h-[160px] sm:w-[115px] md:h-[190px] md:w-[145px]"
+              className="
+                h-[120px] w-[88px]
+                overflow-hidden
+                sm:h-[160px] sm:w-[115px]
+                md:h-[190px] md:w-[145px]
+                lg:h-[220px] lg:w-[165px]
+                xl:h-[240px] xl:w-[180px]
+              "
               style={{
                 border: "1px solid #C5B477",
                 borderRadius: "6px",
@@ -62,10 +71,10 @@ function Invitation() {
             sm:top-0
             md:right-[2%]
             md:top-[14%]
-            lg:right-[3%]
-            lg:top-[14%]
-            xl:right-[5%]
-            xl:top-[14%]
+            lg:right-[10%]
+            lg:top-[12%]
+            xl:right-[12%]
+            xl:top-[12%]
           "
         >
           <div
@@ -77,7 +86,14 @@ function Invitation() {
             }}
           >
             <div
-              className="h-[120px] w-[88px] overflow-hidden sm:h-[160px] sm:w-[115px] md:h-[190px] md:w-[145px]"
+              className="
+                h-[160px] w-[120px]
+                overflow-hidden
+                sm:h-[160px] sm:w-[115px]
+                md:h-[190px] md:w-[145px]
+                lg:h-[220px] lg:w-[165px]
+                xl:h-[240px] xl:w-[180px]
+              "
               style={{
                 border: "1px solid #C5B477",
                 borderRadius: "6px",

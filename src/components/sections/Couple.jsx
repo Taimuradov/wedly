@@ -17,7 +17,6 @@ function Couple() {
           boxShadow: "0 18px 35px rgba(63, 27, 20, 0.32)",
         }}
       >
-        {/* Декоративный цветок сверху справа */}
         <img
           src={flo}
           alt=""
@@ -49,7 +48,6 @@ function Couple() {
           </h2>
 
           <div className="grid grid-cols-2 items-center gap-5 sm:gap-8">
-            {/* Левая фотография */}
             <div
               className="relative z-10 -rotate-3"
               style={{
@@ -70,30 +68,43 @@ function Couple() {
             </div>
 
             {/* Дата */}
-            <div className="text-center">
+            <div className="flex flex-col items-center justify-center text-center">
               <p
-                className="text-6xl leading-[0.85] text-[#F2E4BB] sm:text-7xl md:text-8xl"
-                style={{ fontFamily: "'Great Vibes', cursive" }}
+                className="text-[135px] font-light leading-[0.68] tracking-[-0.06em] text-[#F2E4BB] sm:text-[165px] md:text-[190px]"
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                }}
               >
                 10
               </p>
 
+              <div className="mt-7 flex items-center justify-center gap-2">
+                <div className="h-px w-8 bg-[#C5B477]/70 sm:w-11" />
+
+                <div className="h-2 w-2 rotate-45 bg-[#C5B477]" />
+
+                <div className="h-px w-8 bg-[#C5B477]/70 sm:w-11" />
+              </div>
+
               <p
-                className="mt-3 text-3xl uppercase tracking-[0.1em] text-[#F2E4BB] sm:text-4xl md:text-5xl"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                className="mt-5 text-xl uppercase tracking-[0.36em] text-[#C5B477] sm:text-2xl md:text-3xl"
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                }}
               >
                 октября
               </p>
 
               <p
-                className="mt-1 text-4xl text-[#F2E4BB] sm:text-5xl"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                className="mt-1 text-3xl font-light tracking-[0.25em] text-[#F2E4BB] sm:text-4xl md:text-5xl"
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                }}
               >
                 2026
               </p>
             </div>
 
-            {/* Текст */}
             <div className="text-center">
               <p
                 className="text-3xl leading-tight text-[#F2E4BB] sm:text-4xl md:text-5xl"
@@ -104,7 +115,6 @@ function Couple() {
               </p>
             </div>
 
-            {/* Правая фотография */}
             <div
               className="relative z-10 rotate-3"
               style={{
@@ -120,6 +130,13 @@ function Couple() {
                 style={{
                   border: "1px solid #C5B477",
                   borderRadius: "5px",
+                }}
+              />
+
+              <div
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background: "rgba(20, 18, 16, 0.14)",
                 }}
               />
             </div>
@@ -145,5 +162,4 @@ function Couple() {
     </section>
   );
 }
-
 export default Couple;

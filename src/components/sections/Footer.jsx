@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#5A292A] px-5 pb-12 pt-16">
+    <footer className="relative overflow-hidden bg-[#5A292A] px-5 pb-12 pt-20 md:pb-16 md:pt-24">
       <motion.div
         initial={{
           opacity: 0,
@@ -18,10 +18,35 @@ function Footer() {
         viewport={{
           once: true,
         }}
-        className="mx-auto max-w-3xl text-center"
+        className="mx-auto max-w-4xl text-center"
       >
+        {/* Верхний декоративный элемент */}
+        <div className="mb-8 flex items-center justify-center gap-4">
+          <div className="h-px w-12 bg-[#C5B477]/60 sm:w-20" />
+
+          <div
+            className="flex h-9 w-9 items-center justify-center"
+            style={{
+              border: "1px solid rgba(197, 180, 119, 0.7)",
+              transform: "rotate(45deg)",
+            }}
+          >
+            <span
+              className="-rotate-45 text-xl text-[#C5B477]"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+              }}
+            >
+              ♡
+            </span>
+          </div>
+
+          <div className="h-px w-12 bg-[#C5B477]/60 sm:w-20" />
+        </div>
+
+        {/* Заголовок */}
         <p
-          className="mb-6 text-sm uppercase tracking-[0.45em] text-[#C5B477]"
+          className="text-sm uppercase tracking-[0.45em] text-[#C5B477]"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
           }}
@@ -29,53 +54,85 @@ function Footer() {
           До встречи
         </p>
 
-        <h2
-          className="text-6xl font-normal text-[#F2E4BB] md:text-8xl"
-          style={{
-            fontFamily: "'Great Vibes', cursive",
-          }}
-        >
-          Сиродж & Мария
-        </h2>
+        {/* Имена */}
+        <div className="mt-8">
+          <h2
+            className="text-6xl font-normal leading-none text-[#F2E4BB] sm:text-7xl md:text-8xl"
+            style={{
+              fontFamily: "'Great Vibes', cursive",
+            }}
+          >
+            Сиродж
+          </h2>
 
+          <div
+            className="my-2 text-4xl text-[#C5B477] sm:my-3"
+            style={{
+              fontFamily: "'Great Vibes', cursive",
+            }}
+          >
+            &
+          </div>
+
+          <h2
+            className="text-5xl font-normal leading-none text-[#F2E4BB] sm:text-6xl md:text-7xl"
+            style={{
+              fontFamily: "'Great Vibes', cursive",
+            }}
+          >
+            Мария
+          </h2>
+        </div>
+
+        {/* Декоративный разделитель */}
+        <div className="mx-auto my-9 flex items-center justify-center gap-3">
+          <div className="h-px w-14 bg-[#C5B477]/60 sm:w-24" />
+
+          <div className="h-1.5 w-1.5 rotate-45 bg-[#C5B477]" />
+
+          <div className="h-px w-14 bg-[#C5B477]/60 sm:w-24" />
+        </div>
+
+        {/* Пожелание */}
         <p
-          className="mt-6 text-xl leading-relaxed text-[#F2E4BB]"
+          className="mx-auto max-w-xl text-lg leading-relaxed text-[#F2E4BB] sm:text-xl"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
-          «С радостью и трепетом ждем вас на нашем празднике.»
+          «С радостью и трепетом ждём вас на нашем празднике.»
         </p>
 
-        <div className="mx-auto my-10 h-px w-28 bg-[#C5B477]" />
+        {/* Дата */}
+        <div className="mt-9">
+          <p
+            className="text-2xl tracking-[0.15em] text-[#C5B477] sm:text-3xl"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+            }}
+          >
+            10 октября 2026
+          </p>
 
-        <p
-          className="text-lg text-[#F2E4BB]"
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-          }}
-        >
-          5 сентября 2026
-        </p>
-
-        <p
-          className="mt-3 text-base text-[#C5B477]"
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-          }}
-        >
-          С любовью и благодарностью
-        </p>
+          <p
+            className="mt-3 text-base text-[#F2E4BB]"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+            }}
+          >
+            С любовью и благодарностью
+          </p>
+        </div>
 
         {/* Автор сайта */}
         <div
-          className="mt-12 pt-8"
+          className="mx-auto mt-14 max-w-2xl border-t pt-8"
           style={{
-            borderTop: "1px solid rgba(197, 180, 119, 0.45)",
+            borderColor: "rgba(197, 180, 119, 0.4)",
           }}
         >
           <p
-            className="text-sm leading-relaxed text-[#F2E4BB]/80"
+            className="text-sm leading-relaxed text-[#F2E4BB]/80 sm:text-base"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
             }}
@@ -86,7 +143,7 @@ function Footer() {
           </p>
 
           <p
-            className="mt-3 text-lg text-[#F2E4BB]"
+            className="mt-4 text-lg text-[#F2E4BB] sm:text-xl"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
             }}
@@ -95,7 +152,7 @@ function Footer() {
           </p>
 
           <p
-            className="mt-2 text-xl text-[#C5B477]"
+            className="mt-2 text-xl tracking-[0.08em] text-[#C5B477]"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
             }}

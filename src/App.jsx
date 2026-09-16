@@ -7,6 +7,7 @@ import RSVP from "./components/sections/RSVP";
 import Wishes from "./components/sections/Wishes";
 import Footer from "./components/sections/Footer";
 import DressCode from "./components/sections/DressCode";
+import Gifts from "./components/sections/Gifts";
 
 import Admin from "./components/Admin/Admin";
 
@@ -33,6 +34,8 @@ function App() {
         <Schedule />
 
         <Wishes />
+
+        <Gifts />
 
         <RSVP />
 
