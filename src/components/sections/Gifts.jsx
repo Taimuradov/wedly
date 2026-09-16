@@ -4,11 +4,6 @@ function Gifts() {
       id="gifts"
       className="relative overflow-hidden bg-[#5A292A] px-5 py-16 md:py-20"
     >
-      {/* Декоративные элементы */}
-      <div className="pointer-events-none absolute left-1/2 top-8 h-px w-28 -translate-x-1/2 bg-[#C5B477]/70" />
-
-      <div className="pointer-events-none absolute left-1/2 top-5 h-2 w-2 -translate-x-1/2 rotate-45 border border-[#C5B477] bg-[#5A292A]" />
-
       <div className="relative mx-auto w-full max-w-2xl">
         {/* Внешняя золотая рамка */}
         <div

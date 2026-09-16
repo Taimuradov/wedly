@@ -12,7 +12,9 @@ function RSVP() {
   const [alreadySent, setAlreadySent] = useState(false);
 
   const handleSubmit = async () => {
-    if (!name || !attendance) {
+    const trimmedName = name.trim();
+
+    if (!trimmedName || !attendance) {
       alert("Пожалуйста, заполните имя и выберите ответ");
       return;
     }
@@ -21,7 +23,7 @@ function RSVP() {
       setLoading(true);
 
       await addDoc(collection(db, "rsvps"), {
-        name: name.trim(),
+        name: trimmedName,
         attendance,
         createdAt: serverTimestamp(),
       });
@@ -29,6 +31,7 @@ function RSVP() {
       localStorage.setItem("rsvpSubmitted", "true");
 
       setSent(true);
+      setAlreadySent(true);
       setName("");
       setAttendance("");
     } catch (error) {
@@ -42,7 +45,7 @@ function RSVP() {
   useEffect(() => {
     const submitted = localStorage.getItem("rsvpSubmitted");
 
-    if (submitted) {
+    if (submitted === "true") {
       setAlreadySent(true);
     }
   }, []);

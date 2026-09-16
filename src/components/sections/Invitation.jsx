@@ -73,7 +73,7 @@ function Invitation() {
             md:top-[14%]
             lg:right-[10%]
             lg:top-[12%]
-            xl:right-[12%]
+            xl:right-[10%]
             xl:top-[12%]
           "
         >
@@ -87,7 +87,7 @@ function Invitation() {
           >
             <div
               className="
-                h-[160px] w-[120px]
+                h-[130px] w-[90px]
                 overflow-hidden
                 sm:h-[160px] sm:w-[115px]
                 md:h-[190px] md:w-[145px]
