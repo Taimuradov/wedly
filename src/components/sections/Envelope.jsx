@@ -26,38 +26,10 @@ function Envelope({ guestName, onGuestNameSubmit }) {
       document.body.style.overflow = "auto";
     }
 
-    let startY = 0;
-
-    const handleWheel = (e) => {
-      if (!opened && e.deltaY > 0 && name.trim()) {
-        openInvitation();
-      }
-    };
-
-    const handleTouchStart = (e) => {
-      startY = e.touches[0].clientY;
-    };
-
-    const handleTouchMove = (e) => {
-      const currentY = e.touches[0].clientY;
-
-      if (!opened && startY - currentY > 40 && name.trim()) {
-        openInvitation();
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: true });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: true });
-
     return () => {
       document.body.style.overflow = "auto";
-
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, [opened, name]);
+  }, [opened]);
 
   return (
     <>
@@ -123,12 +95,12 @@ function Envelope({ guestName, onGuestNameSubmit }) {
             </div>
           </div>
 
-          {/* Кнопка — фиксированно внизу экрана */}
+          {/* Кнопка — выше на мобильных устройствах */}
           <button
             type="button"
             onClick={openInvitation}
             disabled={!name.trim()}
-            className="absolute bottom-16 left-1/2 z-[100] -translate-x-1/2 px-10 py-3 text-[17px] tracking-[0.12em] transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-40 enabled:hover:scale-[1.03] enabled:hover:bg-[#6A3031]"
+            className="absolute bottom-24 left-1/2 z-[100] -translate-x-1/2 px-10 py-3 text-[17px] tracking-[0.12em] transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-40 enabled:hover:scale-[1.03] enabled:hover:bg-[#6A3031] sm:bottom-16"
             style={{
               background: "#5A292A",
               border: "1px solid #C5B477",
