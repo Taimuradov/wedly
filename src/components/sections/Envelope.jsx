@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import envelopeImage from "../../images/envelope.png";
+import envelopeImage from "../../images/envelope.webp";
 import MusicPlayer from "../MusicPlayer";
 
 function Envelope({ guestName, onGuestNameSubmit }) {
@@ -128,7 +128,7 @@ function Envelope({ guestName, onGuestNameSubmit }) {
             type="button"
             onClick={openInvitation}
             disabled={!name.trim()}
-            className="absolute bottom-12 left-1/2 z-[100] -translate-x-1/2 px-10 py-3 text-[17px] tracking-[0.12em] transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-40 enabled:hover:scale-[1.03] enabled:hover:bg-[#6A3031]"
+            className="absolute bottom-16 left-1/2 z-[100] -translate-x-1/2 px-10 py-3 text-[17px] tracking-[0.12em] transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-40 enabled:hover:scale-[1.03] enabled:hover:bg-[#6A3031]"
             style={{
               background: "#5A292A",
               border: "1px solid #C5B477",
