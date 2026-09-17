@@ -1,38 +1,74 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 
 import { db } from "../../firebase/firebase";
 
-function RSVP() {
+function RSVP({ guestName }) {
   const [attendance, setAttendance] = useState("");
-  const [name, setName] = useState("");
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [checking, setChecking] = useState(true);
   const [alreadySent, setAlreadySent] = useState(false);
 
+  const getGuestId = () => {
+    let guestId = localStorage.getItem("guestId");
+
+    if (!guestId) {
+      guestId = crypto.randomUUID();
+      localStorage.setItem("guestId", guestId);
+    }
+
+    return guestId;
+  };
+
+  useEffect(() => {
+    const checkExistingResponse = async () => {
+      try {
+        const guestId = getGuestId();
+
+        const guestRef = doc(db, "rsvps", guestId);
+        const guestSnapshot = await getDoc(guestRef);
+
+        if (guestSnapshot.exists()) {
+          setAlreadySent(true);
+        } else {
+          setAlreadySent(false);
+        }
+      } catch (error) {
+        console.error("Ошибка проверки ответа:", error);
+      } finally {
+        setChecking(false);
+      }
+    };
+
+    checkExistingResponse();
+  }, []);
+
   const handleSubmit = async () => {
-    const trimmedName = name.trim();
+    const trimmedName = guestName.trim();
 
     if (!trimmedName || !attendance) {
-      alert("Пожалуйста, заполните имя и выберите ответ");
+      alert("Пожалуйста, выберите ответ");
       return;
     }
 
     try {
       setLoading(true);
 
-      await addDoc(collection(db, "rsvps"), {
+      const guestId = getGuestId();
+
+      const guestRef = doc(db, "rsvps", guestId);
+
+      await setDoc(guestRef, {
+        guestId,
         name: trimmedName,
         attendance,
         createdAt: serverTimestamp(),
       });
 
-      localStorage.setItem("rsvpSubmitted", "true");
-
       setSent(true);
       setAlreadySent(true);
-      setName("");
       setAttendance("");
     } catch (error) {
       console.error("Ошибка отправки:", error);
@@ -42,13 +78,20 @@ function RSVP() {
     }
   };
 
-  useEffect(() => {
-    const submitted = localStorage.getItem("rsvpSubmitted");
-
-    if (submitted === "true") {
-      setAlreadySent(true);
-    }
-  }, []);
+  if (checking) {
+    return (
+      <section className="relative overflow-hidden bg-[#49432C] px-5 pb-0 pt-10">
+        <div className="flex min-h-[300px] items-center justify-center">
+          <p
+            className="text-lg text-[#F2E4BB]"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            Загрузка...
+          </p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="relative overflow-hidden bg-[#49432C] px-5 pb-0 pt-10">
@@ -139,40 +182,25 @@ function RSVP() {
             />
 
             <div className="relative z-10">
-              {/* Имя */}
-              <div className="mb-6">
-                <label
-                  className="mb-2 block text-lg text-[#F2E4BB]"
+              {/* Имя и вопрос */}
+              <div className="mb-10 flex flex-wrap items-baseline justify-center gap-x-2 gap-y-0 text-center">
+                <span
+                  className="text-5xl font-normal leading-tight text-[#C5B477]"
+                  style={{ fontFamily: "'Great Vibes', cursive" }}
+                >
+                  {guestName},
+                </span>
+
+                <span
+                  className="text-2xl font-normal leading-tight text-[#F2E4BB] md:text-3xl"
                   style={{ fontFamily: "'Cormorant Garamond', serif" }}
                 >
-                  Имя и фамилия
-                </label>
-
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Введите ваше имя"
-                  className="w-full rounded-none px-5 py-3 outline-none"
-                  style={{
-                    background: "#E7E1D6",
-                    border: "1px solid #C5B477",
-                    color: "#3F1B14",
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "18px",
-                  }}
-                />
+                  сможете присутствовать?
+                </span>
               </div>
 
               {/* Ответ */}
               <div>
-                <p
-                  className="mb-4 text-lg text-[#F2E4BB]"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                >
-                  Сможете присутствовать?
-                </p>
-
                 <div className="flex gap-4">
                   <button
                     type="button"

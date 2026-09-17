@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Envelope from "./components/sections/Envelope";
 import Invitation from "./components/sections/Invitation";
 import Couple from "./components/sections/Couple";
@@ -12,6 +14,15 @@ import Gifts from "./components/sections/Gifts";
 import Admin from "./components/Admin/Admin";
 
 function App() {
+  const [guestName, setGuestName] = useState(() => {
+    return localStorage.getItem("guestName") || "";
+  });
+
+  const handleGuestNameSubmit = (name) => {
+    localStorage.setItem("guestName", name);
+    setGuestName(name);
+  };
+
   // Админская страница
   if (window.location.pathname === "/admin") {
     return <Admin />;
@@ -20,7 +31,10 @@ function App() {
   // Основной сайт приглашения
   return (
     <>
-      <Envelope />
+      <Envelope
+        guestName={guestName}
+        onGuestNameSubmit={handleGuestNameSubmit}
+      />
 
       <main>
         <Couple />
@@ -37,7 +51,7 @@ function App() {
 
         <Gifts />
 
-        <RSVP />
+        <RSVP guestName={guestName} />
 
         <Footer />
       </main>

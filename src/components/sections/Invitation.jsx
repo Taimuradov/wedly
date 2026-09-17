@@ -1,5 +1,5 @@
-import photo3 from "../../assets/gallery/photo3.jpg";
-import photo4 from "../../assets/gallery/photo4.jpg";
+import photo3 from "../../assets/gallery/photo3.webp";
+import photo4 from "../../assets/gallery/photo4.webp";
 
 const invitationShape = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 620' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M30 620C13 620 0 607 0 590V190C0 166 14 147 39 141C46 101 75 77 112 73C120 33 156 8 200 8C244 8 280 33 288 73C325 77 354 101 361 141C386 147 400 166 400 190V590C400 607 387 620 370 620H30Z'/%3E%3C/svg%3E")`;
 

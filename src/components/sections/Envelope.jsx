@@ -2,13 +2,19 @@ import { useEffect, useState } from "react";
 import envelopeImage from "../../images/envelope.png";
 import MusicPlayer from "../MusicPlayer";
 
-function Envelope() {
+function Envelope({ guestName, onGuestNameSubmit }) {
   const [opened, setOpened] = useState(false);
   const [musicStarted, setMusicStarted] = useState(false);
+  const [name, setName] = useState(guestName);
 
   const openInvitation = () => {
-    if (opened) return;
+    const trimmedName = name.trim();
 
+    if (!trimmedName || opened) return;
+
+    onGuestNameSubmit(trimmedName);
+
+    setName(trimmedName);
     setOpened(true);
     setMusicStarted(true);
   };
@@ -23,7 +29,7 @@ function Envelope() {
     let startY = 0;
 
     const handleWheel = (e) => {
-      if (!opened && e.deltaY > 0) {
+      if (!opened && e.deltaY > 0 && name.trim()) {
         openInvitation();
       }
     };
@@ -35,7 +41,7 @@ function Envelope() {
     const handleTouchMove = (e) => {
       const currentY = e.touches[0].clientY;
 
-      if (!opened && startY - currentY > 40) {
+      if (!opened && startY - currentY > 40 && name.trim()) {
         openInvitation();
       }
     };
@@ -51,7 +57,7 @@ function Envelope() {
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, [opened]);
+  }, [opened, name]);
 
   return (
     <>
@@ -59,11 +65,12 @@ function Envelope() {
 
       {!opened && (
         <section
-          className="fixed inset-0 z-50 flex min-h-screen items-center justify-center overflow-hidden py-10"
+          className="fixed inset-0 z-50 flex min-h-screen items-center justify-center overflow-hidden px-5"
           style={{
             background: "#49432C",
           }}
         >
+          {/* Свечение фона */}
           <div
             className="pointer-events-none absolute inset-0"
             style={{
@@ -72,30 +79,66 @@ function Envelope() {
             }}
           />
 
-          <button
-            type="button"
-            onClick={openInvitation}
-            className="relative z-10 cursor-pointer transition-transform duration-500 hover:scale-105"
-            aria-label="Открыть приглашение"
-          >
+          {/* Конверт */}
+          <div className="relative z-10 -mt-16 flex items-center justify-center">
             <img
               src={envelopeImage}
               alt="Конверт"
               className="h-[430px] w-[340px] select-none object-contain drop-shadow-[0_25px_45px_rgba(63,27,20,0.45)] sm:h-[520px] sm:w-[460px] md:h-[620px] md:w-[600px] lg:h-[680px] lg:w-[700px] xl:h-[740px] xl:w-[760px]"
               draggable="false"
             />
-          </button>
 
-          <div className="absolute bottom-[10%] left-1/2 z-20 w-full -translate-x-1/2 px-4 text-center">
-            <div className="mx-auto mb-4 h-px w-20 bg-[#C5B477]" />
+            {/* Поле имени и фамилии прямо на конверте */}
+            <div className="absolute left-1/2 top-[42%] w-[58%] -translate-x-1/2 -translate-y-1/2 text-center sm:w-[55%]">
+              <p
+                className="mb-3 text-[15px] leading-tight tracking-[0.03em] text-[#3F1B14] sm:text-[16px] md:text-[17px]"
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                }}
+              >
+                Введите имя и фамилию
+              </p>
 
-            <p
-              className="text-sm tracking-[0.2em] text-[#C5B477] sm:text-base sm:tracking-[0.3em] md:text-xl"
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}
-            >
-              Нажмите, чтобы открыть приглашение
-            </p>
+              <div className="mx-auto w-[88%] sm:w-[82%] md:w-[78%]">
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      openInvitation();
+                    }
+                  }}
+                  placeholder="Имя и фамилия"
+                  autoFocus
+                  autoComplete="name"
+                  maxLength={60}
+                  className="w-full min-w-0 border-0 bg-transparent px-1 py-2 text-center text-[14px] text-[#3F1B14] outline-none placeholder:text-[#3F1B14]/45 sm:text-[15px] md:text-[16px]"
+                  style={{
+                    borderBottom: "1px solid rgba(63, 27, 20, 0.5)",
+                    fontFamily: "'Cormorant Garamond', serif",
+                  }}
+                />
+              </div>
+            </div>
           </div>
+
+          {/* Кнопка — фиксированно внизу экрана */}
+          <button
+            type="button"
+            onClick={openInvitation}
+            disabled={!name.trim()}
+            className="absolute bottom-8 left-1/2 z-[100] -translate-x-1/2 px-10 py-3 text-[17px] tracking-[0.12em] transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-40 enabled:hover:scale-[1.03] enabled:hover:bg-[#6A3031]"
+            style={{
+              background: "#5A292A",
+              border: "1px solid #C5B477",
+              color: "#F2E4BB",
+              fontFamily: "'Cormorant Garamond', serif",
+              boxShadow: "0 8px 20px rgba(63, 27, 20, 0.35)",
+            }}
+          >
+            Продолжить
+          </button>
         </section>
       )}
     </>

@@ -1,5 +1,5 @@
-import photo1 from "../../assets/gallery/photo1.jpg";
-import photo2 from "../../assets/gallery/photo2.jpg";
+import photo1 from "../../assets/gallery/photo1.webp";
+import photo2 from "../../assets/gallery/photo2.webp";
 import flo from "../../assets/design/flo.png";
 
 function Couple() {
