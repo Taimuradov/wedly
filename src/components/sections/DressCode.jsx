@@ -36,10 +36,7 @@ const dressCodeItems = [
 
 function DressCode() {
   return (
-    <section className="relative overflow-hidden bg-[#49432C] px-5 py-16 md:py-20">
-      {/* Декоративное свечение */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C5B477]/5 blur-3xl" />
-
+    <section className="relative overflow-hidden bg-[#5A292A] px-5 py-16 md:py-20">
       <div className="relative z-10 mx-auto max-w-4xl">
         {/* Заголовок */}
         <motion.div
@@ -96,7 +93,7 @@ function DressCode() {
           </p>
         </motion.div>
 
-        {/* Карта дресс-кода */}
+        {/* Цвета для образов */}
         <motion.div
           initial={{
             opacity: 0,
@@ -112,7 +109,7 @@ function DressCode() {
           viewport={{
             once: true,
           }}
-          className="mx-auto max-w-2xl rounded-[28px] border border-[#C5B477]/60 bg-[#5A292A] px-5 py-8 shadow-[0_18px_35px_rgba(63,27,20,0.32)] sm:px-8 sm:py-9"
+          className="mx-auto max-w-2xl px-5 py-8 sm:px-8 sm:py-9"
         >
           {/* Заголовок блока */}
           <div className="mb-8 text-center">

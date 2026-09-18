@@ -1,76 +1,81 @@
+import { motion } from "framer-motion";
+
 import photo1 from "../../assets/gallery/photo1.webp";
 import photo2 from "../../assets/gallery/photo2.webp";
-import flo from "../../assets/design/flo.png";
 
 function Couple() {
   return (
     <section
       id="couple"
-      className="relative overflow-hidden bg-[#5A292A] px-5 py-12 md:py-16"
+      className="relative overflow-hidden bg-[#49432C] px-5 py-16 md:py-20"
     >
-      <div
-        className="relative mx-auto max-w-3xl overflow-visible px-5 py-8 sm:px-8 md:px-12 md:py-10"
-        style={{
-          background: "#49432C",
-          border: "1px solid #C5B477",
-          borderRadius: "30px",
-          boxShadow: "0 18px 35px rgba(63, 27, 20, 0.32)",
-        }}
-      >
-        <img
-          src={flo}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute right-[-18px] top-[-58px] z-30 w-[120px] rotate-[8deg] object-contain sm:right-[-25px] sm:top-[-70px] sm:w-[155px] md:right-[-35px] md:top-[-85px] md:w-[190px]"
-        />
-
-        <div
-          className="pointer-events-none absolute inset-3"
-          style={{
-            border: "1px solid rgba(197, 180, 119, 0.65)",
-            borderRadius: "22px",
-          }}
-        />
-
-        <div className="relative z-10">
+      <div className="relative z-10 mx-auto max-w-4xl">
+        {/* Заголовок */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-12 text-center"
+        >
           <p
-            className="mb-1 text-center text-xs uppercase tracking-[0.4em] text-[#F2E4BB]"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            className="mb-5 text-sm uppercase tracking-[0.45em] text-[#C5B477]"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+            }}
           >
             Наша свадьба
           </p>
 
           <h2
-            className="mb-7 text-center text-5xl text-[#F2E4BB] md:text-7xl"
-            style={{ fontFamily: "'Great Vibes', cursive" }}
+            className="text-5xl text-[#F2E4BB] md:text-7xl"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+            }}
           >
             Начало навсегда
           </h2>
+        </motion.div>
 
-          <div className="grid grid-cols-2 items-center gap-5 sm:gap-8">
-            <div
-              className="relative z-10 -rotate-3"
-              style={{
-                border: "1px solid #C5B477",
-                borderRadius: "10px",
-                boxShadow: "0 10px 18px rgba(63, 27, 20, 0.28)",
-              }}
+        {/* Основная композиция */}
+        <div className="mx-auto max-w-3xl">
+          <div className="grid grid-cols-3 items-center gap-3 sm:gap-6 md:gap-10">
+            {/* Фото 1 */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative"
             >
-              <img
-                src={photo1}
-                alt="Момент нашей истории"
-                className="aspect-square w-full rotate-[5deg] scale-[0.96] object-cover"
+              <div
+                className="relative rotate-[-4deg]"
                 style={{
                   border: "1px solid #C5B477",
-                  borderRadius: "5px",
+                  boxShadow: "0 10px 18px rgba(63, 27, 20, 0.28)",
                 }}
-              />
-            </div>
+              >
+                <img
+                  src={photo1}
+                  alt="Момент нашей истории"
+                  className="aspect-square w-full rotate-[3deg] scale-[0.97] object-cover"
+                  style={{
+                    border: "1px solid #C5B477",
+                  }}
+                />
+              </div>
+            </motion.div>
 
             {/* Дата */}
-            <div className="flex flex-col items-center justify-center text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center justify-center text-center"
+            >
               <p
-                className="text-[135px] font-light leading-[0.68] tracking-[-0.06em] text-[#F2E4BB] sm:text-[165px] md:text-[190px]"
+                className="text-[72px] font-light leading-[0.7] tracking-[-0.06em] text-[#F2E4BB] sm:text-[105px] md:text-[135px]"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
@@ -78,16 +83,16 @@ function Couple() {
                 10
               </p>
 
-              <div className="mt-7 flex items-center justify-center gap-2">
-                <div className="h-px w-8 bg-[#C5B477]/70 sm:w-11" />
+              <div className="mt-6 flex items-center justify-center gap-2 sm:mt-7">
+                <div className="h-px w-5 bg-[#C5B477]/70 sm:w-8" />
 
                 <div className="h-2 w-2 rotate-45 bg-[#C5B477]" />
 
-                <div className="h-px w-8 bg-[#C5B477]/70 sm:w-11" />
+                <div className="h-px w-5 bg-[#C5B477]/70 sm:w-8" />
               </div>
 
               <p
-                className="mt-5 text-xl uppercase tracking-[0.36em] text-[#C5B477] sm:text-2xl md:text-3xl"
+                className="mt-4 text-sm uppercase tracking-[0.25em] text-[#C5B477] sm:text-lg md:text-xl"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
@@ -96,70 +101,103 @@ function Couple() {
               </p>
 
               <p
-                className="mt-1 text-3xl font-light tracking-[0.25em] text-[#F2E4BB] sm:text-4xl md:text-5xl"
+                className="mt-1 text-xl font-light tracking-[0.15em] text-[#F2E4BB] sm:text-2xl md:text-3xl"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                 }}
               >
                 2026
               </p>
-            </div>
+            </motion.div>
 
-            <div className="text-center">
-              <p
-                className="text-3xl leading-tight text-[#F2E4BB] sm:text-4xl md:text-5xl"
-                style={{ fontFamily: "'Great Vibes', cursive" }}
-              >
-                Две души
-                <br />— один путь
-              </p>
-            </div>
-
-            <div
-              className="relative z-10 rotate-3"
-              style={{
-                border: "1px solid #C5B477",
-                borderRadius: "10px",
-                boxShadow: "0 10px 18px rgba(63, 27, 20, 0.28)",
-              }}
+            {/* Фото 2 */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative"
             >
-              <img
-                src={photo2}
-                alt="Наша любовь"
-                className="aspect-square w-full -rotate-[5deg] scale-[0.96] object-cover"
+              <div
+                className="relative rotate-[4deg]"
                 style={{
                   border: "1px solid #C5B477",
-                  borderRadius: "5px",
+                  boxShadow: "0 10px 18px rgba(63, 27, 20, 0.28)",
                 }}
-              />
+              >
+                <img
+                  src={photo2}
+                  alt="Наша любовь"
+                  className="aspect-square w-full rotate-[-3deg] scale-[0.97] object-cover"
+                  style={{
+                    border: "1px solid #C5B477",
+                  }}
+                />
 
-              <div
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  background: "rgba(20, 18, 16, 0.14)",
-                }}
-              />
-            </div>
+                <div
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background: "rgba(20, 18, 16, 0.14)",
+                  }}
+                />
+              </div>
+            </motion.div>
           </div>
 
+          {/* Фраза */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="mt-10 text-center"
+          >
+            <p
+              className="text-3xl leading-tight text-[#F2E4BB] sm:text-4xl md:text-5xl"
+              style={{
+                fontFamily: "'Great Vibes', cursive",
+              }}
+            >
+              Две души
+              <br />— один путь
+            </p>
+          </motion.div>
+
+          {/* Цитата */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="mt-10 text-center"
+          >
+            <div className="mx-auto mb-6 h-px w-20 bg-[#C5B477]" />
+
+            <p
+              className="mx-auto max-w-xl text-base italic leading-relaxed text-[#F2E4BB] md:text-lg"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+              }}
+            >
+              «И нитка, втрое скрученная, нескоро порвётся.»
+            </p>
+
+            <p
+              className="mt-2 text-sm text-[#F2E4BB]"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+              }}
+            >
+              Екклесиаст 4:12
+            </p>
+          </motion.div>
+
+          {/* Нижний разделитель */}
           <div className="mx-auto mt-8 h-px w-20 bg-[#C5B477]" />
-
-          <p
-            className="mx-auto mt-6 max-w-xl text-center text-base italic leading-relaxed text-[#F2E4BB] md:text-lg"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
-          >
-            «И нитка, втрое скрученная, нескоро порвётся.»
-          </p>
-
-          <p
-            className="mt-2 text-center text-sm text-[#F2E4BB]"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
-          >
-            Екклесиаст 4:12
-          </p>
         </div>
       </div>
     </section>
   );
 }
+
 export default Couple;

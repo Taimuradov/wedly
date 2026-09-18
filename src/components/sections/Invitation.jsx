@@ -1,202 +1,235 @@
+import { motion } from "framer-motion";
+
 import photo3 from "../../assets/gallery/photo3.webp";
 import photo4 from "../../assets/gallery/photo4.webp";
-
-const invitationShape = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 620' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M30 620C13 620 0 607 0 590V190C0 166 14 147 39 141C46 101 75 77 112 73C120 33 156 8 200 8C244 8 280 33 288 73C325 77 354 101 361 141C386 147 400 166 400 190V590C400 607 387 620 370 620H30Z'/%3E%3C/svg%3E")`;
 
 function Invitation() {
   return (
     <section
       id="invitation"
-      className="relative flex items-center justify-center overflow-hidden bg-[#49432C] px-5 py-14 md:py-18"
+      className="relative overflow-hidden bg-[#5A292A] px-5 py-20 md:py-24"
     >
-      <div className="relative w-full max-w-5xl -translate-y-6 md:-translate-y-8">
-        {/* Левая фотография */}
-        <div
-          className="
-            absolute
-            bottom-[-50px]
-            left-[-8px]
-            z-20
-            rotate-[-7deg]
-            sm:bottom-[-55px]
-            sm:left-[0]
-            md:bottom-[4%]
-            md:left-[2%]
-            lg:bottom-[-6%]
-            lg:left-[10%]
-            xl:bottom-[-6%]
-            xl:left-[12%]
-          "
+      <div className="relative z-10 mx-auto max-w-5xl">
+        {/* Заголовок */}
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          viewport={{
+            once: true,
+          }}
+          className="mb-14 text-center"
         >
-          <div
-            className="overflow-hidden"
+          <p
+            className="mb-5 text-sm uppercase tracking-[0.45em] text-[#C5B477]"
             style={{
-              border: "1px solid #C5B477",
-              borderRadius: "10px",
-              boxShadow: "0 12px 25px rgba(63, 27, 20, 0.35)",
+              fontFamily: "'Cormorant Garamond', serif",
             }}
           >
+            Особенный день
+          </p>
+
+          <h2
+            className="text-5xl font-normal text-[#F2E4BB] md:text-7xl"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+            }}
+          >
+            Приглашение
+          </h2>
+        </motion.div>
+
+        {/* Основная композиция */}
+        <div className="mx-auto grid max-w-4xl grid-cols-[80px_1fr_80px] items-center gap-3 sm:grid-cols-[120px_1fr_120px] sm:gap-6 md:grid-cols-[160px_1fr_160px] md:gap-10">
+          {/* Левая фотография */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -40,
+              rotate: -8,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              rotate: -5,
+            }}
+            transition={{
+              duration: 0.7,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="relative"
+          >
             <div
-              className="
-                h-[120px] w-[88px]
-                overflow-hidden
-                sm:h-[160px] sm:w-[115px]
-                md:h-[190px] md:w-[145px]
-                lg:h-[220px] lg:w-[165px]
-                xl:h-[240px] xl:w-[180px]
-              "
+              className="relative p-1"
               style={{
                 border: "1px solid #C5B477",
-                borderRadius: "6px",
+                boxShadow: "0 12px 25px rgba(63, 27, 20, 0.3)",
               }}
             >
               <img
                 src={photo3}
                 alt="Сиродж и Мария"
-                className="h-full w-full object-cover"
+                className="aspect-[3/4] w-full object-cover"
               />
             </div>
-          </div>
-        </div>
+          </motion.div>
 
-        {/* Правая фотография */}
-        <div
-          className="
-            absolute
-            right-[-8px]
-            top-0
-            z-20
-            rotate-[7deg]
-            sm:right-[0]
-            sm:top-0
-            md:right-[2%]
-            md:top-[14%]
-            lg:right-[10%]
-            lg:top-[12%]
-            xl:right-[10%]
-            xl:top-[12%]
-          "
-        >
-          <div
-            className="overflow-hidden"
-            style={{
-              border: "1px solid #C5B477",
-              borderRadius: "10px",
-              boxShadow: "0 12px 25px rgba(63, 27, 20, 0.35)",
+          {/* Имена */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 30,
             }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="text-center"
+          >
+            <div className="mx-auto mb-6 flex items-center justify-center gap-3">
+              <div className="h-px w-6 bg-[#C5B477]/60 sm:w-10" />
+
+              <div className="h-1.5 w-1.5 rotate-45 bg-[#C5B477]" />
+
+              <div className="h-px w-6 bg-[#C5B477]/60 sm:w-10" />
+            </div>
+
+            <p
+              className="text-xs uppercase tracking-[0.4em] text-[#C5B477] sm:text-sm"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+              }}
+            >
+              На свадьбу
+            </p>
+
+            <div className="mt-6">
+              <h2
+                className="text-5xl font-normal leading-none text-[#F2E4BB] sm:text-6xl md:text-7xl"
+                style={{
+                  fontFamily: "'Great Vibes', cursive",
+                }}
+              >
+                Сиродж
+              </h2>
+
+              <div
+                className="my-1 text-3xl text-[#C5B477] sm:my-2 sm:text-4xl"
+                style={{
+                  fontFamily: "'Great Vibes', cursive",
+                }}
+              >
+                и
+              </div>
+
+              <h2
+                className="text-4xl font-normal leading-none text-[#F2E4BB] sm:text-5xl md:text-6xl"
+                style={{
+                  fontFamily: "'Great Vibes', cursive",
+                }}
+              >
+                Мария
+              </h2>
+            </div>
+
+            <div className="mx-auto mt-7 flex items-center justify-center gap-3">
+              <div className="h-px w-6 bg-[#C5B477]/60 sm:w-10" />
+
+              <div className="h-1.5 w-1.5 rotate-45 bg-[#C5B477]" />
+
+              <div className="h-px w-6 bg-[#C5B477]/60 sm:w-10" />
+            </div>
+          </motion.div>
+
+          {/* Правая фотография */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 40,
+              rotate: 8,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              rotate: 5,
+            }}
+            transition={{
+              duration: 0.7,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="relative"
           >
             <div
-              className="
-                h-[130px] w-[90px]
-                overflow-hidden
-                sm:h-[160px] sm:w-[115px]
-                md:h-[190px] md:w-[145px]
-                lg:h-[220px] lg:w-[165px]
-                xl:h-[240px] xl:w-[180px]
-              "
+              className="relative p-1"
               style={{
                 border: "1px solid #C5B477",
-                borderRadius: "6px",
+                boxShadow: "0 12px 25px rgba(63, 27, 20, 0.3)",
               }}
             >
               <img
                 src={photo4}
                 alt="Сиродж и Мария"
-                className="h-full w-full object-cover"
+                className="aspect-[3/4] w-full object-cover"
+              />
+
+              <div
+                className="pointer-events-none absolute inset-1"
+                style={{
+                  background: "rgba(20, 18, 16, 0.1)",
+                }}
               />
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Основная карточка */}
-        <div className="relative z-10 mx-auto w-full max-w-xl">
-          <div
-            className="relative flex min-h-[500px] w-full flex-col items-center justify-center overflow-hidden px-6 pb-3 pt-10 text-center md:min-h-[550px]"
+        {/* Текст */}
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          viewport={{
+            once: true,
+          }}
+          className="mx-auto mt-12 max-w-2xl text-center"
+        >
+          <p
+            className="text-lg leading-relaxed text-[#F2E4BB] sm:text-xl"
             style={{
-              background: "#C5B477",
-              boxShadow: "0 14px 30px rgba(63, 27, 20, 0.35)",
-              WebkitMaskImage: invitationShape,
-              maskImage: invitationShape,
-              WebkitMaskSize: "100% 100%",
-              maskSize: "100% 100%",
-              WebkitMaskPosition: "center",
-              maskPosition: "center",
-              WebkitMaskRepeat: "no-repeat",
-              maskRepeat: "no-repeat",
+              fontFamily: "'Cormorant Garamond', serif",
             }}
           >
-            {/* Бордовая внутренняя часть и золотая окантовка */}
-            <div
-              className="pointer-events-none absolute inset-[3px]"
-              style={{
-                background: "#5A292A",
-                WebkitMaskImage: invitationShape,
-                maskImage: invitationShape,
-                WebkitMaskSize: "100% 100%",
-                maskSize: "100% 100%",
-                WebkitMaskPosition: "center",
-                maskPosition: "center",
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-              }}
-            />
+            «Приглашаем вас разделить с нами радость этого дня и стать частью
+            нашей истории».
+          </p>
 
-            <div className="relative z-10">
-              <div className="mx-auto mb-4 h-px w-24 bg-[#C5B477]" />
-
-              <div className="mb-4 text-center">
-                <p
-                  className="text-xs uppercase tracking-[0.45em] text-[#F2E4BB] md:text-sm"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                >
-                  Приглашение
-                </p>
-
-                <p
-                  className="mt-2 text-lg font-semibold uppercase tracking-[0.3em] text-[#F2E4BB] md:text-xl"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                >
-                  На
-                  <br />
-                  Свадьбу
-                </p>
-              </div>
-
-              <div className="mt-5">
-                <h2
-                  className="text-5xl font-normal text-[#C5B477] md:text-6xl"
-                  style={{ fontFamily: "'Great Vibes', cursive" }}
-                >
-                  Сиродж
-                </h2>
-
-                <div
-                  className="my-1 text-4xl text-[#C5B477]"
-                  style={{ fontFamily: "'Great Vibes', cursive" }}
-                >
-                  и
-                </div>
-
-                <h2
-                  className="text-4xl font-normal text-[#C5B477] md:text-5xl"
-                  style={{ fontFamily: "'Great Vibes', cursive" }}
-                >
-                  Мария
-                </h2>
-              </div>
-
-              <p
-                className="mx-auto mt-5 max-w-[310px] text-base leading-relaxed text-[#F2E4BB] md:text-lg"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
-                «Приглашаем вас разделить с нами радость этого дня и стать
-                частью нашей истории».
-              </p>
-
-              <div className="mx-auto mt-3 h-px w-24 bg-[#C5B477]" />
-            </div>
-          </div>
-        </div>
+          <div className="mx-auto mt-8 h-px w-20 bg-[#C5B477]" />
+        </motion.div>
       </div>
     </section>
   );

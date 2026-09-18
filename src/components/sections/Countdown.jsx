@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const targetDate = new Date(2026, 9, 10, 12, 0, 0);
 
@@ -42,87 +43,93 @@ function Countdown() {
   }, []);
 
   const timerItems = [
-    { value: time.days, label: "ДНЕЙ", color: "#49432C" },
-    { value: time.hours, label: "ЧАСОВ", color: "#6E6848" },
-    { value: time.minutes, label: "МИНУТ", color: "#49432C" },
-    { value: time.seconds, label: "СЕКУНД", color: "#6E6848" },
+    { value: time.days, label: "ДНЕЙ" },
+    { value: time.hours, label: "ЧАСОВ" },
+    { value: time.minutes, label: "МИНУТ" },
+    { value: time.seconds, label: "СЕКУНД" },
   ];
 
-  const cardShape =
-    "polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px)";
-
   return (
-    <section className="relative overflow-hidden bg-[#5A292A] px-5 py-16 md:py-20">
-      <div className="relative mx-auto w-full max-w-[1400px]">
-        <div className="relative z-10 w-full px-1 text-center sm:px-4 md:px-10">
+    <section className="relative overflow-hidden bg-[#49432C] px-5 py-16 md:py-20">
+      <div className="relative z-10 mx-auto max-w-4xl">
+        {/* Заголовок */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-12 text-center"
+        >
           <p
             className="mb-5 text-sm uppercase tracking-[0.45em] text-[#C5B477]"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+            }}
           >
             Совсем скоро
           </p>
 
           <h2
-            className="mb-10 text-5xl font-normal text-[#F2E4BB] sm:text-6xl md:text-7xl"
-            style={{ fontFamily: "'Great Vibes', cursive" }}
+            className="text-5xl text-[#F2E4BB] md:text-7xl"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+            }}
           >
             Мы скажем друг другу «да»
           </h2>
+        </motion.div>
 
-          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
-            {timerItems.map((item) => (
+        {/* Таймер */}
+        <div className="mx-auto grid max-w-3xl grid-cols-2 sm:grid-cols-4">
+          {timerItems.map((item, index) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.15,
+              }}
+              viewport={{ once: true }}
+              className="relative px-4 py-6 text-center sm:px-6"
+            >
+              {/* Вертикальный разделитель */}
+              {index > 0 && (
+                <div className="absolute left-0 top-1/2 hidden h-16 -translate-y-1/2 border-l border-[#C5B477]/60 sm:block" />
+              )}
+
+              {/* Золотой ромб */}
+              <div className="mx-auto mb-4 h-2.5 w-2.5 rotate-45 bg-[#C5B477]" />
+
               <div
-                key={item.label}
-                className="relative mx-auto h-28 w-full max-w-[145px] sm:h-32 sm:max-w-[160px] md:h-40 md:max-w-[175px]"
+                className="text-5xl leading-none text-[#F2E4BB] sm:text-6xl md:text-7xl"
                 style={{
-                  background: "#C5B477",
-                  clipPath: cardShape,
-                  boxShadow: "0 10px 22px rgba(63, 27, 20, 0.3)",
+                  fontFamily: "'Cormorant Garamond', serif",
                 }}
               >
-                {/* Оливковая внутренняя часть */}
-                <div
-                  className="absolute inset-[2px]"
-                  style={{
-                    background: item.color,
-                    clipPath: cardShape,
-                  }}
-                />
-
-                {/* Тонкий золотой декор */}
-                <div
-                  className="pointer-events-none absolute inset-[7px]"
-                  style={{
-                    border: "1px solid rgba(197, 180, 119, 0.7)",
-                    clipPath: cardShape,
-                  }}
-                />
-
-                <div className="relative z-10 flex h-full flex-col items-center justify-center">
-                  <span className="mb-1 text-sm text-[#C5B477]">◆</span>
-
-                  <div
-                    className="text-4xl leading-none text-[#F2E4BB] sm:text-5xl md:text-6xl"
-                    style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                  >
-                    {String(item.value).padStart(2, "0")}
-                  </div>
-
-                  <p
-                    className="mt-2 text-[10px] tracking-[0.2em] text-[#C5B477] sm:text-xs"
-                    style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                  >
-                    {item.label}
-                  </p>
-
-                  <span className="mt-1 text-[9px] text-[#C5B477]">◆</span>
-                </div>
+                {String(item.value).padStart(2, "0")}
               </div>
-            ))}
-          </div>
 
-          <div className="mx-auto mt-12 h-px w-28 bg-[#C5B477]" />
+              <p
+                className="mt-3 text-xs tracking-[0.25em] text-[#C5B477] sm:text-sm"
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                }}
+              >
+                {item.label}
+              </p>
+            </motion.div>
+          ))}
         </div>
+
+        {/* Нижний разделитель */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-8 h-px w-20 bg-[#C5B477]"
+        />
       </div>
     </section>
   );

@@ -80,7 +80,7 @@ function RSVP({ guestName }) {
 
   if (checking) {
     return (
-      <section className="relative overflow-hidden bg-[#49432C] px-5 pb-0 pt-10">
+      <section className="relative overflow-hidden bg-[#49432C] px-5 pt-10">
         <div className="flex min-h-[300px] items-center justify-center">
           <p
             className="text-lg text-[#F2E4BB]"
@@ -94,7 +94,7 @@ function RSVP({ guestName }) {
   }
 
   return (
-    <section className="relative overflow-hidden bg-[#49432C] px-5 pb-0 pt-10">
+    <section className="relative overflow-hidden bg-[#49432C] px-5 pt-10">
       <div className="relative z-10 mx-auto max-w-xl">
         {/* Заголовок */}
         <motion.div
@@ -124,25 +124,11 @@ function RSVP({ guestName }) {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative overflow-hidden px-8 py-12 text-center"
-            style={{
-              background: "#5A292A",
-              border: "1px solid #C5B477",
-              borderRadius: "28px",
-              boxShadow: "0 14px 30px rgba(63, 27, 20, 0.25)",
-            }}
+            className="relative px-2 py-10 text-center sm:px-8"
           >
-            <div
-              className="pointer-events-none absolute inset-3"
-              style={{
-                border: "1px solid rgba(197, 180, 119, 0.7)",
-                borderRadius: "20px",
-              }}
-            />
-
             <div className="relative z-10">
               <h3
-                className="text-5xl font-normal text-[#C5B477]"
+                className="text-5xl font-normal text-[#F2E4BB]"
                 style={{ fontFamily: "'Great Vibes', cursive" }}
               >
                 Спасибо
@@ -165,42 +151,29 @@ function RSVP({ guestName }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden px-8 py-10"
-            style={{
-              background: "#5A292A",
-              border: "1px solid #C5B477",
-              borderRadius: "28px",
-              boxShadow: "0 14px 30px rgba(63, 27, 20, 0.25)",
-            }}
+            className="relative px-2 pb-14 pt-4 sm:px-8"
           >
-            <div
-              className="pointer-events-none absolute inset-3"
-              style={{
-                border: "1px solid rgba(197, 180, 119, 0.7)",
-                borderRadius: "20px",
-              }}
-            />
-
             <div className="relative z-10">
-              {/* Имя и вопрос */}
-              <div className="mb-10 flex flex-wrap items-baseline justify-center gap-x-2 gap-y-0 text-center">
+              {/* Имя */}
+              <div className="text-center">
                 <span
-                  className="text-5xl font-normal leading-tight text-[#C5B477]"
+                  className="whitespace-nowrap text-3xl font-normal leading-tight text-[#F2E4BB] sm:text-4xl"
                   style={{ fontFamily: "'Great Vibes', cursive" }}
                 >
-                  {guestName},
+                  {guestName}
                 </span>
 
-                <span
-                  className="text-2xl font-normal leading-tight text-[#F2E4BB] md:text-3xl"
+                {/* Вопрос */}
+                <p
+                  className="mt-2 text-lg leading-tight text-[#F2E4BB] sm:text-2xl"
                   style={{ fontFamily: "'Cormorant Garamond', serif" }}
                 >
                   сможете присутствовать?
-                </span>
+                </p>
               </div>
 
               {/* Ответ */}
-              <div>
+              <div className="mt-8">
                 <div className="flex gap-4">
                   <button
                     type="button"
@@ -208,9 +181,9 @@ function RSVP({ guestName }) {
                     className="flex-1 rounded-none py-3 transition-colors"
                     style={{
                       background:
-                        attendance === "Да" ? "#C5B477" : "transparent",
-                      color: attendance === "Да" ? "#3F1B14" : "#F2E4BB",
-                      border: "1px solid #C5B477",
+                        attendance === "Да" ? "#F2E4BB" : "transparent",
+                      color: attendance === "Да" ? "#49432C" : "#F2E4BB",
+                      border: "1px solid #F2E4BB",
                       fontFamily: "'Cormorant Garamond', serif",
                       fontSize: "18px",
                     }}
@@ -224,9 +197,9 @@ function RSVP({ guestName }) {
                     className="flex-1 rounded-none py-3 transition-colors"
                     style={{
                       background:
-                        attendance === "Нет" ? "#C5B477" : "transparent",
-                      color: attendance === "Нет" ? "#3F1B14" : "#F2E4BB",
-                      border: "1px solid #C5B477",
+                        attendance === "Нет" ? "#F2E4BB" : "transparent",
+                      color: attendance === "Нет" ? "#49432C" : "#F2E4BB",
+                      border: "1px solid #F2E4BB",
                       fontFamily: "'Cormorant Garamond', serif",
                       fontSize: "18px",
                     }}
@@ -241,10 +214,10 @@ function RSVP({ guestName }) {
                 type="button"
                 onClick={handleSubmit}
                 disabled={loading}
-                className="mt-8 w-full rounded-none py-4 transition-opacity"
+                className="mt-6 w-full rounded-none py-4 transition-opacity"
                 style={{
-                  background: "#C5B477",
-                  color: "#3F1B14",
+                  background: "#F2E4BB",
+                  color: "#49432C",
                   fontFamily: "'Cormorant Garamond', serif",
                   fontSize: "20px",
                   opacity: loading ? 0.7 : 1,
@@ -257,14 +230,6 @@ function RSVP({ guestName }) {
           </motion.div>
         )}
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="relative z-10 mt-40 flex justify-center px-5"
-      />
     </section>
   );
 }

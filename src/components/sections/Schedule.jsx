@@ -21,15 +21,15 @@ const events = [
 
 function Schedule() {
   return (
-    <section className="relative overflow-hidden bg-[#5A292A] px-5 pt-12 pb-12">
-      <div className="relative z-10 mx-auto max-w-5xl">
+    <section className="relative overflow-hidden bg-[#49432C] px-5 py-16 md:py-20">
+      <div className="relative z-10 mx-auto max-w-4xl">
         {/* Заголовок */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-10 text-center"
+          className="mb-12 text-center"
         >
           <p
             className="mb-5 text-sm uppercase tracking-[0.45em] text-[#C5B477]"
@@ -50,61 +50,39 @@ function Schedule() {
           </h2>
         </motion.div>
 
-        {/* Одна общая зелёная карточка расписания */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="relative overflow-hidden p-8 text-center md:p-12"
-          style={{
-            background: "#49432C",
-            border: "1px solid #C5B477",
-            borderRadius: "28px",
-            boxShadow: "0 14px 30px rgba(63, 27, 20, 0.28)",
-          }}
-        >
-          {/* Внутренняя золотая рамка */}
-          <div
-            className="pointer-events-none absolute inset-3"
-            style={{
-              border: "1px solid rgba(197, 180, 119, 0.7)",
-              borderRadius: "20px",
-            }}
-          />
-
-          <div className="relative z-10 grid gap-10 md:grid-cols-3">
-            {events.map((event, index) => (
-              <motion.div
-                key={event.title}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.15,
-                }}
-                viewport={{ once: true }}
-              >
-                <div
-                  className="mb-5 text-3xl text-[#C5B477]"
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                  }}
-                >
-                  ◆
-                </div>
-
+        {/* Расписание */}
+        <div className="mx-auto max-w-3xl">
+          {events.map((event, index) => (
+            <motion.div
+              key={event.title}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.15,
+              }}
+              viewport={{ once: true }}
+              className="relative grid grid-cols-[110px_1fr] gap-6 py-8 sm:grid-cols-[150px_1fr] sm:gap-10"
+            >
+              {/* Время */}
+              <div className="text-right">
                 <p
-                  className="text-2xl uppercase tracking-[0.35em] text-[#C5B477]"
+                  className="text-3xl text-[#C5B477] sm:text-4xl"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                   }}
                 >
                   {event.time}
                 </p>
+              </div>
+
+              {/* Событие */}
+              <div className="relative border-l border-[#C5B477]/60 pl-6 sm:pl-10">
+                {/* Золотая точка */}
+                <div className="absolute -left-[5px] top-3 h-2.5 w-2.5 rotate-45 bg-[#C5B477]" />
 
                 <h3
-                  className="mt-4 text-3xl text-[#F2E4BB]"
+                  className="text-2xl text-[#F2E4BB] sm:text-3xl"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                   }}
@@ -113,17 +91,20 @@ function Schedule() {
                 </h3>
 
                 <p
-                  className="mt-5 text-lg leading-relaxed text-[#F2E4BB]"
+                  className="mt-3 max-w-lg text-base leading-relaxed text-[#F2E4BB]/90 sm:text-lg"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                   }}
                 >
                   {event.description}
                 </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Нижний разделитель */}
+        <div className="mx-auto mt-8 h-px w-20 bg-[#C5B477]" />
       </div>
     </section>
   );
