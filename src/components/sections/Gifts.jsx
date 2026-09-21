@@ -1,11 +1,29 @@
 import { motion } from "framer-motion";
 
+import fon1 from "../../assets/gallery/fon1.jpg";
+
 function Gifts() {
   return (
     <section
       id="gifts"
-      className="relative overflow-hidden bg-[#49432C] px-5 py-20 md:py-24"
+      className="relative overflow-hidden px-5 py-20 md:py-24"
     >
+      {/* Фоновая фотография */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${fon1})`,
+        }}
+      />
+
+      {/* Оливково-зелёный затемняющий слой */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "rgba(73, 67, 44, 0.78)",
+        }}
+      />
+
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <motion.div
           initial={{

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 
 import photo3 from "../../assets/gallery/photo3.webp";
 import photo4 from "../../assets/gallery/photo4.webp";
+import fon from "../../assets/gallery/fon.jpg";
 
 function Invitation() {
   return (
@@ -9,6 +10,19 @@ function Invitation() {
       id="invitation"
       className="relative overflow-hidden bg-[#5A292A] px-5 py-20 md:py-24"
     >
+      {/* Фоновая фотография */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <img
+          src={fon}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover"
+        />
+
+        {/* Затемнение фона */}
+        <div className="absolute inset-0 bg-[#5A292A]/45" />
+      </div>
+
       <div className="relative z-10 mx-auto max-w-5xl">
         {/* Заголовок */}
         <motion.div
@@ -48,7 +62,7 @@ function Invitation() {
         </motion.div>
 
         {/* Основная композиция */}
-        <div className="mx-auto grid max-w-4xl grid-cols-[80px_1fr_80px] items-center gap-3 sm:grid-cols-[120px_1fr_120px] sm:gap-6 md:grid-cols-[160px_1fr_160px] md:gap-10">
+        <div className="mx-auto grid max-w-4xl grid-cols-[115px_1fr_115px] items-center gap-2 sm:grid-cols-[160px_1fr_160px] sm:gap-5 md:grid-cols-[210px_1fr_210px] md:gap-10">
           {/* Левая фотография */}
           <motion.div
             initial={{
@@ -67,7 +81,7 @@ function Invitation() {
             viewport={{
               once: true,
             }}
-            className="relative"
+            className="relative translate-y-4"
           >
             <div
               className="relative p-1"
@@ -175,7 +189,7 @@ function Invitation() {
             viewport={{
               once: true,
             }}
-            className="relative"
+            className="relative translate-y-4"
           >
             <div
               className="relative p-1"
