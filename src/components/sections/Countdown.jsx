@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import backgroundDesign3 from "../../assets/design/background-design (3).png";
-
 const targetDate = new Date(2026, 9, 10, 12, 0, 0);
 
 function calculateTime() {
@@ -53,16 +51,6 @@ function Countdown() {
 
   return (
     <section className="relative overflow-hidden bg-[#49432C] px-5 py-16 md:py-20">
-      {/* Декоративный узор снизу */}
-      <div className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[70px] w-full -translate-x-1/2 overflow-hidden sm:h-[90px] md:h-[110px] lg:h-[130px]">
-        <img
-          src={backgroundDesign3}
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-[20px] left-[55%] w-[100%] -translate-x-1/2 object-contain opacity-90 sm:bottom-[20px] sm:left-[56%] sm:w-[90%] md:bottom-[20px] md:left-[57%] md:w-[80%] lg:bottom-[20px] lg:left-[58%] lg:w-[75%]"
-        />
-      </div>
-
       <div className="relative z-10 mx-auto max-w-4xl">
         {/* Заголовок */}
         <motion.div

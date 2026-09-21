@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 
-import photo3 from "../../assets/gallery/photo3.webp";
-import photo4 from "../../assets/gallery/photo4.webp";
 import fon from "../../assets/gallery/fon.jpg";
 
 function Invitation() {
@@ -61,158 +59,78 @@ function Invitation() {
           </h2>
         </motion.div>
 
-        {/* Основная композиция */}
-        <div className="mx-auto grid max-w-4xl grid-cols-[115px_1fr_115px] items-center gap-2 sm:grid-cols-[160px_1fr_160px] sm:gap-5 md:grid-cols-[210px_1fr_210px] md:gap-10">
-          {/* Левая фотография */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: -40,
-              rotate: -8,
+        {/* Имена */}
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          viewport={{
+            once: true,
+          }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          <div className="mx-auto mb-6 flex items-center justify-center gap-3">
+            <div className="h-px w-10 bg-[#C5B477]/60 sm:w-16" />
+
+            <div className="h-1.5 w-1.5 rotate-45 bg-[#C5B477]" />
+
+            <div className="h-px w-10 bg-[#C5B477]/60 sm:w-16" />
+          </div>
+
+          <p
+            className="text-sm uppercase tracking-[0.4em] text-[#C5B477]"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
             }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              rotate: -5,
-            }}
-            transition={{
-              duration: 0.7,
-            }}
-            viewport={{
-              once: true,
-            }}
-            className="relative translate-y-4"
           >
+            На свадьбу
+          </p>
+
+          <div className="mt-8">
+            <h2
+              className="text-6xl font-normal leading-none text-[#F2E4BB] sm:text-7xl md:text-8xl"
+              style={{
+                fontFamily: "'Great Vibes', cursive",
+              }}
+            >
+              Сиродж
+            </h2>
+
             <div
-              className="relative p-1"
+              className="my-2 text-4xl text-[#C5B477] sm:text-5xl"
               style={{
-                border: "1px solid #C5B477",
-                boxShadow: "0 12px 25px rgba(63, 27, 20, 0.3)",
+                fontFamily: "'Great Vibes', cursive",
               }}
             >
-              <img
-                src={photo3}
-                alt="Сиродж и Мария"
-                className="aspect-[3/4] w-full object-cover"
-              />
-            </div>
-          </motion.div>
-
-          {/* Имена */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.8,
-            }}
-            viewport={{
-              once: true,
-            }}
-            className="text-center"
-          >
-            <div className="mx-auto mb-6 flex items-center justify-center gap-3">
-              <div className="h-px w-6 bg-[#C5B477]/60 sm:w-10" />
-
-              <div className="h-1.5 w-1.5 rotate-45 bg-[#C5B477]" />
-
-              <div className="h-px w-6 bg-[#C5B477]/60 sm:w-10" />
+              и
             </div>
 
-            <p
-              className="text-xs uppercase tracking-[0.4em] text-[#C5B477] sm:text-sm"
+            <h2
+              className="text-5xl font-normal leading-none text-[#F2E4BB] sm:text-6xl md:text-7xl"
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Great Vibes', cursive",
               }}
             >
-              На свадьбу
-            </p>
+              Мария
+            </h2>
+          </div>
 
-            <div className="mt-6">
-              <h2
-                className="text-5xl font-normal leading-none text-[#F2E4BB] sm:text-6xl md:text-7xl"
-                style={{
-                  fontFamily: "'Great Vibes', cursive",
-                }}
-              >
-                Сиродж
-              </h2>
+          <div className="mx-auto mt-8 flex items-center justify-center gap-3">
+            <div className="h-px w-10 bg-[#C5B477]/60 sm:w-16" />
 
-              <div
-                className="my-1 text-3xl text-[#C5B477] sm:my-2 sm:text-4xl"
-                style={{
-                  fontFamily: "'Great Vibes', cursive",
-                }}
-              >
-                и
-              </div>
+            <div className="h-1.5 w-1.5 rotate-45 bg-[#C5B477]" />
 
-              <h2
-                className="text-4xl font-normal leading-none text-[#F2E4BB] sm:text-5xl md:text-6xl"
-                style={{
-                  fontFamily: "'Great Vibes', cursive",
-                }}
-              >
-                Мария
-              </h2>
-            </div>
-
-            <div className="mx-auto mt-7 flex items-center justify-center gap-3">
-              <div className="h-px w-6 bg-[#C5B477]/60 sm:w-10" />
-
-              <div className="h-1.5 w-1.5 rotate-45 bg-[#C5B477]" />
-
-              <div className="h-px w-6 bg-[#C5B477]/60 sm:w-10" />
-            </div>
-          </motion.div>
-
-          {/* Правая фотография */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: 40,
-              rotate: 8,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              rotate: 5,
-            }}
-            transition={{
-              duration: 0.7,
-            }}
-            viewport={{
-              once: true,
-            }}
-            className="relative translate-y-4"
-          >
-            <div
-              className="relative p-1"
-              style={{
-                border: "1px solid #C5B477",
-                boxShadow: "0 12px 25px rgba(63, 27, 20, 0.3)",
-              }}
-            >
-              <img
-                src={photo4}
-                alt="Сиродж и Мария"
-                className="aspect-[3/4] w-full object-cover"
-              />
-
-              <div
-                className="pointer-events-none absolute inset-1"
-                style={{
-                  background: "rgba(20, 18, 16, 0.1)",
-                }}
-              />
-            </div>
-          </motion.div>
-        </div>
+            <div className="h-px w-10 bg-[#C5B477]/60 sm:w-16" />
+          </div>
+        </motion.div>
 
         {/* Текст */}
         <motion.div

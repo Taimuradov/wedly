@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 
 import photo1 from "../../assets/gallery/photo1.webp";
 import photo2 from "../../assets/gallery/photo2.webp";
-import backgroundDesign from "../../assets/design/background-design (9).png";
 
 function Couple() {
   return (
@@ -10,13 +9,6 @@ function Couple() {
       id="couple"
       className="relative overflow-hidden bg-[#49432C] px-5 py-16 md:py-20"
     >
-      {/* Декоративный узор — только мобильная версия */}
-      <img
-        src={backgroundDesign}
-        alt=""
-        className="pointer-events-none absolute right-[-5px] top-0 z-0 w-[150px] opacity-80 sm:right-0 sm:top-2 sm:w-[180px] md:hidden"
-      />
-
       <div className="relative z-10 mx-auto max-w-4xl">
         {/* Заголовок */}
         <motion.div
@@ -27,7 +19,7 @@ function Couple() {
           className="mb-12 text-center"
         >
           <p
-            className="relative -left-6 mb-5 text-base uppercase tracking-[0.45em] text-[#C5B477]"
+            className="mb-5 text-base uppercase tracking-[0.45em] text-[#C5B477]"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
             }}
@@ -41,7 +33,7 @@ function Couple() {
               fontFamily: "'Cormorant Garamond', serif",
             }}
           >
-            Начало навсегда
+            Начало нашего пути
           </h2>
         </motion.div>
 
