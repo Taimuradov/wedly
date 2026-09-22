@@ -42,10 +42,7 @@ function Admin() {
     try {
       setLoading(true);
 
-      const q = query(
-        collection(db, "rsvps"),
-        orderBy("createdAt", "desc")
-      );
+      const q = query(collection(db, "rsvps"), orderBy("createdAt", "desc"));
 
       const snapshot = await getDocs(q);
 
@@ -69,18 +66,14 @@ function Admin() {
   }, [authorized]);
 
   const deleteGuest = async (id) => {
-    const confirmDelete = window.confirm(
-      "Удалить этого гостя?"
-    );
+    const confirmDelete = window.confirm("Удалить этого гостя?");
 
     if (!confirmDelete) return;
 
     try {
       await deleteDoc(doc(db, "rsvps", id));
 
-      setGuests((prev) =>
-        prev.filter((guest) => guest.id !== id)
-      );
+      setGuests((prev) => prev.filter((guest) => guest.id !== id));
     } catch (error) {
       console.error("Ошибка удаления:", error);
     }
@@ -130,9 +123,7 @@ function Admin() {
             type="password"
             placeholder="Введите пароль"
             value={password}
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
+            onChange={(e) => setPassword(e.target.value)}
             className="
               w-full
               rounded-xl
@@ -168,13 +159,9 @@ function Admin() {
     );
   }
 
-  const coming = guests.filter(
-    (guest) => guest.attendance === "Да"
-  );
+  const coming = guests.filter((guest) => guest.attendance === "Да");
 
-  const notComing = guests.filter(
-    (guest) => guest.attendance === "Нет"
-  );
+  const notComing = guests.filter((guest) => guest.attendance === "Нет");
 
   return (
     <div
@@ -239,9 +226,7 @@ function Admin() {
                 opacity: loading ? 0.6 : 1,
               }}
             >
-              {loading
-                ? "Обновление..."
-                : "Обновить список"}
+              {loading ? "Обновление..." : "Обновить список"}
             </button>
 
             <button
@@ -265,12 +250,94 @@ function Admin() {
 
         <div
           className="
+            rounded-3xl
+            p-8
+            mb-6
+          "
+          style={{
+            background: "#FFFFFF",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+          }}
+        >
+          <div
+            className="
+              grid
+              grid-cols-1
+              sm:grid-cols-3
+              gap-5
+              text-center
+            "
+          >
+            <div>
+              <p
+                className="text-xl"
+                style={{
+                  color: "#334434",
+                }}
+              >
+                Всего гостей
+              </p>
+
+              <p
+                className="mt-2 text-4xl"
+                style={{
+                  color: "#334434",
+                }}
+              >
+                {guests.length}
+              </p>
+            </div>
+
+            <div>
+              <p
+                className="text-xl"
+                style={{
+                  color: "#334434",
+                }}
+              >
+                Придут
+              </p>
+
+              <p
+                className="mt-2 text-4xl"
+                style={{
+                  color: "#334434",
+                }}
+              >
+                {coming.length}
+              </p>
+            </div>
+
+            <div>
+              <p
+                className="text-xl"
+                style={{
+                  color: "#334434",
+                }}
+              >
+                Не придут
+              </p>
+
+              <p
+                className="mt-2 text-4xl"
+                style={{
+                  color: "#334434",
+                }}
+              >
+                {notComing.length}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className="
             grid
             md:grid-cols-2
             gap-6
           "
         >
-                    {/* Придут */}
+          {/* Придут */}
           <div
             className="
               rounded-3xl

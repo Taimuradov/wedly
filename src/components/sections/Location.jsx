@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import colanderImage from "../../images/colander1.png";
+import colanderImage from "../../images/colander.png";
 
 function Location() {
   const mapLink =
-    "https://www.google.com/maps/search/?api=1&query=38.5697246,68.8075571";
+    "https://www.google.com/maps/place/%D0%94%D0%BE%D0%BC+%D0%BC%D0%BE%D0%BB%D0%B8%D1%82%D0%B2%D1%8B+%D0%B4%D0%BB%D1%8F+%D0%B2%D1%81%D0%B5%D1%85+%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BE%D0%B2+(House+of+prayer+for+all+peoples)/@38.5697246,68.8075571,19z/data=!4m6!3m5!1s0x38b5d1a96db474ff:0x3fc3682e864ea593!8m2!3d38.5697246!4d68.8075571!16s%2Fg%2F11k0t0pd19?authuser=0&entry=ttu&g_ep=EgoyMDI2MDcxMy4wIKXMDSoASAFQAw%3D%3D";
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#D5D0C7] px-5 py-24">
+    <section className="relative overflow-hidden bg-[#5A292A] px-5 py-20 md:py-24">
       <motion.div
         initial={{
           opacity: 0,
@@ -22,99 +22,120 @@ function Location() {
         viewport={{
           once: true,
         }}
-        className="relative z-10 w-full max-w-2xl overflow-hidden px-8 py-12 text-center"
-        style={{
-          background: "#5A292A",
-          boxShadow: "0 14px 30px rgba(63, 27, 20, 0.22)",
-          border: "1px solid #C5B477",
-          borderRadius: "50px 50px 0 0",
-        }}
+        className="mx-auto max-w-4xl text-center"
       >
-        {/* Тонкая внутренняя золотая рамка */}
-        <div className="pointer-events-none absolute inset-3 border border-[#C5B477]/70" />
+        {/* Верхний декоративный элемент */}
+        <div className="mb-8 flex items-center justify-center gap-4">
+          <div className="h-px w-12 bg-[#C5B477]/60 sm:w-20" />
 
-        <div className="relative z-10">
-          {/* Заголовок */}
-          <p
-            className="mb-8 text-5xl font-normal text-[#C5B477] md:text-6xl"
-            style={{
-              fontFamily: "'Great Vibes', cursive",
-            }}
-          >
-            Место проведения
-          </p>
-
-          {/* Название места */}
-          <h3
-            className="mb-5 text-3xl text-[#F2E4BB]"
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-            }}
-          >
-            Церковь ЕХБ «Дом молитвы для всех народов»
-          </h3>
-
-          {/* Адрес */}
-          <p
-            className="mx-auto max-w-md text-lg leading-relaxed text-[#F2E4BB]"
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-            }}
-          >
-            Республика Таджикистан
-            <br />
-            г. Душанбе
-            <br />1 проезд Хайрулло Мирзоева 5
-          </p>
-
-          <p
-            className="mb-0 mt-8 text-3xl font-normal text-[#C5B477]"
-            style={{
-              fontFamily: "'Great Vibes', cursive",
-            }}
-          >
-            Сентябрь
-          </p>
-
-          {/* Календарь */}
-          <div className="mt-2 flex justify-center">
-            <img
-              src={colanderImage}
-              alt="Календарь"
-              className="w-64 max-w-full object-contain sm:w-52 md:w-64"
-            />
-          </div>
-
-          {/* Время */}
           <div
-            className="mt-5 text-xl text-[#F2E4BB]"
+            className="flex h-9 w-9 items-center justify-center"
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              border: "1px solid rgba(197, 180, 119, 0.7)",
+              transform: "rotate(45deg)",
             }}
           >
-            12:00
+            <span
+              className="-rotate-45 text-xl text-[#C5B477]"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+              }}
+            >
+              ♡
+            </span>
           </div>
 
-          {/* Карта */}
-          <a
-            href={mapLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-block px-8 py-3 transition-transform duration-300 hover:scale-105"
-            style={{
-              background: "#49432C",
-              border: "1px solid #C5B477",
-              color: "#F2E4BB",
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "18px",
-            }}
-          >
-            Открыть карту
-          </a>
-
-          {/* Декоративная линия */}
-          <div className="mx-auto mt-10 h-px w-24 bg-[#C5B477]" />
+          <div className="h-px w-12 bg-[#C5B477]/60 sm:w-20" />
         </div>
+
+        {/* Заголовок */}
+        <p
+          className="text-sm uppercase tracking-[0.45em] text-[#C5B477]"
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+          }}
+        >
+          Место проведения
+        </p>
+
+        {/* Название места */}
+        <h2
+          className="mx-auto mt-8 max-w-3xl text-4xl font-normal leading-tight text-[#F2E4BB] sm:text-5xl md:text-6xl"
+          style={{
+            fontFamily: "'Great Vibes', cursive",
+          }}
+        >
+          Церковь ЕХБ «Дом молитвы для всех народов»
+        </h2>
+
+        {/* Декоративный разделитель */}
+        <div className="mx-auto my-9 flex items-center justify-center gap-3">
+          <div className="h-px w-14 bg-[#C5B477]/60 sm:w-24" />
+
+          <div className="h-1.5 w-1.5 rotate-45 bg-[#C5B477]" />
+
+          <div className="h-px w-14 bg-[#C5B477]/60 sm:w-24" />
+        </div>
+
+        {/* Адрес */}
+        <p
+          className="mx-auto max-w-md text-lg leading-relaxed text-[#F2E4BB] sm:text-xl"
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+          }}
+        >
+          Республика Таджикистан
+          <br />
+          г. Душанбе
+          <br />1 проезд Хайрулло Мирзоева 5
+        </p>
+
+        {/* Месяц */}
+        <p
+          className="mt-9 text-3xl text-[#C5B477] sm:text-4xl"
+          style={{
+            fontFamily: "'Great Vibes', cursive",
+          }}
+        >
+          Октябрь
+        </p>
+
+        {/* Календарь */}
+        <div className="mt-3 flex justify-center">
+          <img
+            src={colanderImage}
+            alt=""
+            className="w-48 max-w-full object-contain sm:w-56 md:w-64"
+          />
+        </div>
+
+        {/* Время */}
+        <p
+          className="mt-5 text-xl text-[#F2E4BB] sm:text-2xl"
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+          }}
+        >
+          12:00
+        </p>
+
+        {/* Кнопка карты */}
+        <a
+          href={mapLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 inline-block rounded-full px-8 py-3 text-lg transition-opacity hover:opacity-80"
+          style={{
+            background: "#C5B477",
+            color: "#5A292A",
+            fontFamily: "'Cormorant Garamond', serif",
+          }}
+        >
+          Открыть карту
+        </a>
+
+        {/* Нижний декоративный разделитель */}
+        <div className="mx-auto mt-10 h-px w-20 bg-[#C5B477]" />
       </motion.div>
     </section>
   );

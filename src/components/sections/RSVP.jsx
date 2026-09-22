@@ -1,17 +1,21 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  limit,
+  query,
+  serverTimestamp,
+  setDoc,
+  where,
+} from "firebase/firestore";
 
 import { db } from "../../firebase/firebase";
 
 function RSVP({ guestName }) {
-  const [attendance, setAttendance] = useState("");
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [checking, setChecking] = useState(true);
-  const [alreadySent, setAlreadySent] = useState(false);
-
-  const getGuestId = () => {
+  const [guests, setGuests] = useState(() => {
     let guestId = localStorage.getItem("guestId");
 
     if (!guestId) {
@@ -19,24 +23,75 @@ function RSVP({ guestName }) {
       localStorage.setItem("guestId", guestId);
     }
 
-    return guestId;
+    return [
+      {
+        id: guestId,
+        name: guestName.trim(),
+        attendance: "",
+      },
+    ];
+  });
+
+  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [checking, setChecking] = useState(true);
+  const [alreadySent, setAlreadySent] = useState(false);
+  const [checkError, setCheckError] = useState(false);
+
+  const getGroupId = () => {
+    let groupId = localStorage.getItem("rsvpGroupId");
+
+    if (!groupId) {
+      groupId = crypto.randomUUID();
+      localStorage.setItem("rsvpGroupId", groupId);
+    }
+
+    return groupId;
   };
 
   useEffect(() => {
     const checkExistingResponse = async () => {
       try {
-        const guestId = getGuestId();
+        setCheckError(false);
 
+        const guestId = localStorage.getItem("guestId");
+        const groupId = localStorage.getItem("rsvpGroupId");
+
+        if (!guestId) {
+          setAlreadySent(false);
+          return;
+        }
+
+        let responseExists = false;
+
+        // Проверяем основной ответ
         const guestRef = doc(db, "rsvps", guestId);
         const guestSnapshot = await getDoc(guestRef);
 
         if (guestSnapshot.exists()) {
-          setAlreadySent(true);
-        } else {
-          setAlreadySent(false);
+          responseExists = true;
         }
+
+        // Дополнительно проверяем остальные ответы группы
+        if (!responseExists && groupId) {
+          const groupQuery = query(
+            collection(db, "rsvps"),
+            where("groupId", "==", groupId),
+            limit(1),
+          );
+
+          const groupSnapshot = await getDocs(groupQuery);
+
+          if (!groupSnapshot.empty) {
+            responseExists = true;
+          }
+        }
+
+        setAlreadySent(responseExists);
       } catch (error) {
         console.error("Ошибка проверки ответа:", error);
+        setCheckError(true);
+        setAlreadySent(false);
       } finally {
         setChecking(false);
       }
@@ -45,31 +100,105 @@ function RSVP({ guestName }) {
     checkExistingResponse();
   }, []);
 
-  const handleSubmit = async () => {
-    const trimmedName = guestName.trim();
+  useEffect(() => {
+    setGuests((prev) => {
+      if (!prev.length) return prev;
 
-    if (!trimmedName || !attendance) {
-      alert("Пожалуйста, выберите ответ");
+      return prev.map((guest, index) =>
+        index === 0
+          ? {
+              ...guest,
+              name: guestName.trim(),
+            }
+          : guest,
+      );
+    });
+  }, [guestName]);
+
+  const addGuest = () => {
+    if (guests.length >= 3) return;
+
+    setGuests((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        name: "",
+        attendance: "",
+      },
+    ]);
+  };
+
+  const updateGuestName = (id, name) => {
+    setGuests((prev) =>
+      prev.map((guest) =>
+        guest.id === id
+          ? {
+              ...guest,
+              name,
+            }
+          : guest,
+      ),
+    );
+  };
+
+  const updateAttendance = (id, attendance) => {
+    setGuests((prev) =>
+      prev.map((guest) =>
+        guest.id === id
+          ? {
+              ...guest,
+              attendance,
+            }
+          : guest,
+      ),
+    );
+  };
+
+  const handleSubmit = async () => {
+    const invalidGuest = guests.some(
+      (guest) => !guest.name.trim() || !guest.attendance,
+    );
+
+    if (invalidGuest) {
+      alert("Пожалуйста, заполните имя и выберите ответ для каждого гостя");
       return;
     }
 
     try {
       setLoading(true);
 
-      const guestId = getGuestId();
+      const guestId = localStorage.getItem("guestId");
+      const groupId = getGroupId();
 
-      const guestRef = doc(db, "rsvps", guestId);
+      // Повторно проверяем Firebase прямо перед отправкой
+      if (guestId) {
+        const guestRef = doc(db, "rsvps", guestId);
+        const guestSnapshot = await getDoc(guestRef);
 
-      await setDoc(guestRef, {
-        guestId,
-        name: trimmedName,
-        attendance,
-        createdAt: serverTimestamp(),
-      });
+        if (guestSnapshot.exists()) {
+          setAlreadySent(true);
+          setSent(true);
+          return;
+        }
+      }
+
+      await Promise.all(
+        guests.map((guest, index) => {
+          const guestRef = doc(db, "rsvps", guest.id);
+
+          return setDoc(guestRef, {
+            guestId: guest.id,
+            groupId,
+            personIndex: index,
+            name: guest.name.trim(),
+            attendance: guest.attendance,
+            createdAt: serverTimestamp(),
+          });
+        }),
+      );
 
       setSent(true);
       setAlreadySent(true);
-      setAttendance("");
     } catch (error) {
       console.error("Ошибка отправки:", error);
       alert("Не удалось отправить ответ");
@@ -93,10 +222,26 @@ function RSVP({ guestName }) {
     );
   }
 
+  if (checkError) {
+    return (
+      <section className="relative overflow-hidden bg-[#49432C] px-5 pt-10">
+        <div className="flex min-h-[300px] items-center justify-center px-5 text-center">
+          <p
+            className="text-lg leading-relaxed text-[#F2E4BB]"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            Не удалось проверить ваш ответ.
+            <br />
+            Пожалуйста, попробуйте обновить страницу.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="relative overflow-hidden bg-[#49432C] px-5 pt-10">
       <div className="relative z-10 mx-auto max-w-xl">
-        {/* Заголовок */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,7 +264,6 @@ function RSVP({ guestName }) {
           </h2>
         </motion.div>
 
-        {/* После отправки */}
         {alreadySent || sent ? (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -145,7 +289,6 @@ function RSVP({ guestName }) {
             </div>
           </motion.div>
         ) : (
-          /* Форма */
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -154,62 +297,110 @@ function RSVP({ guestName }) {
             className="relative px-2 pb-14 pt-4 sm:px-8"
           >
             <div className="relative z-10">
-              {/* Имя */}
-              <div className="text-center">
-                <span
-                  className="whitespace-nowrap text-3xl font-normal leading-tight text-[#F2E4BB] sm:text-4xl"
-                  style={{ fontFamily: "'Great Vibes', cursive" }}
-                >
-                  {guestName}
-                </span>
+              {guests.map((guest, index) => (
+                <div key={guest.id} className={index > 0 ? "mt-10" : ""}>
+                  <div className="text-center">
+                    {index === 0 ? (
+                      <span
+                        className="whitespace-nowrap text-3xl font-normal leading-tight text-[#F2E4BB] sm:text-4xl"
+                        style={{
+                          fontFamily: "'Great Vibes', cursive",
+                        }}
+                      >
+                        {guest.name}
+                      </span>
+                    ) : (
+                      <input
+                        type="text"
+                        value={guest.name}
+                        onChange={(e) =>
+                          updateGuestName(guest.id, e.target.value)
+                        }
+                        placeholder={
+                          index === 1
+                            ? "Имя второго гостя"
+                            : "Имя третьего гостя"
+                        }
+                        className="w-full bg-transparent px-2 text-center text-3xl text-[#F2E4BB] outline-none placeholder:text-[#F2E4BB]/60 sm:text-4xl"
+                        style={{
+                          fontFamily: "'Great Vibes', cursive",
+                        }}
+                      />
+                    )}
 
-                {/* Вопрос */}
-                <p
-                  className="mt-2 text-lg leading-tight text-[#F2E4BB] sm:text-2xl"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                >
-                  сможете присутствовать?
-                </p>
-              </div>
+                    <p
+                      className="mt-2 text-lg leading-tight text-[#F2E4BB] sm:text-2xl"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                      }}
+                    >
+                      сможете присутствовать?
+                    </p>
+                  </div>
 
-              {/* Ответ */}
-              <div className="mt-8">
-                <div className="flex gap-4">
-                  <button
-                    type="button"
-                    onClick={() => setAttendance("Да")}
-                    className="flex-1 rounded-none py-3 transition-colors"
-                    style={{
-                      background:
-                        attendance === "Да" ? "#F2E4BB" : "transparent",
-                      color: attendance === "Да" ? "#49432C" : "#F2E4BB",
-                      border: "1px solid #F2E4BB",
-                      fontFamily: "'Cormorant Garamond', serif",
-                      fontSize: "18px",
-                    }}
-                  >
-                    Да
-                  </button>
+                  <div className="mt-8">
+                    <div className="flex gap-4">
+                      <button
+                        type="button"
+                        onClick={() => updateAttendance(guest.id, "Да")}
+                        className="flex-1 rounded-none py-3 transition-colors"
+                        style={{
+                          background:
+                            guest.attendance === "Да"
+                              ? "#F2E4BB"
+                              : "transparent",
+                          color:
+                            guest.attendance === "Да" ? "#49432C" : "#F2E4BB",
+                          border: "1px solid #F2E4BB",
+                          fontFamily: "'Cormorant Garamond', serif",
+                          fontSize: "18px",
+                        }}
+                      >
+                        Да
+                      </button>
 
-                  <button
-                    type="button"
-                    onClick={() => setAttendance("Нет")}
-                    className="flex-1 rounded-none py-3 transition-colors"
-                    style={{
-                      background:
-                        attendance === "Нет" ? "#F2E4BB" : "transparent",
-                      color: attendance === "Нет" ? "#49432C" : "#F2E4BB",
-                      border: "1px solid #F2E4BB",
-                      fontFamily: "'Cormorant Garamond', serif",
-                      fontSize: "18px",
-                    }}
-                  >
-                    Нет
-                  </button>
+                      <button
+                        type="button"
+                        onClick={() => updateAttendance(guest.id, "Нет")}
+                        className="flex-1 rounded-none py-3 transition-colors"
+                        style={{
+                          background:
+                            guest.attendance === "Нет"
+                              ? "#F2E4BB"
+                              : "transparent",
+                          color:
+                            guest.attendance === "Нет" ? "#49432C" : "#F2E4BB",
+                          border: "1px solid #F2E4BB",
+                          fontFamily: "'Cormorant Garamond', serif",
+                          fontSize: "18px",
+                        }}
+                      >
+                        Нет
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
 
-              {/* Кнопка отправки */}
+              {guests.length < 3 && (
+                <button
+                  type="button"
+                  onClick={addGuest}
+                  className="mt-6 w-full rounded-none py-3 transition-opacity hover:opacity-80"
+                  style={{
+                    background: "transparent",
+                    color: "#F2E4BB",
+                    border: "1px solid rgba(242, 228, 187, 0.6)",
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: "18px",
+                  }}
+                >
+                  {guests.length === 1
+                    ? "Добавить пару"
+                    : "Добавить ещё одного"}
+                </button>
+              )}
+
               <button
                 type="button"
                 onClick={handleSubmit}

@@ -1,15 +1,16 @@
 import { useState } from "react";
 
 import Envelope from "./components/sections/Envelope";
-import Invitation from "./components/sections/Invitation";
 import Couple from "./components/sections/Couple";
+import Invitation from "./components/sections/Invitation";
 import Countdown from "./components/sections/Countdown";
-import Schedule from "./components/sections/Schedule";
-import RSVP from "./components/sections/RSVP";
-import Wishes from "./components/sections/Wishes";
-import Footer from "./components/sections/Footer";
 import DressCode from "./components/sections/DressCode";
+import Schedule from "./components/sections/Schedule";
+import Wishes from "./components/sections/Wishes";
 import Gifts from "./components/sections/Gifts";
+import Location from "./components/sections/Location";
+import RSVP from "./components/sections/RSVP";
+import Footer from "./components/sections/Footer";
 
 import Admin from "./components/Admin/Admin";
 
@@ -50,6 +51,8 @@ function App() {
         <Wishes />
 
         <Gifts />
+
+        <Location />
 
         <RSVP guestName={guestName} />
 
