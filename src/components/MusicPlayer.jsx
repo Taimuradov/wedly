@@ -4,44 +4,31 @@ import weddingMusic from "../assets/music/wedding.mp3";
 
 function MusicPlayer({ play }) {
   const audioRef = useRef(null);
-  const fadeTimeoutRef = useRef(null);
-  const fadeIntervalRef = useRef(null);
+  const restartTimeoutRef = useRef(null);
 
-  const clearFade = () => {
-    if (fadeTimeoutRef.current) {
-      clearTimeout(fadeTimeoutRef.current);
-      fadeTimeoutRef.current = null;
-    }
-
-    if (fadeIntervalRef.current) {
-      clearInterval(fadeIntervalRef.current);
-      fadeIntervalRef.current = null;
+  const clearRestart = () => {
+    if (restartTimeoutRef.current) {
+      clearTimeout(restartTimeoutRef.current);
+      restartTimeoutRef.current = null;
     }
   };
 
-  const startFadeOut = () => {
+  const startRestartTimer = () => {
     const audio = audioRef.current;
 
     if (!audio) return;
 
-    clearFade();
+    clearRestart();
 
-    fadeTimeoutRef.current = setTimeout(() => {
-      let volume = audio.volume;
+    restartTimeoutRef.current = setTimeout(() => {
+      audio.currentTime = 0;
 
-      fadeIntervalRef.current = setInterval(() => {
-        volume -= 0.02;
+      audio.play().catch((error) => {
+        console.log("Музыка не перезапустилась:", error);
+      });
 
-        if (volume <= 0) {
-          audio.volume = 0;
-          audio.pause();
-
-          clearFade();
-        } else {
-          audio.volume = volume;
-        }
-      }, 200);
-    }, 120000);
+      startRestartTimer();
+    }, 255000);
   };
 
   useEffect(() => {
@@ -52,10 +39,13 @@ function MusicPlayer({ play }) {
     const handleVisibilityChange = () => {
       if (document.hidden) {
         audio.pause();
+        clearRestart();
       } else if (play) {
         audio.play().catch((error) => {
           console.log("Музыка не возобновилась:", error);
         });
+
+        startRestartTimer();
       }
     };
 
@@ -71,15 +61,16 @@ function MusicPlayer({ play }) {
 
     if (!audio) return;
 
-    clearFade();
+    clearRestart();
 
     if (play) {
       audio.volume = 0.4;
+      audio.currentTime = 0;
 
       audio
         .play()
         .then(() => {
-          startFadeOut();
+          startRestartTimer();
         })
         .catch((error) => {
           console.log("Музыка не запустилась:", error);
@@ -90,13 +81,13 @@ function MusicPlayer({ play }) {
     }
 
     return () => {
-      clearFade();
+      clearRestart();
     };
   }, [play]);
 
   useEffect(() => {
     return () => {
-      clearFade();
+      clearRestart();
 
       if (audioRef.current) {
         audioRef.current.pause();
