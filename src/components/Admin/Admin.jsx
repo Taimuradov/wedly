@@ -24,7 +24,7 @@ function Admin() {
   const login = (e) => {
     e.preventDefault();
 
-    if (password === "ignat2911") {
+    if (password === "25122022") {
       localStorage.setItem("adminAuth", "true");
       setAuthorized(true);
       setPassword("");
