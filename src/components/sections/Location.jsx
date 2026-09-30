@@ -3,7 +3,7 @@ import colanderImage from "../../images/colander.png";
 
 function Location() {
   const mapLink =
-    "https://www.google.com/maps/place/%D0%94%D0%BE%D0%BC+%D0%BC%D0%BE%D0%BB%D0%B8%D1%82%D0%B2%D1%8B+%D0%B4%D0%BB%D1%8F+%D0%B2%D1%81%D0%B5%D1%85+%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BE%D0%B2+(House+of+prayer+for+all+peoples)/@38.5697246,68.8075571,19z/data=!4m6!3m5!1s0x38b5d1a96db474ff:0x3fc3682e864ea593!8m2!3d38.5697246!4d68.8075571!16s%2Fg%2F11k0t0pd19?authuser=0&entry=ttu&g_ep=EgoyMDI2MDcxMy4wIKXMDSoASAFQAw%3D%3D";
+    "https://www.google.com/maps/place/38%C2%B040'41.1%22N+68%C2%B047'13.2%22E/@38.678073,68.7863493,19z/data=!3m1!4b1!4m4!3m3!8m2!3d38.678073!4d68.786993?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D";
 
   return (
     <section className="relative overflow-hidden bg-[#5A292A] px-5 py-20 md:py-24">
@@ -65,7 +65,7 @@ function Location() {
             fontFamily: "'Great Vibes', cursive",
           }}
         >
-          Церковь ЕХБ «Дом молитвы для всех народов»
+          Ресторан «Джахонгир»
         </h2>
 
         {/* Декоративный разделитель */}
@@ -87,7 +87,8 @@ function Location() {
           Республика Таджикистан
           <br />
           г. Душанбе
-          <br />1 проезд Хайрулло Мирзоева 5
+          <br />
+          ориентире Аквапарк Кули Душанбе
         </p>
 
         {/* Месяц */}
@@ -116,7 +117,7 @@ function Location() {
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
-          12:00
+          11:00
         </p>
 
         {/* Кнопка карты */}

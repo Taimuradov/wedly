@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { Send } from "lucide-react";
 
 function Footer() {
+  const telegramLink = "https://t.me/RasulTai";
+
   return (
     <footer className="relative overflow-hidden bg-[#5A292A] px-5 pb-12 pt-20 md:pb-16 md:pt-24">
       <motion.div
@@ -124,7 +127,7 @@ function Footer() {
           </p>
         </div>
 
-        {/* Автор сайта */}
+        {/* Заказ сайта */}
         <div
           className="mx-auto mt-14 max-w-2xl border-t pt-8"
           style={{
@@ -151,14 +154,19 @@ function Footer() {
             Создание свадебных сайтов и приглашений
           </p>
 
-          <p
-            className="mt-2 text-xl tracking-[0.08em] text-[#C5B477]"
+          <a
+            href={telegramLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mx-auto mt-6 inline-flex items-center gap-3 rounded-full border border-[#C5B477]/70 bg-[#C5B477]/10 px-6 py-3 text-base text-[#C5B477] transition-all duration-300 hover:bg-[#C5B477] hover:text-[#5A292A] sm:px-7 sm:text-lg"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
             }}
           >
-            +992 50 100 16 24
-          </p>
+            <Send size={19} strokeWidth={1.8} />
+
+            <span>Написать по вопросам заказа сайта</span>
+          </a>
         </div>
       </motion.div>
     </footer>
