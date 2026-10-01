@@ -2,15 +2,11 @@ import { motion } from "framer-motion";
 
 const events = [
   {
-    time: "11:00",
+    time: "15:30",
     title: "Церемония венчания",
   },
   {
-    time: "13:00",
-    title: "Фотосессия",
-  },
-  {
-    time: "18:00",
+    time: "17:00",
     title: "Праздничный фуршет",
   },
 ];

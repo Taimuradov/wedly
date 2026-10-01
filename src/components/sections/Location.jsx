@@ -24,7 +24,6 @@ function Location() {
         }}
         className="mx-auto max-w-4xl text-center"
       >
-        {/* Верхний декоративный элемент */}
         <div className="mb-8 flex items-center justify-center gap-4">
           <div className="h-px w-12 bg-[#C5B477]/60 sm:w-20" />
 
@@ -47,8 +46,6 @@ function Location() {
 
           <div className="h-px w-12 bg-[#C5B477]/60 sm:w-20" />
         </div>
-
-        {/* Заголовок */}
         <p
           className="text-sm uppercase tracking-[0.45em] text-[#C5B477]"
           style={{
@@ -57,8 +54,6 @@ function Location() {
         >
           Место проведения
         </p>
-
-        {/* Название места */}
         <h2
           className="mx-auto mt-8 max-w-3xl text-4xl font-normal leading-tight text-[#F2E4BB] sm:text-5xl md:text-6xl"
           style={{
@@ -67,8 +62,6 @@ function Location() {
         >
           Ресторан «Джахонгир»
         </h2>
-
-        {/* Декоративный разделитель */}
         <div className="mx-auto my-9 flex items-center justify-center gap-3">
           <div className="h-px w-14 bg-[#C5B477]/60 sm:w-24" />
 
@@ -76,8 +69,6 @@ function Location() {
 
           <div className="h-px w-14 bg-[#C5B477]/60 sm:w-24" />
         </div>
-
-        {/* Адрес */}
         <p
           className="mx-auto max-w-md text-lg leading-relaxed text-[#F2E4BB] sm:text-xl"
           style={{
@@ -90,8 +81,6 @@ function Location() {
           <br />
           Ориентир Аквапарк "Кули Душанбе"
         </p>
-
-        {/* Месяц */}
         <p
           className="mt-9 text-3xl text-[#C5B477] sm:text-4xl"
           style={{
@@ -100,8 +89,6 @@ function Location() {
         >
           Октябрь
         </p>
-
-        {/* Календарь */}
         <div className="mt-3 flex justify-center">
           <img
             src={colanderImage}
@@ -109,18 +96,14 @@ function Location() {
             className="w-48 max-w-full object-contain sm:w-56 md:w-64"
           />
         </div>
-
-        {/* Время */}
         <p
           className="mt-5 text-xl text-[#F2E4BB] sm:text-2xl"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
-          11:00
+          15:30
         </p>
-
-        {/* Кнопка карты */}
         <a
           href={mapLink}
           target="_blank"
@@ -134,8 +117,6 @@ function Location() {
         >
           Открыть карту
         </a>
-
-        {/* Нижний декоративный разделитель */}
         <div className="mx-auto mt-10 h-px w-20 bg-[#C5B477]" />
       </motion.div>
     </section>
